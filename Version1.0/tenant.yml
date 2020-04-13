@@ -1,0 +1,28 @@
+---
+
+- name: Create a Tenant
+  hosts: apic
+  gather_facts: false
+  connection: local
+
+#  vars:
+#    ansible_python_interpreter: /usr/bin/python3.8
+
+  tasks: 
+    - name: "Task 1: Gather Login info"
+      include_vars: auth/secrets.yml
+    
+    - name: "Task 2: Add New Tenant"
+      aci_tenant:
+        host: apic
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: CLO_Tenant
+        state: present
+
+      register: tenant_output
+      
+    - debug: var=tenant_output
+
+
+
