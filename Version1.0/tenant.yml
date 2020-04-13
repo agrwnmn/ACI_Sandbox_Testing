@@ -2,7 +2,7 @@
 
 - name: Create a Tenant
   hosts: apic
-  gather_facts: false
+  gather_facts: False
   connection: local
 
 #  vars:
@@ -19,6 +19,7 @@
         password: "{{ password }}"
         tenant: CLO_Tenant
         state: present
+        validate_certs: False
       delegate_to: localhost
 
       register: tenant_output
