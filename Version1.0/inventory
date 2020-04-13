@@ -1,8 +1,8 @@
+[apic]
+https://sandboxapicdc.cisco.com/
+
 [apic:vars]
 username=admin
 password=ciscopsdt
 #ansible_python_interpreter="/usr/bin/env python"
-
-[apic]
-https://sandboxapicdc.cisco.com/
 
