@@ -14,9 +14,9 @@
     
     - name: "Task 2: Add New Tenant"
       aci_tenant:
-        host: apic
+        host: "{{ inventory_hostname }}"
         username: "{{ username }}"
-        password: "{{ password }}"
+        password: "{{ password }}" 
         tenant: CLO_Tenant
         state: present
         validate_certs: False
