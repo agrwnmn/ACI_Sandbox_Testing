@@ -6,7 +6,7 @@
   connection: local
 
 #  vars:
-#    ansible_python_interpreter: /usr/bin/python3.8
+#    ansible_python_interpreter: /usr/lib/python3.7/site-packages/ansible/modules
 
   tasks: 
     - name: "Task 1: Gather Login info"
@@ -20,7 +20,7 @@
         tenant: Auto_Testing_TN
         state: present
         validate_certs: False
-      delegate_to: localhost
+#      delegate_to: localhost
 
       register: tenant_output
       
