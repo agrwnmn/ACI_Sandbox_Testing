@@ -17,7 +17,7 @@
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
         password: "{{ password }}" 
-        tenant: CLO_Tenant
+        tenant: Auto_Testing_TN
         state: present
         validate_certs: False
       delegate_to: localhost
