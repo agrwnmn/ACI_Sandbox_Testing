@@ -1,0 +1,36 @@
+---
+
+- name: ACI Apps Build
+  hosts: apic
+  gather_facts: False
+  connection: local
+
+  tasks: 
+    - name: "Task 1: Gather Login info"
+      include_vars: auth/secrets.yml
+    
+    - name: "Task 2: Set user/pass info"
+      set_fact:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+
+    - name: "Task 3: Add Var File"
+      include_vars: host_vars/vars.yml
+
+    - name: Add a new AP
+      aci_ap:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        ap: "{{ item.name }}"
+        description: "{{ item.descr }}"
+        state: "{{ item.state }}"
+      register: app_output
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ apps }}"
+
+    - debug: var=app_output
