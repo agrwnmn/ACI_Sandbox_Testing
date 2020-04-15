@@ -18,7 +18,7 @@
     - name: "Task 3: Add Var File"
       include_vars: host_vars/vars.yml
 
-    - name: Add a new AP
+    - name: "Task 4: Add a new AP"
       aci_ap:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -35,7 +35,7 @@
 
     - debug: var=app_output
 
-    - name: Add Bridge Domain
+    - name: "Task 5: Add Bridge Domain"
       aci_bd:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -52,18 +52,24 @@
       with_items: 
         - "{{ bds }}"
 
+    - name: "Task: 6 Add a new EPG"
+      aci_epg:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        ap: "{{ item.ap }}"
+        epg: "{{ item.name }}"
+        description: "{{ item.descr }}"
+        bd: "{{ item.bd }}"
+        preferred_group: "{{ item.preferred_group }}"
+        state: "{{ item.state }}"
+      register: egp_out
 
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
 
-#    - name: "Task: 4 Add a new EPG"
-#      aci_epg:
-#        host: "{{ inventory_hostname }}"
-#        username: "{{ username }}"
-#        password: "{{ password }}"
-#        tenant: "{{ item.tenant }}"
-#        ap: intranet
-#        epg: web_epg
-#        description: Web Intranet EPG
-#        bd: prod_bd
-#        preferred_group: yes
-#        state: present
+      with_items:
+        - "{{ epgs }}"
+      
+    - debug: var=epg_out
 

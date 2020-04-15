@@ -73,7 +73,7 @@ apps:
     tenant: Shore_Test_1
     state: present
 
-  - name: app_02
+  - name: app02
     descr: new_app
     tenant: Shore_Test_2
     state: present
@@ -115,7 +115,53 @@ bds:
     vrf: AT2
     state: present
 
-#epgs:
-#  - name: app01-pres-epg
-#    ap: app01
-#    descr: pres_epg
+epgs:
+  - name: app01-web-epg
+    descr: app01-web-epg
+    tenant: Shore_Test_1
+    ap: app01
+    bd: app01-web-bd
+    preferred_group: yes
+    state: present
+
+  - name: app01-pres-epg
+    descr: app01-pres-epg
+    tenant: Shore_Test_1
+    ap: app01
+    bd: app01-pres-bd
+    preferred_group: yes
+    state: present
+
+  - name: app01-db-epg
+    descr: app01-db-epg
+    tenant: Shore_Test_1
+    ap: app01
+    bd: app01-db-bd
+    preferred_group: yes
+    state: present
+
+  - name: app02-web-epg
+    descr: app02-web-epg
+    tenant: Shore_Test_2
+    ap: app02
+    bd: app02-web-bd
+    preferred_group: yes
+    state: present
+
+  - name: app02-pres-epg
+    descr: app02-pres-epg
+    tenant: Shore_Test_2
+    ap: app02
+    bd: app02-pres-bd
+    preferred_group: yes
+    state: present
+
+  - name: app02-db-epg
+    descr: app02-db-epg
+    tenant: Shore_Test_2
+    ap: app02
+    bd: app02-db-bd
+    preferred_group: yes
+    state: present
+  
+    

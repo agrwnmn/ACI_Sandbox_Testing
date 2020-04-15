@@ -73,7 +73,7 @@ apps:
     tenant: Shore_Test_1
     state: present
 
-  - name: app_02
+  - name: app02
     descr: new_app
     tenant: Shore_Test_2
     state: present
