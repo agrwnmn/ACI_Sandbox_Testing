@@ -13,5 +13,3 @@ tns:
     descr: 2nd tenant
     state: present
 
-vrfs:
-  - 
