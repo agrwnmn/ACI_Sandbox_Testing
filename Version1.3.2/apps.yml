@@ -89,3 +89,17 @@
 
       with_items:
         - "{{ subs }}"
+    - debug: var=subs_out
+
+- name: Add a new contract to EPG binding
+  aci_epg_to_contract:
+    host: apic
+    username: admin
+    password: SomeSecretPassword
+    tenant: anstest
+    ap: anstest
+    epg: anstest
+    contract: anstest_http
+    contract_type: provider
+    state: present
+  delegate_to: localhost
