@@ -64,7 +64,7 @@
         bd: "{{ item.bd }}"
         preferred_group: "{{ item.preferred_group }}"
         state: "{{ item.state }}"
-      register: egp_out
+      register: epg_out
 
       when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
 
@@ -73,3 +73,19 @@
       
     - debug: var=epg_out
 
+    - name: "Task 7: Create a subnet"
+      aci_bd_subnet:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        bd: "{{ item.bd }}"
+        gateway: "{{ item.gateway }}"
+        mask: "{{ item.mask }}"
+        state: "{{ item.state }}"
+      register: subs_out
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ subs }}"

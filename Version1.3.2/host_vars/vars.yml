@@ -171,5 +171,48 @@ epgs:
     bd: app02-db-bd
     preferred_group: yes
     state: absent
-  
+
+subs:
+  - name: app01-web-bd/24
+    tenant: Shore_Test_1
+    bd: app01-web-bd
+    gateway: 192.168.1.1
+    mask: 24
+    state: present
+
+  - name: app01-pres-bd/24
+    tenant: Shore_Test_1
+    bd: app01-pres-bd
+    gateway: 192.168.2.1
+    mask: 24
+    state: present
+
+  - name: app01-db-bd/24
+    tenant: Shore_Test_1
+    bd: app01-db-bd
+    gateway: 192.168.3.1
+    mask: 24
+    state: present
+
+  - name: app02-web-bd/24
+    tenant: Shore_Test_2
+    bd: app02-web-bd
+    gateway: 172.16.1.1
+    mask: 24
+    state: present
+
+  - name: app02-pres-bd/24
+    tenant: Shore_Test_2
+    bd: app02-pres-bd
+    gateway: 172.16.2.1
+    mask: 24
+    state: present 
+
+  - name: app02-db-bd/24
+    tenant: Shore_Test_2
+    bd: app02-db-bd
+    gateway: 172.16.3.1
+    mask: 24
+    state: present 
+
     
