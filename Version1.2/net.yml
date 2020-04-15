@@ -21,7 +21,7 @@
     - name: "Task 3: Add Var File"
       include_vars: host_vars/vars.yml
 
-    - name: "Task 4: Add New Tenant"
+    - name: "Task 4: Create New Tenant"
       aci_tenant:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -33,12 +33,36 @@
 
       register: tenant_output
 
-      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
 
       with_items:
         - "{{ tns }}"
       
     - debug: var=tenant_output
+
+    - name: "Task 5: Add VRF to a tenant"
+      aci_vrf:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        vrf: "{{ item.name }}"
+#        descr: Lab VRF
+        policy_control_preference: "{{ item.policy_control_preference }}"
+        policy_control_direction: "{{ item.policy_control_direction }}"
+        state: "{{ item.state }}"
+        validate_certs: False
+      
+      register: vrf_output
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ vrfs }}"
+    
+    - debug: var=vrf_output
+
+    
 
 
 
