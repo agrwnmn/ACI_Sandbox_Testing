@@ -40,3 +40,28 @@ cons:
     tenant: Auto_Test_2
     scope: application-profile
     state: present 
+
+  - name: db_contract
+    descr: Auto_Test_1_contract
+    tenant: Auto_Test_1
+    scope: application-profile
+    state: present
+  
+  - name: web_contract
+    descr: Auto_Test_1_contract
+    tenant: Auto_Test_1
+    scope: application-profile
+    state: present
+
+  - name: db_contract
+    descr: Auto_Test_2_contract
+    tenant: Auto_Test_2
+    scope: application-profile
+    state: present 
+
+  - name: web_contract
+    descr: Auto_Test_2_contract
+    tenant: Auto_Test_2
+    scope: application-profile
+    state: present 
+  
