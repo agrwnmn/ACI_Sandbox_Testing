@@ -163,5 +163,13 @@ epgs:
     bd: app02-db-bd
     preferred_group: yes
     state: present
+
+  - name: app02-db2-epg
+    descr: app02-db2-epg
+    tenant: Shore_Test_2
+    ap: app02
+    bd: app02-db-bd
+    preferred_group: yes
+    state: absent
   
     
