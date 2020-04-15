@@ -114,3 +114,8 @@ bds:
     tenant: Shore_Test_2
     vrf: AT2
     state: present
+
+#epgs:
+#  - name: app01-pres-epg
+#    ap: app01
+#    descr: pres_epg
