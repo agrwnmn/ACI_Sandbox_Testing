@@ -1,0 +1,42 @@
+---
+aci_apic:
+  host: "apic"
+  ipv4: 64.103.37.54
+
+#Build Section
+tns:  
+  - name: Auto_Test_1
+    descr: 1st tenant
+    state: present
+  
+  - name: Auto_Test_2
+    descr: 2nd tenant
+    state: present
+
+vrfs:
+  - name: AT1
+    tenant: Auto_Test_1
+    descr: Auto_VRF_1
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: present
+
+  - name: AT2
+    descr: Auto_VRF_2
+    tenant: Auto_Test_2
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: present
+
+cons: 
+  - name: permit_all
+    descr: Auto_Test_1_contract
+    tenant: Auto_Test_1
+    scope: application-profile
+    state: present
+
+  - name: permit_all
+    descr: Auto_Test_2_contract
+    tenant: Auto_Test_2
+    scope: application-profile
+    state: present 
