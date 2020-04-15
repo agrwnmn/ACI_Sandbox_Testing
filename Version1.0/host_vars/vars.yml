@@ -1,0 +1,15 @@
+---
+aci_apic:
+  host: "apic"
+  ipv4: 64.103.37.54
+
+#Build Section
+tns:  
+  - name: Auto_Test_1
+    descr: 1st tenant
+    state: present
+  
+  - name: Auto_Test_2
+    descr: 2nd tenant
+    state: present
+
