@@ -7,11 +7,11 @@ aci_apic:
 tns:  
   - name: Auto_Test_1
     descr: 1st tenant
-    state: absent
+    state: ignore
   
   - name: Auto_Test_2
     descr: 2nd tenant
-    state: absent
+    state: ignore
 
 vrfs:
   - name: AT1
@@ -19,11 +19,11 @@ vrfs:
     descr: Auto_VRF_1
     policy_control_preference: enforced
     policy_control_direction: ingress
-    state: absent
+    state: ignore
 
   - name: AT2
     descr: Auto_VRF_2
     tenant: Auto_Test_2
     policy_control_preference: enforced
     policy_control_direction: ingress
-    state: absent
+    state: ignore
