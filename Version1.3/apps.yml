@@ -17,3 +17,20 @@
 
     - name: "Task 3: Add Var File"
       include_vars: host_vars/vars.yml
+
+    - name: Add a new AP
+      aci_ap:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        ap: "{{ item.name }}"
+        description: "{{ item.descr }}"
+        state: "{{ item.state }}"
+      register: app_output
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ apps }}"
+
+    - debug: var=app_output
