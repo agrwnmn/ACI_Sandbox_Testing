@@ -364,6 +364,40 @@ l3outs:
     l3out: ospf_test
     state: present
 
+  - name: app01-pres-bd-l3
+    tenant: Shore_Test_1
+    bd: app01-pres-bd
+    l3out: ospf_test
+    state: present
+
+  - name: app01-db-bd-l3
+    tenant: Shore_Test_1
+    bd: app01-db-bd
+    l3out: ospf_test
+    state: present
+
+  - name: app02-web-bd-l3
+    tenant: Shore_Test_2
+    bd: app02-web-bd
+    l3out: ospf_test
+    state: present
+
+  - name: app02-pres-bd-l3
+    tenant: Shore_Test_2
+    bd: app02-pres-bd
+    l3out: ospf_test
+    state: present
+
+  - name: app02-db-bd-l3
+    tenant: Shore_Test_2
+    bd: app02-db-bd
+    l3out: ospf_test
+    state: present
+
+
+
+  
+
 
 
 
