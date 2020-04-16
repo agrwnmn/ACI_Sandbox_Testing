@@ -34,3 +34,19 @@
 
       with_items: 
         - "{{ bds }}"
+
+    - name: "Task 5: Change 'present' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        after: 'bds'
+        before: 'epgs'
+
+    - name: "Task 6: Change 'absent' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        after: 'apps'
+        before: 'epgs'

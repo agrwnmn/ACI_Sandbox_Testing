@@ -38,3 +38,19 @@
         - "{{ epgs }}"
       
     - debug: var=epg_out
+
+    - name: "Task 5: Change 'present' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        after: 'epgs'
+        before: 'subs'
+
+    - name: "Task 6: Change 'absent' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        after: 'epgs'
+        before: 'subs'

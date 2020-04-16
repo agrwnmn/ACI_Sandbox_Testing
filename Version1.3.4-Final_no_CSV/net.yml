@@ -80,6 +80,18 @@
     
     - debug: var=contract_output
     
+    - name: "Task 7: Change 'present' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        before: '#EOS'
 
+    - name: "Task 8: Change 'absent' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        before: '#EOS'
 
 

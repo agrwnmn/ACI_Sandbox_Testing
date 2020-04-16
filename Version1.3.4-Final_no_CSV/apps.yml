@@ -152,3 +152,17 @@
     
     - debug: var=l3out_output
 
+    - name: "Task 11: Change 'present' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        after: 'apps'
+
+    - name: "Task 12: Change 'absent' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        after: 'apps'
+
