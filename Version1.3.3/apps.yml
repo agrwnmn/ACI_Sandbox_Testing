@@ -133,5 +133,21 @@
         - "{{ domains }}"
     - debug: var=domain_output
 
+    - name: "Task 10: Bind BD to L3out"
+      aci_bd_to_l3out:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        bd: "{{ item.bd }}"
+        l3out: "{{ item.l3out }}"
+        state: "{{ item.state }}"
+      register: l3out_output
 
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ l3outs }}"
+    
+    - debug: var=l3out_output
 

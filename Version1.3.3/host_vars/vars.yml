@@ -275,7 +275,7 @@ domains:
     tenant: Shore_Test_1
     ap: app01
     epg: app01-web-epg
-    domain: dspod04
+    domain: spod1
     domain_type: vmm
     vm_provider: vmware
     deploy_immediacy: immediate
@@ -285,7 +285,7 @@ domains:
     tenant: Shore_Test_1
     ap: app01
     epg: app01-pres-epg
-    domain: dspod04
+    domain: spod1
     domain_type: vmm
     vm_provider: vmware
     deploy_immediacy: immediate
@@ -295,7 +295,7 @@ domains:
     tenant: Shore_Test_1
     ap: app01
     epg: app01-db-epg
-    domain: dspod04
+    domain: spod1
     domain_type: vmm
     vm_provider: vmware
     deploy_immediacy: immediate
@@ -305,7 +305,7 @@ domains:
     tenant: Shore_Test_2
     ap: app02
     epg: app02-web-epg
-    domain: dspod04
+    domain: spod1
     domain_type: vmm
     vm_provider: vmware
     deploy_immediacy: immediate
@@ -315,7 +315,7 @@ domains:
     tenant: Shore_Test_2
     ap: app02
     epg: app02-pres-epg
-    domain: dspod04
+    domain: spod1
     domain_type: vmm
     vm_provider: vmware
     deploy_immediacy: immediate
@@ -325,11 +325,45 @@ domains:
     tenant: Shore_Test_2
     ap: app02
     epg: app02-db-epg
-    domain: dspod04
+    domain: spod1
     domain_type: vmm
     vm_provider: vmware
     deploy_immediacy: immediate
     state: present
+
+new_domains:
+  - name: hyperv_test
+    domain: spod1
+    domain_type: vmm
+    vm_provider: vmware
+    state: present
+
+new_l3:
+  - name: ospf_test
+    tenant: Shore_Test_1
+    descr: test_l3out
+    domain: spod1
+    vrf: AT1
+    l3protocol: ospf
+    route_control: export
+    state: present
+
+  - name: ospf_test
+    tenant: Shore_Test_2
+    descr: test_l3out
+    domain: spod1
+    vrf: AT1
+    l3protocol: ospf
+    route_control: export
+    state: present
+
+l3outs:
+  - name: app01-web-bd-l3
+    tenant: Shore_Test_1
+    bd: app01-web-bd
+    l3out: ospf_test
+    state: present
+
 
 
 
