@@ -1,0 +1,154 @@
+---
+
+- name: ACI Apps Build
+  hosts: apic
+  gather_facts: False
+  connection: local
+
+  tasks: 
+    - name: "Task 1: Gather Login info"
+      include_vars: auth/secrets.yml
+    
+    - name: "Task 2: Set user/pass info"
+      set_fact:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+
+    - name: "Task 3: Add Var File"
+      include_vars: host_vars/vars.yml
+
+    - name: "Task 4: Add a new AP"
+      aci_ap:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        ap: "{{ item.name }}"
+        description: "{{ item.descr }}"
+        state: "{{ item.state }}"
+      register: app_output
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ apps }}"
+
+    - debug: var=app_output
+
+    - name: "Task 5: Add Bridge Domain"
+      aci_bd:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ item.tenant }}"
+        bd: "{{ item.name }}"
+        vrf: "{{ item.vrf }}"
+        state: "{{ item.state }}"
+      register: bd_out
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items: 
+        - "{{ bds }}"
+
+    - name: "Task: 6 Add a new EPG"
+      aci_epg:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        ap: "{{ item.ap }}"
+        epg: "{{ item.name }}"
+        description: "{{ item.descr }}"
+        bd: "{{ item.bd }}"
+        preferred_group: "{{ item.preferred_group }}"
+        state: "{{ item.state }}"
+      register: epg_out
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ epgs }}"
+      
+    - debug: var=epg_out
+
+    - name: "Task 7: Create a subnet"
+      aci_bd_subnet:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        bd: "{{ item.bd }}"
+        gateway: "{{ item.gateway }}"
+        mask: "{{ item.mask }}"
+        scope: "{{ item.scope }}"
+        state: "{{ item.state }}"
+      register: subs_out
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ subs }}"
+    - debug: var=subs_out
+
+    - name: "Task 8: Add a new contract to EPG binding"
+      aci_epg_to_contract:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        ap: "{{ item.ap }}"
+        epg: "{{ item.epg }}"
+        contract: "{{ item.contract }}"
+        contract_type: "{{ item.contract_type }}"
+        state: "{{ item.state }}"
+      register: binding_out
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ con_bindings }}"
+
+    - debug: var=binding_out
+
+    - name: "Task 9: Add domain to EPG binding"
+      aci_epg_to_domain:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        ap: "{{ item.ap }}"
+        epg: "{{ item.epg }}"
+        domain: "{{ item.domain }}"
+        domain_type: "{{ item.domain_type }}"
+        vm_provider: "{{ item.vm_provider }}"
+        deploy_immediacy: "{{ item.deploy_immediacy }}"
+        resolution_immediacy: "{{ item.resolution_immediacy }}"
+        state: "{{ item.state }}"
+      register: domain_output
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items: 
+        - "{{ domains }}"
+    - debug: var=domain_output
+
+    - name: "Task 10: Bind BD to L3out"
+      aci_bd_to_l3out:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        bd: "{{ item.bd }}"
+        l3out: "{{ item.l3out }}"
+        state: "{{ item.state }}"
+      register: l3out_output
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ l3outs }}"
+    
+    - debug: var=l3out_output
+
