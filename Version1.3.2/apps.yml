@@ -112,4 +112,26 @@
 
     - debug: var=binding_out
 
+    - name: "Task 9: Add a new physical domain to EPG binding"
+      aci_epg_to_domain:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        ap: "{{ item.ap }}"
+        epg: "{{ item.epg }}"
+        domain: "{{ item.domain }}"
+        domain_type: "{{ item.domain_type }}"
+        vm_provider: "{{ item.vm_provider }}"
+        deploy_immediacy: "{{ item.deploy_immediacy }}"
+        state: "{{ item.state }}"
+      register: domain_output
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items: 
+        - "{{ domains }}"
+    - debug: var=domain_output
+
+
 

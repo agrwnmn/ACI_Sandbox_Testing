@@ -270,5 +270,17 @@ con_bindings:
     contract_type: provider
     state: present
 
+domains:
+  - name: domain1
+    tenant: Shore_Test_1
+    ap: app01
+    epg: app01-web-epg
+    domain: dspod04
+    domain_type: vmm
+    vm_provider: vmware
+    deploy_immediacy: immediate
+    state: present
+
+
 
     
