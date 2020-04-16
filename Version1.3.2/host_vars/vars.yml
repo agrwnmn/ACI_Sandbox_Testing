@@ -281,6 +281,58 @@ domains:
     deploy_immediacy: immediate
     state: present
 
+  - name: domain2
+    tenant: Shore_Test_1
+    ap: app01
+    epg: app01-pres-epg
+    domain: dspod04
+    domain_type: vmm
+    vm_provider: vmware
+    deploy_immediacy: immediate
+    state: present
+
+  - name: domain3
+    tenant: Shore_Test_1
+    ap: app01
+    epg: app01-db-epg
+    domain: dspod04
+    domain_type: vmm
+    vm_provider: vmware
+    deploy_immediacy: immediate
+    state: present
+
+  - name: domain4
+    tenant: Shore_Test_2
+    ap: app02
+    epg: app02-web-epg
+    domain: dspod04
+    domain_type: vmm
+    vm_provider: vmware
+    deploy_immediacy: immediate
+    state: present
+
+  - name: domain5
+    tenant: Shore_Test_2
+    ap: app02
+    epg: app02-pres-epg
+    domain: dspod04
+    domain_type: vmm
+    vm_provider: vmware
+    deploy_immediacy: immediate
+    state: present
+
+  - name: domain6
+    tenant: Shore_Test_2
+    ap: app02
+    epg: app02-db-epg
+    domain: dspod04
+    domain_type: vmm
+    vm_provider: vmware
+    deploy_immediacy: immediate
+    state: present
+
+
+
 
 
     

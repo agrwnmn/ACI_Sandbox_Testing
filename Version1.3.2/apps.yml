@@ -112,7 +112,7 @@
 
     - debug: var=binding_out
 
-    - name: "Task 9: Add a new physical domain to EPG binding"
+    - name: "Task 9: Add domain to EPG binding"
       aci_epg_to_domain:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
