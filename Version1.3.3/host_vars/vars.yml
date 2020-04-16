@@ -279,6 +279,7 @@ domains:
     domain_type: vmm
     vm_provider: vmware
     deploy_immediacy: immediate
+    resolution_immediacy: immediate
     state: present
 
   - name: domain2
@@ -289,6 +290,7 @@ domains:
     domain_type: vmm
     vm_provider: vmware
     deploy_immediacy: immediate
+    resolution_immediacy: immediate
     state: present
 
   - name: domain3
@@ -299,6 +301,7 @@ domains:
     domain_type: vmm
     vm_provider: vmware
     deploy_immediacy: immediate
+    resolution_immediacy: immediate
     state: present
 
   - name: domain4
@@ -309,6 +312,7 @@ domains:
     domain_type: vmm
     vm_provider: vmware
     deploy_immediacy: immediate
+    resolution_immediacy: immediate
     state: present
 
   - name: domain5
@@ -319,6 +323,7 @@ domains:
     domain_type: vmm
     vm_provider: vmware
     deploy_immediacy: immediate
+    resolution_immediacy: immediate
     state: present
 
   - name: domain6
@@ -329,6 +334,7 @@ domains:
     domain_type: vmm
     vm_provider: vmware
     deploy_immediacy: immediate
+    resolution_immediacy: immediate
     state: present
 
 new_domains:

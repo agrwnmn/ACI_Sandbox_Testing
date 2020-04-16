@@ -124,6 +124,7 @@
         domain_type: "{{ item.domain_type }}"
         vm_provider: "{{ item.vm_provider }}"
         deploy_immediacy: "{{ item.deploy_immediacy }}"
+        resolution_immediacy: "{{ item.resolution_immediacy }}"
         state: "{{ item.state }}"
       register: domain_output
 
