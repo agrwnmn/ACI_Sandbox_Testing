@@ -1,0 +1,25 @@
+
+- name: "Task 1:  Copy original CSV file"
+  copy:
+    src: input/vars.csv
+    dest: input/csv_copies/vars_copy.csv
+    mode: preserve
+
+- name: "Task 2: Read CSV file"
+  read_csv:
+    path_csv: /input/csv_copies/vars_copy.csv
+  register: csv_values
+
+- name: "Task 3: Create TN YAML Vars"
+  template:
+    src: template/csv_tn.j2
+    dest: output/tns/TNs.yml
+
+- name: "Task 4: Insert TN Vars"
+  blockinfile:
+    block: "{{ lookup('file', 'output/tns/TNs.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "#TN"
+    insertbefore: "vrfs:"
+
+

@@ -5,20 +5,32 @@
   gather_facts: False
   connection: local
 
+  vars_prompt:
+  - name: ref_prompt
+    prompt: "CR Number"
+    private: no
+
   tasks: 
     - name: "Task 1: Gather Login info"
       include_vars: auth/secrets.yml
+
+    - name: "Task 2: Set reference"
+      set_fact:
+        reference: "{{ ref_prompt }}"
     
-    - name: "Task 2: Set user/pass info"
+    - name: "Task 3: Set user/pass info"
       set_fact:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
         password: "{{ password }}"
-    
-    - name: "Task 3: Add Var File"
+
+    - name: "Task 4: Update '{{ inventory_hostname }}'' from CSV"
+      include: csv_net_vars.yml
+
+    - name: "Task 5: Add Var File"
       include_vars: host_vars/vars.yml
 
-    - name: "Task 4: Create a Snapshot"
+    - name: "Task 6: Create a Snapshot"
       aci_config_snapshot:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
