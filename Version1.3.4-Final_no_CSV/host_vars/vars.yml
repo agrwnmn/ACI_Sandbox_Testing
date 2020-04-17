@@ -71,49 +71,49 @@ apps:
   - name: app01
     descr: new_app
     tenant: Shore_Test_1
-    state: query
+    state: present
 
   - name: app02
     descr: new_app
     tenant: Shore_Test_2
-    state: query
+    state: present
 
 bds:
   - name: app01-web-bd
     descr: app-bd
     tenant: Shore_Test_1
     vrf: AT1
-    state: query
+    state: present
   
   - name: app01-pres-bd
     descr: app-bd
     tenant: Shore_Test_1
     vrf: AT1
-    state: query
+    state: present
   
   - name: app01-db-bd
     descr: app-bd
     tenant: Shore_Test_1
     vrf: AT1
-    state: query
+    state: present
 
   - name: app02-web-bd
     descr: app-bd
     tenant: Shore_Test_2
     vrf: AT2
-    state: query
+    state: present
 
   - name: app02-pres-bd
     descr: app-bd
     tenant: Shore_Test_2
     vrf: AT2
-    state: query
+    state: present
 
   - name: app02-db-bd
     descr: app-bd
     tenant: Shore_Test_2
     vrf: AT2
-    state: query
+    state: present
 
 epgs:
   - name: app01-web-epg
@@ -122,7 +122,7 @@ epgs:
     ap: app01
     bd: app01-web-bd
     preferred_group: yes
-    state: query
+    state: present
 
   - name: app01-pres-epg
     descr: app01-pres-epg
@@ -130,7 +130,7 @@ epgs:
     ap: app01
     bd: app01-pres-bd
     preferred_group: yes
-    state: query
+    state: present
 
   - name: app01-db-epg
     descr: app01-db-epg
@@ -138,7 +138,7 @@ epgs:
     ap: app01
     bd: app01-db-bd
     preferred_group: yes
-    state: query
+    state: present
 
   - name: app02-web-epg
     descr: app02-web-epg
@@ -146,7 +146,7 @@ epgs:
     ap: app02
     bd: app02-web-bd
     preferred_group: yes
-    state: query
+    state: present
 
   - name: app02-pres-epg
     descr: app02-pres-epg
@@ -154,7 +154,7 @@ epgs:
     ap: app02
     bd: app02-pres-bd
     preferred_group: yes
-    state: query
+    state: present
 
   - name: app02-db-epg
     descr: app02-db-epg
@@ -162,7 +162,7 @@ epgs:
     ap: app02
     bd: app02-db-bd
     preferred_group: yes
-    state: query
+    state: present
 
   - name: app02-db2-epg
     descr: app02-db2-epg
@@ -170,7 +170,7 @@ epgs:
     ap: app02
     bd: app02-db-bd
     preferred_group: yes
-    state: query
+    state: present
 
 subs:
   - name: app01-web-bd/24
@@ -179,7 +179,7 @@ subs:
     gateway: 192.168.1.1
     mask: 24
     scope: public
-    state: query
+    state: present
 
   - name: app01-pres-bd/24
     tenant: Shore_Test_1
@@ -187,7 +187,7 @@ subs:
     gateway: 192.168.2.1
     mask: 24
     scope: public
-    state: query
+    state: present
 
   - name: app01-db-bd/24
     tenant: Shore_Test_1
@@ -195,7 +195,7 @@ subs:
     gateway: 192.168.3.1
     mask: 24
     scope: public
-    state: query
+    state: present
 
   - name: app02-web-bd/24
     tenant: Shore_Test_2
@@ -203,7 +203,7 @@ subs:
     gateway: 172.16.1.1
     mask: 24
     scope: public
-    state: query
+    state: present
 
   - name: app02-pres-bd/24
     tenant: Shore_Test_2
@@ -211,7 +211,7 @@ subs:
     gateway: 172.16.2.1
     mask: 24
     scope: public
-    state: query 
+    state: present 
 
   - name: app02-db-bd/24
     tenant: Shore_Test_2
@@ -219,7 +219,7 @@ subs:
     gateway: 172.16.3.1
     mask: 24
     scope: public
-    state: query 
+    state: present 
 
 con_bindings:
   - name: con_binding
@@ -228,7 +228,7 @@ con_bindings:
     epg: app01-web-epg
     contract: web_contract
     contract_type: provider
-    state: query
+    state: present
 
   - name: con_binding2
     tenant: Shore_Test_1
@@ -236,7 +236,7 @@ con_bindings:
     epg: app01-pres-epg
     contract: permit_all
     contract_type: provider
-    state: query
+    state: present
 
   - name: con_binding3
     tenant: Shore_Test_1
@@ -244,7 +244,7 @@ con_bindings:
     epg: app01-db-epg
     contract: db_contract
     contract_type: provider
-    state: query
+    state: present
 
   - name: con_binding4
     tenant: Shore_Test_2
@@ -252,7 +252,7 @@ con_bindings:
     epg: app02-web-epg
     contract: web_contract
     contract_type: provider
-    state: query
+    state: present
 
   - name: con_binding5
     tenant: Shore_Test_2
@@ -260,7 +260,7 @@ con_bindings:
     epg: app02-pres-epg
     contract: permit_all
     contract_type: provider
-    state: query
+    state: present
 
   - name: con_binding6
     tenant: Shore_Test_2
@@ -268,7 +268,7 @@ con_bindings:
     epg: app02-db-epg
     contract: db_contract
     contract_type: provider
-    state: query
+    state: present
 
 domains:
   - name: domain1
@@ -280,7 +280,7 @@ domains:
     vm_provider: vmware
     deploy_immediacy: immediate
     resolution_immediacy: immediate
-    state: query
+    state: present
 
   - name: domain2
     tenant: Shore_Test_1
@@ -291,7 +291,7 @@ domains:
     vm_provider: vmware
     deploy_immediacy: immediate
     resolution_immediacy: immediate
-    state: query
+    state: present
 
   - name: domain3
     tenant: Shore_Test_1
@@ -302,7 +302,7 @@ domains:
     vm_provider: vmware
     deploy_immediacy: immediate
     resolution_immediacy: immediate
-    state: query
+    state: present
 
   - name: domain4
     tenant: Shore_Test_2
@@ -313,7 +313,7 @@ domains:
     vm_provider: vmware
     deploy_immediacy: immediate
     resolution_immediacy: immediate
-    state: query
+    state: present
 
   - name: domain5
     tenant: Shore_Test_2
@@ -324,7 +324,7 @@ domains:
     vm_provider: vmware
     deploy_immediacy: immediate
     resolution_immediacy: immediate
-    state: query
+    state: present
 
   - name: domain6
     tenant: Shore_Test_2
@@ -335,14 +335,14 @@ domains:
     vm_provider: vmware
     deploy_immediacy: immediate
     resolution_immediacy: immediate
-    state: query
+    state: present
 
 new_domains:
   - name: hyperv_test
     domain: spod1
     domain_type: vmm
     vm_provider: vmware
-    state: query
+    state: present
 
 new_l3:
   - name: ospf_test
@@ -352,7 +352,7 @@ new_l3:
     vrf: AT1
     l3protocol: ospf
     route_control: export
-    state: query
+    state: present
 
   - name: ospf_test
     tenant: Shore_Test_2
@@ -361,44 +361,44 @@ new_l3:
     vrf: AT1
     l3protocol: ospf
     route_control: export
-    state: query
+    state: present
 
 l3outs:
   - name: app01-web-bd-l3
     tenant: Shore_Test_1
     bd: app01-web-bd
     l3out: ospf_test
-    state: query
+    state: present
 
   - name: app01-pres-bd-l3
     tenant: Shore_Test_1
     bd: app01-pres-bd
     l3out: ospf_test
-    state: query
+    state: present
 
   - name: app01-db-bd-l3
     tenant: Shore_Test_1
     bd: app01-db-bd
     l3out: ospf_test
-    state: query
+    state: present
 
   - name: app02-web-bd-l3
     tenant: Shore_Test_2
     bd: app02-web-bd
     l3out: ospf_test
-    state: query
+    state: present
 
   - name: app02-pres-bd-l3
     tenant: Shore_Test_2
     bd: app02-pres-bd
     l3out: ospf_test
-    state: query
+    state: present
 
   - name: app02-db-bd-l3
     tenant: Shore_Test_2
     bd: app02-db-bd
     l3out: ospf_test
-    state: query
+    state: present
 
 
 
