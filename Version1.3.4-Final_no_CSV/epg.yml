@@ -18,7 +18,18 @@
     - name: "Task 3: Add Var File"
       include_vars: host_vars/vars.yml
 
-    - name: "Task: 4 Add a new EPG"
+    - name: "Task 4: Create a Snapshot"
+      aci_config_snapshot:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        state: present
+        export_policy: ansible_snapshot
+        max_count: 10
+        description: Automation snapshot before configs
+
+
+    - name: "Task: 5 Add a new EPG"
       aci_epg:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -39,7 +50,7 @@
       
     - debug: var=epg_out
 
-    - name: "Task 5: Change 'present' to 'query' "
+    - name: "Task 6: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
@@ -47,7 +58,7 @@
         after: 'epgs'
         before: 'subs'
 
-    - name: "Task 6: Change 'absent' to 'query' "
+    - name: "Task 7: Change 'absent' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'

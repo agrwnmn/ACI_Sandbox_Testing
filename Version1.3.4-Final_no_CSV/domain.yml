@@ -18,6 +18,16 @@
     - name: "Task 3: Add Var File"
       include_vars: host_vars/vars.yml
 
+    - name: "Task 4: Create a Snapshot"
+      aci_config_snapshot:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        state: present
+        export_policy: ansible_snapshot
+        max_count: 10
+        description: Automation snapshot before configs
+
     - name: "Task 4: Add a new VMM domain"
       aci_domain:
         host: "{{ inventory_hostname }}"

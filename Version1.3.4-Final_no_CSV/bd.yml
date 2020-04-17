@@ -18,7 +18,17 @@
     - name: "Task 3: Add Var File"
       include_vars: host_vars/vars.yml
 
-    - name: "Task 4: Add Bridge Domain"
+    - name: "Task 4: Create a Snapshot"
+      aci_config_snapshot:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        state: present
+        export_policy: ansible_snapshot
+        max_count: 10
+        description: Automation snapshot before configs
+
+    - name: "Task 5: Add Bridge Domain"
       aci_bd:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -35,7 +45,7 @@
       with_items: 
         - "{{ bds }}"
 
-    - name: "Task 5: Change 'present' to 'query' "
+    - name: "Task 6: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
@@ -43,7 +53,7 @@
         after: 'bds'
         before: 'epgs'
 
-    - name: "Task 6: Change 'absent' to 'query' "
+    - name: "Task 7: Change 'absent' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
