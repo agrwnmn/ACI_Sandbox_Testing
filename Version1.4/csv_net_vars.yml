@@ -5,6 +5,9 @@
     dest: input/{{ reference }}.csv
     mode: "0666"
 
+- name: "Task: Create File List for Jinja2 temps"
+  include_vars: csv_vars/csv_vars.yml
+
 - name: "Task B: Read CSV file"
   read_csv:
     path: input/{{ reference }}.csv

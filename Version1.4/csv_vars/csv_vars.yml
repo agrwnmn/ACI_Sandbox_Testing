@@ -1,0 +1,2 @@
+---
+csvfile_vars: "{{ lookup('file', 'input/{{ reference }}.csv') }}"
