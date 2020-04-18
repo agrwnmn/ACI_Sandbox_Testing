@@ -2,9 +2,8 @@
 {%   if loop.index != 1 %}
 {%     set list = item.split(",") %}
 
-  - name: '{{ csv_values.list.0.Tenant }}'
+  - name: "{{ list[1]|trim() }}"
     state: present
     validate_certs: False
-
-{% endif %}
+{%   endif %}
 {% endfor %}

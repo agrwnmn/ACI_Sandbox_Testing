@@ -1,21 +1,4 @@
-﻿App,Tenant,VRF,Tier - (App/Web/DB),IP,Gateway,Sunbet Mask,VM or BareMetal
-app-1555,Shore-Test-1,AT1,App,192.168.100.21,192.168.100.1,/24,vm
-app-2555,Shore-Test-1,AT1,Web,192.168.200.21,192.168.200.1,/24,vm
-app-3555,Shore-Test-2,AT2,Web,172.16.100.22,172.16.100.1,/24,vm
-app-4555,Shore-Test-2,AT2,DB,172.16.200.22,172.16.200.1,/24,vm
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
+Tenant,Alias,App,Tier,Subnet,Gateway,CIDR,VMMDOM,Contracts,ConSubject,ContractType
+DevQA-Test02,DQA02,1122,APP,10.1.2.0,10.1.2.1,28,NonProd,wan-permit-all,permit-all,provider
+DevQA-Test02,DQA02,1122,PRES,10.1.2.16,10.1.2.17,28,NonProd,wan-permit-all,permit-all,provider
+DevQA-Test02,DQA02,1122,DB,10.1.2.32,10.1.2.33,28,NonProd,wan-permit-all,permit-all,provider
