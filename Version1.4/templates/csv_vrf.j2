@@ -1,0 +1,9 @@
+{% if ref_prompt is defined %}
+
+  - name: "{{ csv_values.list.0.VRF }}"
+    tenant: "{{ csv_values.list.0.Tenant }}"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: present
+    validate_certs: False
+ {% endif %}   

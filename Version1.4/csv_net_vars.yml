@@ -15,11 +15,24 @@
     src: templates/csv_tn.j2
     dest: output/tns/{{ reference }}TNs.yml
 
-- name: "Task D: Insert TN Vars"
+- name: "Task D: Create VRF YAML Vars"
+  template:
+    src: templates/csv_vrf.j2
+    dest: output/vrfs/{{ reference }}vrfs.yml
+
+- name: "Task E: Insert TN Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/tns/TNs.yml') }}"
     dest: host_vars/vars.yml
-    marker: "#TN"
+    marker: "#{{ reference }}-TN"
     insertbefore: "vrfs:"
+
+- name: "Task F: Insert VRF Vars"
+  blockinfile:
+    block: "{{ lookup('file', 'output/vrfs/{{ reference }}vrfs.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "#{{ reference }}-VRF"
+    insertbefore: "cons:"
+
 
 
