@@ -40,7 +40,7 @@
         max_count: 10
         description: Automation snapshot before configs
 
-    - name: "Task 5: Create New Tenant"
+    - name: "Task 7: Create New Tenant"
       aci_tenant:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -59,7 +59,7 @@
       
     - debug: var=tenant_output
 
-    - name: "Task 6: Add VRF to a tenant"
+    - name: "Task 8: Add VRF to a tenant"
       aci_vrf:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -81,7 +81,7 @@
     
     - debug: var=vrf_output
 
-    - name: "Task 7: Add a new contract to tenant"
+    - name: "Task 9: Add a new contract to tenant"
       aci_contract:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}" 
@@ -102,14 +102,14 @@
     
     - debug: var=contract_output
     
-    - name: "Task 8: Change 'present' to 'query' "
+    - name: "Task 10: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOS'
 
-    - name: "Task 9: Change 'absent' to 'query' "
+    - name: "Task 11: Change 'absent' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
