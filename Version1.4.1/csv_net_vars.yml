@@ -1,0 +1,41 @@
+
+- name: "Task A: Copy original CSV file"
+  copy:
+    src: input/vars2.csv
+    dest: input/csv_copies/{{ reference }}.csv
+    mode: preserve
+
+- name: "Task: Create File List for Jinja2 temps"
+  include_vars: csv_vars/csv_vars.yml
+
+- name: "Task B: Read CSV file"
+  read_csv:
+    path: input/csv_copies/{{ reference }}.csv
+  register: csv_values
+
+- name: "Task C: Create TN YAML Vars"
+  template:
+    src: templates/csv_tn.j2
+    dest: output/tns/{{ reference }}TNs.yml
+
+- name: "Task D: Create VRF YAML Vars"
+  template:
+    src: templates/csv_vrf.j2
+    dest: output/vrfs/{{ reference }}vrfs.yml
+
+- name: "Task E: Insert TN Vars"
+  blockinfile:
+    block: "{{ lookup('file', 'output/tns/{{ reference }}TNs.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "#{{ reference }}-TN"
+    insertbefore: "vrfs:"
+
+- name: "Task F: Insert VRF Vars"
+  blockinfile:
+    block: "{{ lookup('file', 'output/vrfs/{{ reference }}vrfs.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "#{{ reference }}-VRF"
+    insertbefore: "cons:"
+
+
+
