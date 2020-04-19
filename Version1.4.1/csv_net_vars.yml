@@ -44,7 +44,7 @@
 
 - name: "Task H: Insert Contract Vars"
   blockinfile:
-    block: "{{ lookup('file', 'output/cons/{{ reference }}vrfs.yml') }}"
+    block: "{{ lookup('file', 'output/cons/{{ reference }}cons.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-cons"
     insertbefore: "#EOS"

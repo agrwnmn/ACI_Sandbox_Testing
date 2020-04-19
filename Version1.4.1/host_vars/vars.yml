@@ -6,8 +6,112 @@ aci_apic:
 #Build Infra Section
 tns:  
 
+#105-TN
+
+  - name: "Shore-Test-1"
+    state: present
+    validate_certs: False
+
+  - name: "Shore-Test-1"
+    state: present
+    validate_certs: False
+
+  - name: "Shore-Test-2"
+    state: present
+    validate_certs: False
+
+  - name: "Shore-Test-2"
+    state: present
+    validate_certs: False
+#105-TN
+#106-TN
+
+  - name: "Shore-Test-1"
+    state: present
+    validate_certs: False
+
+  - name: "Shore-Test-1"
+    state: present
+    validate_certs: False
+
+  - name: "Shore-Test-2"
+    state: present
+    validate_certs: False
+
+  - name: "Shore-Test-2"
+    state: present
+    validate_certs: False
+#106-TN
 vrfs:
 
+#105-VRF
+ 
+
+  - name: "AT1"
+    tenant: "Shore-Test-1"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: present
+    validate_certs: False
+ 
+
+  - name: "AT1"
+    tenant: "Shore-Test-1"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: present
+    validate_certs: False
+ 
+
+  - name: "AT2"
+    tenant: "Shore-Test-2"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: present
+    validate_certs: False
+ 
+
+  - name: "AT2"
+    tenant: "Shore-Test-2"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: present
+    validate_certs: False
+#105-VRF
+#106-VRF
+ 
+
+  - name: "AT1"
+    tenant: "Shore-Test-1"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: present
+    validate_certs: False
+ 
+
+  - name: "AT1"
+    tenant: "Shore-Test-1"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: present
+    validate_certs: False
+ 
+
+  - name: "AT2"
+    tenant: "Shore-Test-2"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: present
+    validate_certs: False
+ 
+
+  - name: "AT2"
+    tenant: "Shore-Test-2"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: present
+    validate_certs: False
+#106-VRF
 cons: 
 
 #Build Apps Section
@@ -37,3 +141,33 @@ l3outs:
 
 
     
+#106-cons
+
+  - name: "permit_all"
+    tenant: "Shore-Test-1"
+    description: Communication between APPs
+    scope: application-profile
+    state: present
+    validate_certs: False
+
+  - name: "web-contract"
+    tenant: "Shore-Test-1"
+    description: Communication between APPs
+    scope: application-profile
+    state: present
+    validate_certs: False
+
+  - name: "web-contract"
+    tenant: "Shore-Test-2"
+    description: Communication between APPs
+    scope: application-profile
+    state: present
+    validate_certs: False
+
+  - name: "db-contract"
+    tenant: "Shore-Test-2"
+    description: Communication between APPs
+    scope: application-profile
+    state: present
+    validate_certs: False
+#106-cons
