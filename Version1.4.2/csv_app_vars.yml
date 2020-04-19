@@ -2,7 +2,7 @@
 - name: "Task A: Copy original CSV file"
   copy:
     src: input/vars2.csv
-    dest: input/csv_copies{{ reference }}.csv
+    dest: input/csv_copies/{{ reference }}.csv
     mode: preserve
 
 - name: "Task B: Create File List for Jinja2 temps"
@@ -21,5 +21,5 @@
   blockinfile:
     block: "{{ lookup('file', 'output/apps/{{ reference }}app.yml') }}"
     dest: host_vars/vars.yml
-    marker: "#{{ reference }}-app
+    marker: "#{{ reference }}-app"
     insertbefore: "bds:"
