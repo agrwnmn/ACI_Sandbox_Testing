@@ -14,7 +14,7 @@
     - name: "Task 1: Gather Login info"
       include_vars: auth/secrets.yml
 
-    - name: "Task 2: Set reference"
+    - name: "Task 2: Gathr Reference Number"
       set_fact:
         reference: "{{ ref_prompt }}"
     

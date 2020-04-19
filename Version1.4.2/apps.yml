@@ -8,17 +8,24 @@
   tasks: 
     - name: "Task 1: Gather Login info"
       include_vars: auth/secrets.yml
-    
-    - name: "Task 2: Set user/pass info"
+
+    - name: "Task 2: Gather Reference Number"
+      set_fact:
+        reference: "{{ ref_prompt }}"  
+
+    - name: "Task 3: Set user/pass info"
       set_fact:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
         password: "{{ password }}"
 
-    - name: "Task 3: Add Var File"
+    - name: " Task 4: Update '{{ inventory_hostname }}'' from CSV"
+      include_vars: csv_app_vars.yml
+
+    - name: "Task 5: Add Var File"
       include_vars: host_vars/vars.yml
 
-    - name: "Task 4: Create a Snapshot"
+    - name: "Task 6: Create a Snapshot"
       aci_config_snapshot:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -28,7 +35,7 @@
         max_count: 10
         description: Automation snapshot before configs
 
-    - name: "Task 5: Add a new AP"
+    - name: "Task 7: Add a new AP"
       aci_ap:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -45,7 +52,7 @@
 
     - debug: var=app_output
 
-    - name: "Task 6: Add Bridge Domain"
+    - name: "Task 8: Add Bridge Domain"
       aci_bd:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -62,7 +69,7 @@
       with_items: 
         - "{{ bds }}"
 
-    - name: "Task 7: Add a new EPG"
+    - name: "Task 9: Add a new EPG"
       aci_epg:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -83,7 +90,7 @@
       
     - debug: var=epg_out
 
-    - name: "Task 8: Create a subnet"
+    - name: "Task 10: Create a subnet"
       aci_bd_subnet:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -102,7 +109,7 @@
         - "{{ subs }}"
     - debug: var=subs_out
 
-    - name: "Task 9: Add a new contract to EPG binding"
+    - name: "Task 11: Add a new contract to EPG binding"
       aci_epg_to_contract:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -122,7 +129,7 @@
 
     - debug: var=binding_out
 
-    - name: "Task 10: Add domain to EPG binding"
+    - name: "Task 12: Add domain to EPG binding"
       aci_epg_to_domain:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -144,7 +151,7 @@
         - "{{ domains }}"
     - debug: var=domain_output
 
-    - name: "Task 11: Bind BD to L3out"
+    - name: "Task 13: Bind BD to L3out"
       aci_bd_to_l3out:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -162,14 +169,14 @@
     
     - debug: var=l3out_output
 
-    - name: "Task 12: Change 'present' to 'query' "
+    - name: "Task 14: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         after: 'apps'
 
-    - name: "Task 13: Change 'absent' to 'query' "
+    - name: "Task 15: Change 'absent' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
