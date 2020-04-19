@@ -23,19 +23,31 @@
     src: templates/csv_vrf.j2
     dest: output/vrfs/{{ reference }}vrfs.yml
 
-- name: "Task E: Insert TN Vars"
+- name: "Task E: Create Contract YAML Vars"
+  template:
+    src: templates/csv_con.j2
+    dest: output/cons/{{ reference }}cons.yml
+
+- name: "Task F: Insert TN Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/tns/{{ reference }}TNs.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-TN"
     insertbefore: "vrfs:"
 
-- name: "Task F: Insert VRF Vars"
+- name: "Task G: Insert VRF Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/vrfs/{{ reference }}vrfs.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-VRF"
     insertbefore: "cons:"
+
+- name: "Task G: Insert Contract Vars"
+  blockinfile:
+    block: "{{ lookup('file', 'output/cons/{{ reference }}vrfs.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "#{{ reference }}-cons"
+    insertbefore: "#EOS"
 
 
 

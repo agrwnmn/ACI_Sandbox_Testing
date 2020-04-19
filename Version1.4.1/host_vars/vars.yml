@@ -6,60 +6,8 @@ aci_apic:
 #Build Infra Section
 tns:  
 
-#305-TN
-
-  - name: "Shore-Test-1"
-    state: present
-    validate_certs: False
-
-  - name: "Shore-Test-1"
-    state: present
-    validate_certs: False
-
-  - name: "Shore-Test-2"
-    state: present
-    validate_certs: False
-
-  - name: "Shore-Test-2"
-    state: present
-    validate_certs: False
-#305-TN
 vrfs:
 
-#305-VRF
- 
-
-  - name: "AT1"
-    tenant: "Shore-Test-1"
-    policy_control_preference: enforced
-    policy_control_direction: ingress
-    state: present
-    validate_certs: False
- 
-
-  - name: "AT1"
-    tenant: "Shore-Test-1"
-    policy_control_preference: enforced
-    policy_control_direction: ingress
-    state: present
-    validate_certs: False
- 
-
-  - name: "AT2"
-    tenant: "Shore-Test-2"
-    policy_control_preference: enforced
-    policy_control_direction: ingress
-    state: present
-    validate_certs: False
- 
-
-  - name: "AT2"
-    tenant: "Shore-Test-2"
-    policy_control_preference: enforced
-    policy_control_direction: ingress
-    state: present
-    validate_certs: False
-#305-VRF
 cons: 
 
 #Build Apps Section
