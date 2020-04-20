@@ -21,18 +21,30 @@
 - name: "Task E: Create BD YAML Vars"
   template:
     src: templates/csv_bd.j2
-    dest: output/bds/{{ reference }}bd.yml    
+    dest: output/bds/{{ reference }}bd.yml 
 
-- name: "Task F: Insert App Vars"
+- name: "Task F: Create EPG YAML Vars"
+  template:
+    src: templates/csv_epg.j2
+    dest: output/epgs/{{ reference }}epg.yml    
+
+- name: "Task G: Insert App Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/apps/{{ reference }}app.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-app"
     insertbefore: "bds:"
 
-- name: "Task G: Insert BD Vars"
+- name: "Task H: Insert BD Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/bds/{{ reference }}bd.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-bd"
     insertbefore: "epgs:"
+
+- name: "Task I: Insert EPG Vars"
+  blockinfile:
+    block: "{{ lookup('file', 'output/epgs/{{ reference }}epg.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "#{{ reference }}-epg"
+    insertbefore: "subs:"
