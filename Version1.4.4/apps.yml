@@ -82,7 +82,7 @@
         tenant: "{{ item.tenant }}"
         ap: "{{ item.ap }}"
         epg: "{{ item.name }}"
-        description: "{{ item.descr }}"
+        description: "{{ item.description }}"
         bd: "{{ item.bd }}"
         preferred_group: "{{ item.preferred_group }}"
         state: "{{ item.state }}"
