@@ -1,0 +1,67 @@
+---
+
+- name: ACI EPG Build
+  hosts: apic
+  gather_facts: False
+  connection: local
+
+  tasks: 
+    - name: "Task 1: Gather Login info"
+      include_vars: auth/secrets.yml
+    
+    - name: "Task 2: Set user/pass info"
+      set_fact:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+
+    - name: "Task 3: Add Var File"
+      include_vars: host_vars/vars.yml
+
+    - name: "Task 4: Create a Snapshot"
+      aci_config_snapshot:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        state: present
+        export_policy: ansible_snapshot
+        max_count: 10
+        description: Automation snapshot before configs
+
+
+    - name: "Task: 5 Add a new EPG"
+      aci_epg:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        ap: "{{ item.ap }}"
+        epg: "{{ item.name }}"
+        description: "{{ item.descr }}"
+        bd: "{{ item.bd }}"
+        preferred_group: "{{ item.preferred_group }}"
+        state: "{{ item.state }}"
+      register: egp_out
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ epgs }}"
+      
+    - debug: var=epg_out
+
+    - name: "Task 6: Change 'present' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        after: 'epgs'
+        before: 'subs'
+
+    - name: "Task 7: Change 'absent' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        after: 'epgs'
+        before: 'subs'
