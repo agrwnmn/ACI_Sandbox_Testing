@@ -18,9 +18,21 @@
     src: templates/csv_app.j2
     dest: output/apps/{{ reference }}app.yml
 
-- name: "Task E: Insert App Vars"
+- name: "Task E: Create BD YAML Vars"
+  template:
+    src: templates/csv_bd.j2
+    dest: output/bds/{{ reference }}bd.yml    
+
+- name: "Task F: Insert App Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/apps/{{ reference }}app.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-app"
     insertbefore: "bds:"
+
+- name: "Task G: Insert BD Vars"
+  blockinfile:
+    block: "{{ lookup('file', 'output/bds/{{ reference }}bd.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "#{{ reference }}-bd"
+    insertbefore: "epgs:"

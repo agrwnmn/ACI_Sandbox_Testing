@@ -1,0 +1,11 @@
+{% for item in csvfile_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%     set list = item.split(",") %}
+
+  - name: "{{ list[0]|trim() }}"
+    tenant: "{{ list[1]|trim() }}"
+    vrf: "{{ list[2]|trim() }}"
+    state: present
+    validate_certs: False
+{%      endif %}
+{%  endfor %}
