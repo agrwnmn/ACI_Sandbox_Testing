@@ -1,0 +1,74 @@
+
+- name: "Task A: Copy original CSV file"
+  copy:
+    src: input/vars2.csv
+    dest: input/csv_copies/{{ reference }}.csv
+    mode: preserve
+
+- name: "Task B: Create File List for Jinja2 temps"
+  include_vars: csv_vars/csv_vars.yml
+
+- name: "Task C: Read CSV file"
+  read_csv: 
+    path: input/csv_copies/{{ reference }}.csv
+  register: csv_values
+
+- name: "Task D: Create App YAML Vars"
+  template:
+    src: templates/csv_app.j2
+    dest: output/apps/{{ reference }}app.yml
+
+- name: "Task E: Create BD YAML Vars"
+  template:
+    src: templates/csv_bd.j2
+    dest: output/bds/{{ reference }}bd.yml 
+
+- name: "Task F: Create EPG YAML Vars"
+  template:
+    src: templates/csv_epg.j2
+    dest: output/epgs/{{ reference }}epg.yml
+
+- name: "Task G: Create Subnet YAML Vars"
+  template:
+    src: templates/csv_subs.j2
+    dest: output/subs/{{ reference }}subs.yml
+
+- name: "Task H: Create EPG Contract Bindings YAML Vars"
+  template:
+    src: templates/csv_con_bind.j2
+    dest: output/con_bind/{{ reference }}con_bind.yml
+
+- name: "Task I: Insert App Vars"
+  blockinfile:
+    block: "{{ lookup('file', 'output/apps/{{ reference }}app.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "#{{ reference }}-app"
+    insertbefore: "bds:"
+
+- name: "Task J: Insert BD Vars"
+  blockinfile:
+    block: "{{ lookup('file', 'output/bds/{{ reference }}bd.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "#{{ reference }}-bd"
+    insertbefore: "epgs:"
+
+- name: "Task K: Insert EPG Vars"
+  blockinfile:
+    block: "{{ lookup('file', 'output/epgs/{{ reference }}epg.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "#{{ reference }}-epg"
+    insertbefore: "subs:"
+
+- name: "Task L: Insert EPG Vars"
+  blockinfile:
+    block: "{{ lookup('file', 'output/subs/{{ reference }}subs.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "#{{ reference }}-subs"
+    insertbefore: "con_bindings:"
+
+- name: "Task M: Insert EPG Vars"
+  blockinfile:
+    block: "{{ lookup('file', 'output/con_bind/{{ reference }}con_bind.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "#{{ reference }}-con_bind"
+    insertbefore: "domains:"
