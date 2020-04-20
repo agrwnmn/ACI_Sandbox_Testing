@@ -1,4 +1,4 @@
-{% for item csvfile_vars.split("\n") %}
+{% for item in csvfile_vars.split("\n") %}
 {%   if loop.index !=1 %}
 {%     set list = item.split(",") %}
 
@@ -9,3 +9,5 @@
     bd: "{{ list[0]|trim() }}_{{ list[3]|trim() }}-bd"
     preferred_group: yes
     state: present
+{%      endif %}
+{% endfor %}
