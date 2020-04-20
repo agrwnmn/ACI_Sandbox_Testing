@@ -2,10 +2,10 @@
 {%   if loop.index !=1 %}
 {%     set list = item.split(",") %}
 
-  - name: "{{ list[0]|trim() }}"
+  - name: "{{ list[0]|trim() }}_{{ list[3]|trim() }}-bd"
     tenant: "{{ list[1]|trim() }}"
     vrf: "{{ list[2]|trim() }}"
     state: present
-    validate_certs: False
+    validate_certs: no
 {%      endif %}
 {%  endfor %}
