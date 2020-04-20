@@ -56,7 +56,7 @@
 
 - name: "Task K: Insert EPG Vars"
   blockinfile:
-    block: "{{ lookup('file', 'output/epgs/{{ reference }}epg.yml') }}"
+    block: "{{ lookup('file', 'output/subs/{{ reference }}subs.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-subs"
     insertbefore: "con_bindings:"
