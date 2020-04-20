@@ -122,7 +122,7 @@ epgs:
     ap: app01
     bd: app01-web-bd
     preferred_group: yes
-    state: query
+    state: present
 
   - name: app01-pres-epg
     descr: app01-pres-epg
@@ -130,7 +130,7 @@ epgs:
     ap: app01
     bd: app01-pres-bd
     preferred_group: yes
-    state: query
+    state: present
 
   - name: app01-db-epg
     descr: app01-db-epg
@@ -138,7 +138,7 @@ epgs:
     ap: app01
     bd: app01-db-bd
     preferred_group: yes
-    state: query
+    state: present
 
   - name: app02-web-epg
     descr: app02-web-epg
@@ -146,7 +146,7 @@ epgs:
     ap: app02
     bd: app02-web-bd
     preferred_group: yes
-    state: query
+    state: present
 
   - name: app02-pres-epg
     descr: app02-pres-epg
@@ -154,7 +154,7 @@ epgs:
     ap: app02
     bd: app02-pres-bd
     preferred_group: yes
-    state: query
+    state: present
 
   - name: app02-db-epg
     descr: app02-db-epg
@@ -162,7 +162,7 @@ epgs:
     ap: app02
     bd: app02-db-bd
     preferred_group: yes
-    state: query
+    state: present
 
   - name: app02-db2-epg
     descr: app02-db2-epg
@@ -170,7 +170,7 @@ epgs:
     ap: app02
     bd: app02-db-bd
     preferred_group: yes
-    state: query
+    state: present
 
 subs:
   - name: app01-web-bd/24
