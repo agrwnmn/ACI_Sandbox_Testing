@@ -59,14 +59,14 @@
     marker: "#{{ reference }}-epg"
     insertbefore: "subs:"
 
-- name: "Task L: Insert EPG Vars"
+- name: "Task L: Insert Subnet Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/subs/{{ reference }}subs.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-subs"
     insertbefore: "con_bindings:"
 
-- name: "Task M: Insert EPG Vars"
+- name: "Task M: Insert Contract Bindings Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/con_bind/{{ reference }}con_bind.yml') }}"
     dest: host_vars/vars.yml
