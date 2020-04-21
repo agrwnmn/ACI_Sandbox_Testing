@@ -8,6 +8,6 @@
     gateway: "{{ list[5]|trim() }}"
     mask: "{{ list[6]|trim() }}"
     scope: public
-    state: query
+    state: present
 {%      endif %}
 {% endfor %}

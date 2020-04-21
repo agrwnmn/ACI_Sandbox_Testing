@@ -5,6 +5,6 @@
   - name: "{{ list[0]|trim() }}"
     tenant: "{{ list[1]|trim() }}"
     description: New App
-    state: query
+    state: present
 {%      endif %}
 {%  endfor %}
