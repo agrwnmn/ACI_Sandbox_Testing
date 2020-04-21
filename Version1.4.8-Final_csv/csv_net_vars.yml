@@ -1,48 +1,48 @@
 
-- name: "Task A: Copy original CSV file"
+- name: "Task 4.1: Copy original CSV file"
   copy:
     src: input/vars2.csv
     dest: input/csv_copies/{{ reference }}.csv
     mode: preserve
 
-- name: "Task B: Create File List for Jinja2 temps"
+- name: "Task 4.2: Create File List for Jinja2 temps"
   include_vars: csv_vars/csv_vars.yml
 
-- name: "Task C: Read CSV file"
+- name: "Task 4.3: Read CSV file"
   read_csv:
     path: input/csv_copies/{{ reference }}.csv
   register: csv_values
 
-- name: "Task D: Create TN YAML Vars"
+- name: "Task 4.4: Create TN YAML Vars"
   template:
     src: templates/csv_tn.j2
     dest: output/tns/{{ reference }}TNs.yml
 
-- name: "Task E: Create VRF YAML Vars"
+- name: "Task 4.5: Create VRF YAML Vars"
   template:
     src: templates/csv_vrf.j2
     dest: output/vrfs/{{ reference }}vrfs.yml
 
-- name: "Task F: Create Contract YAML Vars"
+- name: "Task 4.6: Create Contract YAML Vars"
   template:
     src: templates/csv_con.j2
     dest: output/cons/{{ reference }}cons.yml
 
-- name: "Task G: Insert TN Vars"
+- name: "Task 4.7: Insert TN Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/tns/{{ reference }}TNs.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-TN"
     insertbefore: "vrfs:"
 
-- name: "Task H: Insert VRF Vars"
+- name: "Task 4.8: Insert VRF Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/vrfs/{{ reference }}vrfs.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-VRF"
     insertbefore: "cons:"
 
-- name: "Task I: Insert Contract Vars"
+- name: "Task 4.9: Insert Contract Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/cons/{{ reference }}cons.yml') }}"
     dest: host_vars/vars.yml
