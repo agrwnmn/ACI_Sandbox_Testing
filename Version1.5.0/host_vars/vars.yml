@@ -6,27 +6,38 @@ aci_apic:
 #Build Infra Section
 tns:  
 
+#EOtns
 vrfs:
 
+#EOvrfs
 cons: 
 
+#EOcons
 #EOS
 #Build Apps Section
 
 apps:
 
+#EOapps
 bds:
 
+#EObds
 epgs:
 
+#EOepgs
 subs:
 
+#EOsubs
 con_bindings:
 
+#EOcon_bindings
 domains:
 
+#EOdomains
 new_l3:
 
+#EOnew_l3
 l3outs:
 
+#EOl3outs
 #EOF
