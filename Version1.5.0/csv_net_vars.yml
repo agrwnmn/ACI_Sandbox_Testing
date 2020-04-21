@@ -33,7 +33,6 @@
     block: "{{ lookup('file', 'output/tns/{{ reference }}TNs.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible TN Section"
-#    marker: "#{{ reference }}-TN"
     insertbefore: "EOtns"
 
 - name: "Task 4.8: Insert Marker"
