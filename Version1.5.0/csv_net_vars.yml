@@ -46,7 +46,7 @@
     block: "{{ lookup('file', 'output/vrfs/{{ reference }}vrfs.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible VRF Section"
-    insertbefore: "cons:"
+    insertafter: "vrfs:"
 
 - name: "Task 4.10: Insert VRF Vars"
   blockinfile:
