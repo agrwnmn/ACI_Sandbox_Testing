@@ -5,7 +5,6 @@ aci_apic:
 
 #Build Infra Section
 tns:  
-#BOtns
 
 #EOtns
 vrfs:
