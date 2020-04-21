@@ -88,7 +88,7 @@
     block: "{{ lookup('file', 'output/domain/{{ reference }}domain.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-domain"
-    insertbefore: "l3outs:"    
+    insertbefore: "new_l3:"    
 
 - name: "Task Q: Insert L3out bindings Vars"
   blockinfile:
