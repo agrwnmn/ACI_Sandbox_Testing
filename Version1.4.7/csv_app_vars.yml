@@ -83,11 +83,11 @@
     marker: "#{{ reference }}-con_bind"
     insertbefore: "domains:"
 
-- name: "Task P: Insert Con Bindings Vars"
+- name: "Task P: Insert Domain Vars"
   blockinfile:
-    block: "{{ lookup('file', 'output/con_bind/{{ reference }}con_bind.yml') }}"
+    block: "{{ lookup('file', 'output/domain/{{ reference }}domain.yml') }}"
     dest: host_vars/vars.yml
-    marker: "#{{ reference }}-con_bind"
+    marker: "#{{ reference }}-domain"
     insertbefore: "l3outs:"    
 
 - name: "Task Q: Insert L3out bindings Vars"
