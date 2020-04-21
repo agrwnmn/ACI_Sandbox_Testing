@@ -1,0 +1,16 @@
+{% for item in csvfile_vars.split("\n") %}
+{%    if loop.index !=1 %}
+{%      set list = item.split(",") %}
+
+  - name: "{{ list[10]|trim() }}"
+    tenant: "{{ list[1]|trim() }}"
+    ap: "{{ list[0]|trim() }}"
+    epg: "{{ list[0]|trim() }}_{{ list[3]|trim() }}-epg"
+    domain: "{{ list[10]|trim() }}"
+    domain_type: "{{ list[7]|trim() }}"
+    vm_provider: "{{ list[11]|trim() }}"
+    deploy_immediacy: immediate
+    resolution_immediacy: immediate
+    state: query
+{%      endif %}
+{% endfor %}
