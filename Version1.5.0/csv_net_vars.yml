@@ -2,7 +2,7 @@
 - name: "Task 4.1: Copy original CSV file"
   copy:
     src: input/vars2.csv
-    path: input/csv_copies/{{ reference }}.csv
+    dest: input/csv_copies/{{ reference }}.csv
     mode: preserve
 
 - name: "Task 4.2: Create File List for Jinja2 temps"
@@ -33,7 +33,7 @@
     block: "{{ lookup('file', 'output/tns/{{ reference }}TNs.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-TN"
-    insertbefore: "vrfs:"
+    insertbefore: "EOtns"
 
 - name: "Task 4.8: Insert VRF Vars"
   blockinfile:
