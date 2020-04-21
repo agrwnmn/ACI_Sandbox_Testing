@@ -1,4 +1,4 @@
-{% for item in csvfile_vars.split("\n")
+{% for item in csvfile_vars.split("\n") %}
 {%    if loop.index !=1 %}
 {%      set list = item.split(",") %}
 
@@ -12,5 +12,5 @@
     deploy_immediacy: immediate
     resolution_immediacy: immediate
     state: present
-{%       endif %}
+{%      endif %}
 {% endfor %}
