@@ -125,10 +125,9 @@
     - name: "Task 13: Clear contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
-        marker: "#{{ reference }}-TN"
-        content: #EOtns
+        marker: "# {mark} Ansible Managed Block"
         state: absent
-#        insertbefore: "vrfs"
+
 
 
 
