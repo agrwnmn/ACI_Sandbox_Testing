@@ -28,12 +28,12 @@
     src: templates/csv_con.j2
     dest: output/cons/{{ reference }}cons.yml
 
-#- name: "Task 4.7: Insert TN Marker"
-#  blockinfile:
-#    block: "{{ lookup('file', 'output/tns/{{ reference }}TNs.yml') }}"
-#    dest: host_vars/vars.yml
-#    marker: "# {mark} Ansible TN Section"
-#    insertbefore: "vrfs:"
+- name: "Task 4.7: Insert TN Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/tns/{{ reference }}TNs.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible TN Section"
+    insertbefore: "vrfs:"
 
 #- name: "Task 4.8: Insert TN Vars"
 #  blockinfile:
