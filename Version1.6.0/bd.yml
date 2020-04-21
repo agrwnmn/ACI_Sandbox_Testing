@@ -1,0 +1,62 @@
+---
+
+- name: ACI Contract Build
+  hosts: apic
+  gather_facts: False
+  connection: local
+
+  tasks: 
+    - name: "Task 1: Gather Login info"
+      include_vars: auth/secrets.yml
+    
+    - name: "Task 2: Set user/pass info"
+      set_fact:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+
+    - name: "Task 3: Add Var File"
+      include_vars: host_vars/vars.yml
+
+    - name: "Task 4: Create a Snapshot"
+      aci_config_snapshot:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        state: present
+        export_policy: ansible_snapshot
+        max_count: 10
+        description: Automation snapshot before configs
+
+    - name: "Task 5: Add Bridge Domain"
+      aci_bd:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ item.tenant }}"
+        bd: "{{ item.name }}"
+        vrf: "{{ item.vrf }}"
+        state: "{{ item.state }}"
+      register: bd_out
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items: 
+        - "{{ bds }}"
+
+    - name: "Task 6: Change 'present' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        after: 'bds'
+        before: 'epgs'
+
+    - name: "Task 7: Change 'absent' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        after: 'apps'
+        before: 'epgs'
