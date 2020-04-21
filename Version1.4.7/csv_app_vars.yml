@@ -80,7 +80,7 @@
 
 - name: "Task O: Insert L3out bindings Vars"
   blockinfile:
-    block: "{{ lookup('file', 'output/con_bind/{{ reference }}con_bind.yml') }}"
+    block: "{{ lookup('file', 'output/l3outs/{{ reference }}con_bind.yml') }}"
     dest: host_vars/vars.yml
-    marker: "#{{ reference }}-con_bind"
+    marker: "#{{ reference }}-l3outs"
     insertbefore: "EOF"
