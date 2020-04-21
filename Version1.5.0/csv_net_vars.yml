@@ -32,7 +32,7 @@
   blockinfile:
     block: "{{ lookup('file', 'output/tns/{{ reference }}TNs.yml') }}"
     dest: host_vars/vars.yml
-    marker: "# {mark} Ansible Managed Block"
+    marker: "# {mark} Ansible TN Section"
 #    marker: "#{{ reference }}-TN"
     insertbefore: "EOtns"
 

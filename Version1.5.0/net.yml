@@ -125,7 +125,7 @@
     - name: "Task 13: Clear contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
-        marker: "# {mark} Ansible Managed Block"
+        marker: "# {mark} Ansible TN Section"
         state: absent
 
 
