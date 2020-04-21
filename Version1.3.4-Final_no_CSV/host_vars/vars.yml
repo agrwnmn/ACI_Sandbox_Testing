@@ -358,7 +358,7 @@ new_l3:
     tenant: Shore_Test_2
     descr: test_l3out
     domain: spod1
-    vrf: AT1
+    vrf: AT2
     l3protocol: ospf
     route_control: export
     state: present
