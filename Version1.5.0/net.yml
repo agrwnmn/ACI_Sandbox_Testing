@@ -125,10 +125,9 @@
     - name: "Task 13: Clear contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
-        marker: #EOtns
-          insertafter: "tns:"
-          insertbefore: "#E0tns"
-          block: " "
+        marker: #BOtns
+          insertbefore: #E0tns
+          block: "{{ reference }}-TN"
           state: absent
 
 
