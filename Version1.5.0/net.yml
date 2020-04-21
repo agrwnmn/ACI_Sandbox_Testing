@@ -126,7 +126,7 @@
       blockinfile:
         path: host_vars/vars.yml
         marker: "tns:"
-        block: "#BOtns"
+        block: "{{ reference }}-TN"
         state: absent
         insertbefore: "#E0tns"
 
