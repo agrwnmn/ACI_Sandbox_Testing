@@ -128,7 +128,7 @@
         marker: #BOtns
           block: "#{{ reference }}-TN"
           state: absent
-          insertbefore: #E0tns
+          insertbefore: "#E0tns"
 
 
 
