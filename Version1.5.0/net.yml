@@ -125,8 +125,7 @@
     - name: "Task 13: Clear contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
-        marker: "#{{ reference }}-TN"
-#        block:  done
+        marker: #BOtns
         state: absent
 #        insertbefore: "vrfs"
 
