@@ -2,7 +2,7 @@
 - name: "Task 4.1: Copy original CSV file"
   copy:
     src: input/vars2.csv
-    dest: input/csv_copies/{{ reference }}.csv
+    path: input/csv_copies/{{ reference }}.csv
     mode: preserve
 
 - name: "Task 4.2: Create File List for Jinja2 temps"
