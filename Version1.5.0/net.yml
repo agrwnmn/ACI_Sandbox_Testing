@@ -122,11 +122,11 @@
         dest: completed_plays/{{reference}}-vars_play.yml
         mode: preserve
     
-#    - name: "Task 13: Clear TN contents of host_vars template"
-#      blockinfile:
-#        path: host_vars/vars.yml
-#        marker: "# {mark} Ansible TN Section"
-#        state: absent
+    - name: "Task 13: Clear TN contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible TN Section"
+        state: absent
 
     - name: "Task 14: Clear VRF contents of host_vars template"
       blockinfile:
