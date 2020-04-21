@@ -38,37 +38,49 @@
     src: templates/csv_con_bind.j2
     dest: output/con_bind/{{ reference }}con_bind.yml
 
-- name: "Task I: Insert App Vars"
+- name: "Task I: Create L3out bindings YAML Vars"
+  template:
+    src: templates/csv_l3out.j2
+    dest: output/l3outs/{{ reference }}l3out.yml
+
+- name: "Task J: Insert App Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/apps/{{ reference }}app.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-app"
     insertbefore: "bds:"
 
-- name: "Task J: Insert BD Vars"
+- name: "Task K: Insert BD Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/bds/{{ reference }}bd.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-bd"
     insertbefore: "epgs:"
 
-- name: "Task K: Insert EPG Vars"
+- name: "Task L: Insert EPG Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/epgs/{{ reference }}epg.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-epg"
     insertbefore: "subs:"
 
-- name: "Task L: Insert EPG Vars"
+- name: "Task M: Insert Subnet Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/subs/{{ reference }}subs.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-subs"
     insertbefore: "con_bindings:"
 
-- name: "Task M: Insert EPG Vars"
+- name: "Task N: Insert Con Bindings Vars"
   blockinfile:
     block: "{{ lookup('file', 'output/con_bind/{{ reference }}con_bind.yml') }}"
     dest: host_vars/vars.yml
     marker: "#{{ reference }}-con_bind"
     insertbefore: "domains:"
+
+- name: "Task O: Insert L3out bindings Vars"
+  blockinfile:
+    block: "{{ lookup('file', 'output/con_bind/{{ reference }}con_bind.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "#{{ reference }}-con_bind"
+    insertbefore: "EOF"
