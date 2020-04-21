@@ -1,5 +1,5 @@
 ﻿App,Tenant,VRF,Tier - (App/Web/DB),Subnet,Gateway,Sunbet Mask,VM or BareMetal,Contract
-app-1555,Shore-Test-1,AT1,App,192.168.100.0,192.168.100.1,/24,vm,permit_all
-app-1555,Shore-Test-1,AT1,Web,192.168.200.0,192.168.200.1,/24,vm,web-contract
-app-3555,Shore-Test-2,AT2,Web,172.16.100.0,172.16.100.1,/24,vm,web-contract
-app-3555,Shore-Test-2,AT2,DB,172.16.200.0,172.16.200.1,/24,vm,db-contract
+app-1555,Shore-Test-1,AT1,App,192.168.100.0,192.168.100.1,24,vm,permit_all
+app-1555,Shore-Test-1,AT1,Web,192.168.200.0,192.168.200.1,24,vm,web-contract
+app-3555,Shore-Test-2,AT2,Web,172.16.100.0,172.16.100.1,24,vm,web-contract
+app-3555,Shore-Test-2,AT2,DB,172.16.200.0,172.16.200.1,24,vm,db-contract
