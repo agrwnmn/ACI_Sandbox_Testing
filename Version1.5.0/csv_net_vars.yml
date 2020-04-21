@@ -62,11 +62,11 @@
     marker: "# {mark} Ansible CON Section"
     insertbefore: "#EOS"
 
-- name: "Task 4.12: Insert Contract Vars"
-  blockinfile:
-    block: "{{ lookup('file', 'output/cons/{{ reference }}cons.yml') }}"
-    dest: host_vars/vars.yml
-    marker: "#{{ reference }}-cons"
-    insertbefore: "#EOS"
+#- name: "Task 4.12: Insert Contract Vars"
+#  blockinfile:
+#    block: "{{ lookup('file', 'output/cons/{{ reference }}cons.yml') }}"
+#    dest: host_vars/vars.yml
+#    marker: "#{{ reference }}-cons"
+#    insertbefore: "#EOS"
 
 
