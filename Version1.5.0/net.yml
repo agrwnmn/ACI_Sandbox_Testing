@@ -126,7 +126,8 @@
       blockinfile:
         path: host_vars/vars.yml
         marker: "tns:"
-        block: "{{ reference }}-TN"
+        block: 
+          "#{{ reference }}-TN"
         state: absent
         insertbefore: "vrfs"
 
