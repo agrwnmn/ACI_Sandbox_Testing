@@ -35,38 +35,18 @@
     marker: "# {mark} Ansible TN Section"
     insertbefore: "vrfs:"
 
-#- name: "Task 4.8: Insert TN Vars"
-#  blockinfile:
-#    block: "{{ lookup('file', 'output/tns/{{ reference }}TNs.yml') }}"
-#    dest: host_vars/vars.yml
-#    marker: "#{{reference }}-TN"
-
-- name: "Task 4.9: Insert VRF Marker"
+- name: "Task 4.8: Insert VRF Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/vrfs/{{ reference }}vrfs.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible VRF Section"
     insertafter: "vrfs:"
 
-#- name: "Task 4.10: Insert VRF Vars"
-#  blockinfile:
-#    block: "{{ lookup('file', 'output/vrfs/{{ reference }}vrfs.yml') }}"
-#    dest: host_vars/vars.yml
-#    marker: "#{{ reference }}-VRF"
-#    insertbefore: "cons:"
-
-- name: "Task 4.11: Insert Contract Marker"
+- name: "Task 4.9: Insert Contract Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/cons/{{ reference }}cons.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible CON Section"
     insertbefore: "#EOS"
-
-#- name: "Task 4.12: Insert Contract Vars"
-#  blockinfile:
-#    block: "{{ lookup('file', 'output/cons/{{ reference }}cons.yml') }}"
-#    dest: host_vars/vars.yml
-#    marker: "#{{ reference }}-cons"
-#    insertbefore: "#EOS"
 
 
