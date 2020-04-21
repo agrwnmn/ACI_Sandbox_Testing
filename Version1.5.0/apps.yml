@@ -188,3 +188,50 @@
         replace: 'state: query'
         after: 'apps'
 
+    - name: "Task 16: Copy var file to new location"
+      copy: 
+        src: host_vars/vars.yml
+        dest: completed_plays/{{reference}}-vars_play.yml
+        mode: preserve
+
+    - name: "Task 17: Clear Apps contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible apps Section"
+        state: absent
+
+    - name: "Task 18: Clear BDs contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible bds Section"
+        state: absent
+
+    - name: "Task 19: Clear EPGs contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible epgs Section"
+        state: absent
+
+    - name: "Task 20: Clear Subs contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible subs Section"
+        state: absent
+
+    - name: "Task 14: Clear Con_Bindings contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible con_bindings Section"
+        state: absent
+
+    - name: "Task 15: Clear Domains contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible domains Section"
+        state: absent
+
+    - name: "Task 15: Clear L3Outs contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible l3outs Section"
+        state: absent
