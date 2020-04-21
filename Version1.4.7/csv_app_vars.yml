@@ -41,7 +41,7 @@
 - name: "Task I: Create Domain YAML Vars"
   template:
     src: templates/csv_domain.j2
-    dest: output/con_bind/{{ reference }}domain.yml
+    dest: output/domain/{{ reference }}domain.yml
 
 - name: "Task J: Create L3out bindings YAML Vars"
   template:
