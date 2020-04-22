@@ -1,10 +1,10 @@
 {% for item in csvfile_vars.split("\n") %}
-{%   if item.index !=1 %}
+{%   if loop.index !=1 %}
 {%     set list = item.split(",") %}
 
   - name: "{{ list[0]|trim() }}_{{ list[3]|trim() }}-bd-l3"
     tenant: "{{ list[1]|trim() }}"
-    bd: "{{ list[0]|trim() }}_{{ list[3]|trim() }}-bd"
+    bd: "{{ list[0]|trim() }}_{{ list[3]|trim() }}-bd-l3"
     l3out: "{{ list[9]|trim() }}"
     state: present
 {%      endif %}
