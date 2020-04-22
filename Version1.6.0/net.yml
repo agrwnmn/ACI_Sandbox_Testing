@@ -46,7 +46,7 @@
         username: "{{ username }}"
         password: "{{ password }}" 
         tenant: "{{ item.name }}"
-        description: "{{ item.description }}"
+#        description: "{{ item.description }}"
         state: "{{ item.state }}"
         validate_certs: False
 
@@ -66,7 +66,7 @@
         password: "{{ password }}"
         tenant: "{{ item.tenant }}"
         vrf: "{{ item.name }}"
-        descr: Lab VRF
+#        descr: Lab VRF
         policy_control_preference: "{{ item.policy_control_preference }}"
         policy_control_direction: "{{ item.policy_control_direction }}"
         state: "{{ item.state }}"
