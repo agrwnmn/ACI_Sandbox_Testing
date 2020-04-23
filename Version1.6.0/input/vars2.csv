@@ -10,3 +10,4 @@ app-1570,Shore-Test-1,AT1,DB,192.168.120.0,192.168.120.1,24,vmm,db-contract,ospf
 app-3560,Shore-Test-2,AT2,App,172.16.110.0,172.16.110.1,24,vmm,permit_all,ospf_test,spod1,vmware
 app-3570,Shore-Test-2,AT2,DB,172.16.120.0,172.16.120.1,24,vmm,db-contract,ospf_test,spod1,vmware
 app-3575,Shore-Test-2,AT2,Web,172.16.130.0,172.16.130.1,24,vmm,web-contract,ospf_test,spod1,vmware
+app-3580,Shore-Test-2,AT2,App,172.16.140.0,172.16.140.1,24,vmm,permit_all,ospf_test,spod1,vmware
