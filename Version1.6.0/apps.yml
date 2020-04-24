@@ -3,6 +3,7 @@
 - name: ACI Apps Build
   hosts: apic
   gather_facts: False
+  ignore_errors: yes
   connection: local
 
   vars_prompt:

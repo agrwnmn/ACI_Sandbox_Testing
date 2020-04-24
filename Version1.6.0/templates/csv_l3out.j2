@@ -6,6 +6,6 @@
     tenant: "{{ list[1]|trim() }}"
     bd: "{{ list[0]|trim() }}_{{ list[3]|trim() }}-bd"
     l3out: "{{ list[9]|trim() }}"
-    state: query
+    state: present
 {%      endif %}
 {% endfor %}
