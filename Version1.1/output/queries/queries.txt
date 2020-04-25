@@ -1,0 +1,1314 @@
+{
+    "changed": false,
+    "msg": "All items completed",
+    "results": [
+        {
+            "ansible_facts": {
+                "discovered_interpreter_python": "/usr/bin/python"
+            },
+            "ansible_loop_var": "item",
+            "changed": false,
+            "current": [
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-infra",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:18:01.578+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "infra",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "0"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-mgmt",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:18:01.531+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "mgmt",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "0"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-common",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:17:56.247+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "common",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "0"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Heroes",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:21:21.292+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Heroes",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-SnV",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:21:21.551+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "SnV",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-tutorial",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:24:44.643+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "tutorial",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-RK_VH",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:28:25.216+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "RK_VH",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-POD5",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:35:40.366+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "POD5",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-tn-TN-IAI",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:38:29.153+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "tn-TN-IAI",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-TN-IAI",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:41:17.799+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "TN-IAI",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Tenant-ABA1",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:45:40.335+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Tenant-ABA1",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Tenant-ABA2",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:47:20.595+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Tenant-ABA2",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "Sales departement",
+                            "dn": "uni/tn-Sales",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:16:46.773+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Sales",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "Tenant configured by Ansible",
+                            "dn": "uni/tn-KK",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:12:37.319+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "KK",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "created by def",
+                            "dn": "uni/tn-jk3",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:22:28.793+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "jk3",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-ACI-SR-SESSION",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:23:29.538+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "ACI-SR-SESSION",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Shore-Test-1",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:25:11.321+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Shore-Test-1",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Shore-Test-2",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:25:16.432+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Shore-Test-2",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Shore-Test-3",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:25:21.560+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Shore-Test-3",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-my_new_tenant",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:35:06.175+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "my_new_tenant",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-mem_main_tn",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:57:51.793+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "mem_main_tn",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-ADRIAN",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T16:04:49.012+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "ADRIAN",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-ADRIAN2",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T16:06:12.229+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "ADRIAN2",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-tenant_kit",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T16:11:04.361+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "tenant_kit",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-MRN_Tenant",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T16:33:28.841+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "MRN_Tenant",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "This tenant is created by terraform",
+                            "dn": "uni/tn-ACMEB-tenant",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T19:01:24.883+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "ACMEB-tenant",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "This tenant is created by terraform",
+                            "dn": "uni/tn-ACMEA-tenant",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T19:01:24.908+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "ACMEA-tenant",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "Tenant configured by Ansible",
+                            "dn": "uni/tn-vpn",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T19:43:02.943+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "vpn",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-AHDY",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T19:46:54.993+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "AHDY",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "This tenant is created by terraform",
+                            "dn": "uni/tn-CISCO-tenant",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T20:13:12.473+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "CISCO-tenant",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Sinte",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T20:54:44.807+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Sinte",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                }
+            ],
+            "failed": false,
+            "invocation": {
+                "module_args": {
+                    "certificate_name": null,
+                    "description": null,
+                    "host": "sandboxapicdc.cisco.com/",
+                    "output_level": "normal",
+                    "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                    "port": null,
+                    "private_key": null,
+                    "protocol": "https",
+                    "state": "query",
+                    "tenant": null,
+                    "timeout": 30,
+                    "use_proxy": true,
+                    "use_ssl": true,
+                    "username": "admin",
+                    "validate_certs": false
+                }
+            },
+            "item": {
+                "descr": "1st tenant",
+                "name": "Shore_Test_1",
+                "state": "query"
+            }
+        },
+        {
+            "ansible_loop_var": "item",
+            "changed": false,
+            "current": [
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-infra",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:18:01.578+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "infra",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "0"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-mgmt",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:18:01.531+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "mgmt",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "0"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-common",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:17:56.247+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "common",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "0"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Heroes",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:21:21.292+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Heroes",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-SnV",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:21:21.551+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "SnV",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-tutorial",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:24:44.643+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "tutorial",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-RK_VH",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:28:25.216+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "RK_VH",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-POD5",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:35:40.366+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "POD5",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-tn-TN-IAI",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:38:29.153+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "tn-TN-IAI",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-TN-IAI",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:41:17.799+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "TN-IAI",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Tenant-ABA1",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:45:40.335+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Tenant-ABA1",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Tenant-ABA2",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T14:47:20.595+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Tenant-ABA2",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "Sales departement",
+                            "dn": "uni/tn-Sales",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:16:46.773+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Sales",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "Tenant configured by Ansible",
+                            "dn": "uni/tn-KK",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:12:37.319+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "KK",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "created by def",
+                            "dn": "uni/tn-jk3",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:22:28.793+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "jk3",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-ACI-SR-SESSION",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:23:29.538+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "ACI-SR-SESSION",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Shore-Test-1",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:25:11.321+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Shore-Test-1",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Shore-Test-2",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:25:16.432+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Shore-Test-2",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Shore-Test-3",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:25:21.560+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Shore-Test-3",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-my_new_tenant",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:35:06.175+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "my_new_tenant",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-mem_main_tn",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T15:57:51.793+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "mem_main_tn",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-ADRIAN",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T16:04:49.012+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "ADRIAN",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-ADRIAN2",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T16:06:12.229+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "ADRIAN2",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-tenant_kit",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T16:11:04.361+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "tenant_kit",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-MRN_Tenant",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T16:33:28.841+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "MRN_Tenant",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "This tenant is created by terraform",
+                            "dn": "uni/tn-ACMEB-tenant",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T19:01:24.883+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "ACMEB-tenant",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "This tenant is created by terraform",
+                            "dn": "uni/tn-ACMEA-tenant",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T19:01:24.908+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "ACMEA-tenant",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "Tenant configured by Ansible",
+                            "dn": "uni/tn-vpn",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T19:43:02.943+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "vpn",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-AHDY",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T19:46:54.993+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "AHDY",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "This tenant is created by terraform",
+                            "dn": "uni/tn-CISCO-tenant",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T20:13:12.473+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "CISCO-tenant",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                },
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Sinte",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-24T20:54:44.807+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Sinte",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                }
+            ],
+            "failed": false,
+            "invocation": {
+                "module_args": {
+                    "certificate_name": null,
+                    "description": null,
+                    "host": "sandboxapicdc.cisco.com/",
+                    "output_level": "normal",
+                    "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                    "port": null,
+                    "private_key": null,
+                    "protocol": "https",
+                    "state": "query",
+                    "tenant": null,
+                    "timeout": 30,
+                    "use_proxy": true,
+                    "use_ssl": true,
+                    "username": "admin",
+                    "validate_certs": false
+                }
+            },
+            "item": {
+                "descr": "2nd tenant",
+                "name": "Shore_Test_2",
+                "state": "query"
+            }
+        }
+    ],
+    "warnings": [
+        "Platform darwin on host sandboxapicdc.cisco.com/ is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See https://docs.ansible.com/ansible/2.8/reference_appendices/interpreter_discovery.html for more information."
+    ]
+}

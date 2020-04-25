@@ -5,13 +5,13 @@ aci_apic:
 
 #Build Section
 tns:  
-  - name: Auto_Test_1
+  - name: Shore_Test_1
     descr: 1st tenant
-    state: absent
+    state: query
   
-  - name: Auto_Test_2
+  - name: Shore_Test_2
     descr: 2nd tenant
-    state: absent
+    state: query
 
 vrfs:
   - name: AT1
