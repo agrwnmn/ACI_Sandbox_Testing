@@ -1,0 +1,116 @@
+{
+    "changed": false,
+    "msg": "All items completed",
+    "results": [
+        {
+            "ansible_facts": {
+                "discovered_interpreter_python": "/usr/bin/python"
+            },
+            "ansible_loop_var": "item",
+            "changed": false,
+            "current": [
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Shore-Test-1",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-25T15:07:26.444+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Shore-Test-1",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                }
+            ],
+            "failed": false,
+            "invocation": {
+                "module_args": {
+                    "certificate_name": null,
+                    "description": null,
+                    "host": "sandboxapicdc.cisco.com/",
+                    "output_level": "normal",
+                    "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                    "port": null,
+                    "private_key": null,
+                    "protocol": "https",
+                    "state": "query",
+                    "tenant": "Shore-Test-1",
+                    "timeout": 30,
+                    "use_proxy": true,
+                    "use_ssl": true,
+                    "username": "admin",
+                    "validate_certs": false
+                }
+            },
+            "item": {
+                "descr": "1st tenant",
+                "name": "Shore-Test-1",
+                "state": "query"
+            }
+        },
+        {
+            "ansible_loop_var": "item",
+            "changed": false,
+            "current": [
+                {
+                    "fvTenant": {
+                        "attributes": {
+                            "annotation": "",
+                            "childAction": "",
+                            "descr": "",
+                            "dn": "uni/tn-Shore-Test-2",
+                            "extMngdBy": "",
+                            "lcOwn": "local",
+                            "modTs": "2020-04-25T15:07:31.391+00:00",
+                            "monPolDn": "uni/tn-common/monepg-default",
+                            "name": "Shore-Test-2",
+                            "nameAlias": "",
+                            "ownerKey": "",
+                            "ownerTag": "",
+                            "status": "",
+                            "uid": "15374"
+                        }
+                    }
+                }
+            ],
+            "failed": false,
+            "invocation": {
+                "module_args": {
+                    "certificate_name": null,
+                    "description": null,
+                    "host": "sandboxapicdc.cisco.com/",
+                    "output_level": "normal",
+                    "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                    "port": null,
+                    "private_key": null,
+                    "protocol": "https",
+                    "state": "query",
+                    "tenant": "Shore-Test-2",
+                    "timeout": 30,
+                    "use_proxy": true,
+                    "use_ssl": true,
+                    "username": "admin",
+                    "validate_certs": false
+                }
+            },
+            "item": {
+                "descr": "2nd tenant",
+                "name": "Shore-Test-2",
+                "state": "query"
+            }
+        }
+    ],
+    "warnings": [
+        "Platform darwin on host sandboxapicdc.cisco.com/ is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change this. See https://docs.ansible.com/ansible/2.8/reference_appendices/interpreter_discovery.html for more information."
+    ]
+}
+"dn": "uni/tn-Shore-Test-1"
+"dn": "uni/tn-Shore-Test-2"

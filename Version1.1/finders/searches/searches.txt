@@ -1,0 +1,4 @@
+ BEGIN Ansible Query Section
+"dn": "uni/tn-Shore-Test-1"
+"dn": "uni/tn-Shore-Test-2"
+ END Ansible Query Section

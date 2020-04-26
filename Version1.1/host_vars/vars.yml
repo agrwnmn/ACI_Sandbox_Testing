@@ -5,11 +5,11 @@ aci_apic:
 
 #Build Section
 tns:  
-  - name: Shore_Test_1
+  - name: Shore-Test-1
     descr: 1st tenant
     state: query
   
-  - name: Shore_Test_2
+  - name: Shore-Test-2
     descr: 2nd tenant
     state: query
 
