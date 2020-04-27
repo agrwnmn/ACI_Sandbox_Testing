@@ -53,8 +53,14 @@
 
     - local_action: copy content="{{ grep_output.stdout | to_nice_json}}" dest='finders/searches_tst.txt'
 
-
+    - name: "Task 7: Grep Tenant String"
+      shell: "grep -i 'tn-{{item.name}}'"
+      with_items:
+        - "{{ tns }}"
+      register: tn_query
+    - debug: var=tn_query
   
+
 #    - name: "Task 7: Query for String"
 #      lineinfile:
 #        path: output/queries/queries.txt
