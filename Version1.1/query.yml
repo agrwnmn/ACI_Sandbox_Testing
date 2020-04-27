@@ -54,9 +54,6 @@
     - local_action: copy content="{{ grep_output.stdout | to_nice_json}}" dest='finders/searches_tst.txt'
 
 
-#      with_items:
-#        - "{{ tns }}"
-
   
 #    - name: "Task 7: Query for String"
 #      lineinfile:
