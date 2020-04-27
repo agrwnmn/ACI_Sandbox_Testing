@@ -2,7 +2,7 @@
 
 - name: Create a Tenant
   hosts: apic
-  gather_facts: False
+  gather_facts: True
   connection: local
 
 #  vars:
@@ -21,7 +21,7 @@
     - name: "Task 3: Add Var File"
       include_vars: host_vars/vars.yml
 
-    - name: "Task 4: Add New Tenant"
+    - name: "Task 4: Query Tenant"
       aci_tenant:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -40,39 +40,43 @@
       
     - debug: var=tenant_output
 
+    - name: "Task 5: Print Query Output"
+      debug: 
+        msg: "{{ tenant_output }}"
+
     - local_action: copy content="{{tenant_output | to_nice_json}}" dest='output/queries/queries.txt'
 
-    - name: "Task 5: Query for String"
-      lineinfile:
-        path: output/queries/queries.txt
-        line: '"dn": "uni/tn-Shore_Test-1"'
-        dest: finders/searches/searches_tst.txt
-        #        marker: " {mark} Ansible TN Query"
-        state: present
-    
-      register: query_results
-    
-    - debug: var=query_results
-  
-    - name: "Task 6: Query for String"
-      lineinfile:
-        path: output/queries/queries.txt
-        line: '"dn": "uni/tn-Shore-Test-2"'
-        dest: finders/searches/searches_tst.txt
-        state: present
-      
-      register: query_tn_results
+    - name: "Task 6: Grep Query String"
+      shell: "grep -i 'dn' output/queries/queries.txt"
+      register: grep_output
+    - debug: var=grep_output
 
-    - debug: var=query_tn_results
+    - local_action: copy content="{{ grep_output.stdout | to_nice_json}}" dest='finders/searches_tst.txt'
+
+
+#      with_items:
+#        - "{{ tns }}"
+
   
-    - name: "Task 7: Add queries to file"
-      blockinfile:
-        path: finders/searches/searches_tst.txt
-        block: |
-          "{{ query_results }}"
-          "{{ query_tn_results }}"
-        dest: finders/searches/searches.txt
-        marker: " {mark} Ansible Query Section"
+#    - name: "Task 7: Query for String"
+#      lineinfile:
+#        path: output/queries/queries.txt
+#        line: '"dn": "uni/tn-Shore-Test-2"'
+#        dest: finders/searches/searches_tst.txt
+#        state: present
+      
+#      register: query_tn_results
+
+#    - debug: var=query_tn_results
+  
+#    - name: "Task 8: Add queries to file"
+#      blockinfile:
+#        path: finders/searches/searches_tst.txt
+#        block: |
+#          "{{ query_results }}"
+#          "{{ query_tn_results }}"
+#        dest: finders/searches/searches.txt
+#        marker: " {mark} Ansible Query Section"
 
 
         
