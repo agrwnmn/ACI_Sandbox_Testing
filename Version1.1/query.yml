@@ -45,8 +45,9 @@
     - name: "Task 5: Query for String"
       lineinfile:
         path: output/queries/queries.txt
-        line: '"dn": "uni/tn-Shore-Test-1"'
-#        marker: " {mark} Ansible TN Query"
+        line: '"dn": "uni/tn-Shore_Test-1"'
+        dest: finders/searches/searches_tst.txt
+        #        marker: " {mark} Ansible TN Query"
         state: present
     
       register: query_results
@@ -57,7 +58,7 @@
       lineinfile:
         path: output/queries/queries.txt
         line: '"dn": "uni/tn-Shore-Test-2"'
-#        dest: searches_tst.txt
+        dest: finders/searches/searches_tst.txt
         state: present
       
       register: query_tn_results
@@ -66,10 +67,10 @@
   
     - name: "Task 7: Add queries to file"
       blockinfile:
-        path: output/queries/queries.txt
+        path: finders/searches/searches_tst.txt
         block: |
-          "dn": "uni/tn-Shore-Test-1"
-          "dn": "uni/tn-Shore-Test-2"
+          "{{ query_results }}"
+          "{{ query_tn_results }}"
         dest: finders/searches/searches.txt
         marker: " {mark} Ansible Query Section"
 
