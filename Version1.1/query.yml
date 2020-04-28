@@ -43,7 +43,10 @@
       when: cat_tn_output.stdout.find('tn-{{ item.name }}') != -1
       with_items:
         - "{{ tns }}"
-      debug: msg="The Tenant '{{ item.name }}' already exists"
+      register: cat_tn_query
+      debug: msg="The Tenant '{{ item.name }}' already exists"    
+    - local_action: copy content="{{ cat_tn_query | to_nice_json}}" dest='output/queries/tn.yml'
+
 
 
 
