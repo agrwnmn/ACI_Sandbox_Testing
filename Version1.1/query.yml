@@ -13,16 +13,10 @@
     - name: "Task 1: Gather Login info"
       include_vars: auth/secrets.yml
     
-    - name: "Task 2: Set user/pass info"
-      set_fact:
-        host: "{{ inventory_hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-    
-    - name: "Task 3: Add Var File"
+    - name: "Task 2: Add Var File"
       include_vars: host_vars/vars.yml
 
-    - name: "Task 4: Query Tenant"
+    - name: "Task 3: Query Tenant"
       aci_tenant:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -38,72 +32,18 @@
 
       with_items:
         - "{{ tns }}"
-      
-    - debug: var=tenant_output
-
-#    - name: "Task 5: Print Query Output"
-#      debug: 
-#        msg: "{{ tenant_output }}"
 
     - local_action: copy content="{{tenant_output | to_nice_json}}" dest='output/queries/queries.txt'
 
-    - name: "Task 6: Read Query Info"
+    - name: "Task 4: Read Tenant Query"
       shell: cat output/queries/queries.txt
-      register: cat_output
+      register: cat_tn_output
 
-    - name: "Task 7: Only happens when Tenant exists"
-      when: cat_output.stdout.find('Shore-Test') != -1
-      debug: msg="Tenant Shore-Test already exists"
-
-#    - name: "Task 6: Grep Query String"
-#      shell: "grep -i '{{ item.name }}' output/queries/queries.txt"
-#      with_items:
-#        - "{{ tns }}"
-#      register: grep_output
-#    - debug: var=grep_output
-
-#    - local_action: copy content="{{ grep_output | to_nice_json}}" dest='finders/searches/searches_query.txt'
-
-#    - name: "Task 7: Grep Tenant String"
-#      shell: "grep -i 'tn-{{ item.name }}' finders/searches/searches_query.txt"
-#      with_items:
-#        - "{{ tns }}"
-#      register: tn_query
-#    - debug: var=tn_query
-
-#    - name: "Task 8: Print Tenant Query"
-#      copy: 
-#        content: "{{ tn_query.stdout[0] }}"
-#        dest: "finders/searches/searches_query.txt"
-  
-
-#    - name: "Task 7: Query for String"
-#      lineinfile:
-#        path: output/queries/queries.txt
-#        line: '"dn": "uni/tn-Shore-Test-2"'
-#        dest: finders/searches/searches_tst.txt
-#        state: present
-      
-#      register: query_tn_results
-
-#    - debug: var=query_tn_results
-  
-#    - name: "Task 8: Add queries to file"
-#      blockinfile:
-#        path: finders/searches/searches_tst.txt
-#        block: |
-#          "{{ query_results }}"
-#          "{{ query_tn_results }}"
-#        dest: finders/searches/searches.txt
-#        marker: " {mark} Ansible Query Section"
-
-
-        
-#    - name: "Task 5: Copy Query Content"
-#      copy: 
-#        content: "{{ tenant_output.stdout[0] }}\n"
-#        dest: "output/queries/queries.txt"
-
+    - name: "Task 5: TN Output Query"
+      when: cat_tn_output.stdout.find('tn-{{ item.name }}') != -1
+      with_items:
+        - "{{ tns }}"
+      debug: msg="The Tenant '{{ item.name }}' already exists"
 
 
 
