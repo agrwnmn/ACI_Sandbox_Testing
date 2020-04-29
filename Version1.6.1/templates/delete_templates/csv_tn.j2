@@ -3,7 +3,7 @@
 {%     set list = item.split(",") %}
 
   - name: "{{ list[1]|trim() }}"
-    state: present
+    state: query
     validate_certs: False
 {%   endif %}
 {% endfor %}

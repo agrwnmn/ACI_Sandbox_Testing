@@ -8,6 +8,6 @@
     epg: "{{ list[0]|trim() }}_{{ list[3]|trim() }}-epg"
     contract: "{{ list[8]|trim() }}"
     contract_type: provider
-    state: present
+    state: delete
 {%      endif %}
 {% endfor %}

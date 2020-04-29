@@ -6,7 +6,7 @@
     tenant: "{{ list[1]|trim() }}"
     policy_control_preference: enforced
     policy_control_direction: ingress
-    state: present
+    state: query
     validate_certs: False
 {%   endif %} 
 {% endfor %}  
