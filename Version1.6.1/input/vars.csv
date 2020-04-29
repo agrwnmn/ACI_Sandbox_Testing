@@ -1,0 +1,4 @@
+Tenant,Alias,App,Tier,Subnet,Gateway,CIDR,VMMDOM,Contracts,ConSubject,ContractType
+DevQA-Test02,DQA02,1122,APP,10.1.2.0,10.1.2.1,28,NonProd,wan-permit-all,permit-all,provider
+DevQA-Test02,DQA02,1122,PRES,10.1.2.16,10.1.2.17,28,NonProd,wan-permit-all,permit-all,provider
+DevQA-Test02,DQA02,1122,DB,10.1.2.32,10.1.2.33,28,NonProd,wan-permit-all,permit-all,provider
