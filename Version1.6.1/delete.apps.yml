@@ -41,7 +41,7 @@
         max_count: 10
         description: Automation snapshot before configs
 
-    - name: "Task 7: Add a new AP"
+    - name: "Task 7: Delete existing AP"
       aci_ap:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -58,7 +58,7 @@
 
     - debug: var=app_output
 
-    - name: "Task 8: Add Bridge Domain"
+    - name: "Task 8: Delete existing Bridge Domain"
       aci_bd:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -75,7 +75,7 @@
       with_items: 
         - "{{ bds }}"
 
-    - name: "Task 9: Add a new EPG"
+    - name: "Task 9: Delete existing EPG"
       aci_epg:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -96,7 +96,7 @@
       
     - debug: var=epg_out
 
-    - name: "Task 10: Create a subnet"
+    - name: "Task 10: Delete existing subnet"
       aci_bd_subnet:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -115,7 +115,7 @@
         - "{{ subs }}"
     - debug: var=subs_out
 
-    - name: "Task 11: Add a new contract to EPG binding"
+    - name: "Task 11: Delete existing contract to EPG binding"
       aci_epg_to_contract:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -135,7 +135,7 @@
 
     - debug: var=binding_out
 
-    - name: "Task 12: Add domain to EPG binding"
+    - name: "Task 12: Remove existing domain from EPG binding"
       aci_epg_to_domain:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -157,7 +157,7 @@
         - "{{ domains }}"
     - debug: var=domain_output
 
-    - name: "Task 13: Bind BD to L3out"
+    - name: "Task 13: Remove existing BD to L3out"
       aci_bd_to_l3out:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
