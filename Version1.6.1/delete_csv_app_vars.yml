@@ -15,37 +15,37 @@
 
 - name: "Task 4.4: Create App YAML Vars"
   template:
-    src: templates/csv_app.j2
+    src: templates/delete_templates/csv_app.j2
     dest: output/apps/{{ reference }}app.yml
 
 - name: "Task 4.5: Create BD YAML Vars"
   template:
-    src: templates/csv_bd.j2
+    src: templates/delete_templates/csv_bd.j2
     dest: output/bds/{{ reference }}bd.yml 
 
 - name: "Task 4.6: Create EPG YAML Vars"
   template:
-    src: templates/csv_epg.j2
+    src: templates/delete_templates/csv_epg.j2
     dest: output/epgs/{{ reference }}epg.yml
 
 - name: "Task 4.7: Create Subnet YAML Vars"
   template:
-    src: templates/csv_subs.j2
+    src: templates/delete_templates/csv_subs.j2
     dest: output/subs/{{ reference }}subs.yml
 
 - name: "Task 4.8: Create EPG Contract Bindings YAML Vars"
   template:
-    src: templates/csv_con_bind.j2
+    src: templates/delete_templates/csv_con_bind.j2
     dest: output/con_bind/{{ reference }}con_bind.yml
 
 - name: "Task 4.9: Create Domain YAML Vars"
   template:
-    src: templates/csv_domain.j2
+    src: templates/delete_templates/csv_domain.j2
     dest: output/domain/{{ reference }}domain.yml
 
 - name: "Task 4.10: Create L3out bindings YAML Vars"
   template:
-    src: templates/csv_l3out.j2
+    src: templates/delete_templates/csv_l3out.j2
     dest: output/l3outs/{{ reference }}l3out.yml
 
 - name: "Task 4.11: Insert App Marker"
