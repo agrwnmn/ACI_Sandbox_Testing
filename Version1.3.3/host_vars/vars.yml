@@ -64,6 +64,8 @@ cons:
     tenant: Shore_Test_2
     scope: application-profile
     state: query 
+
+  - name: leaf
 #EOS
 # Build Apps Section
 
