@@ -1,0 +1,11 @@
+{% for item in csvfile_vars.split("\n") %}
+{%   if item.index !=1 %}
+{%     set list = item.split(",") %}
+
+  - name: "{{ list[0]|trim() }}-fabric_node"
+    serial: "{{ list[0]|trim() }}"
+    node_id: "{{ list[1]|trim() }}"
+    switch: "{{ list[2]|trim() }}"
+    state: query
+{%      endif %}
+{% endfor %}
