@@ -3,6 +3,7 @@
 - name: ACI Fabric Build
   hosts: apic
   gather_facts: False
+  ignore_errors: Yes
   connection: local
 
   vars_prompt:
