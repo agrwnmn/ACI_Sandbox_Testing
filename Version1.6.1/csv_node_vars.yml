@@ -23,7 +23,7 @@
     block: "{{ lookup('file', 'output/nodes/{{ reference }}node.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Node Section"
-    insertbefore: "EOF"
+    insertbefore: "#EOF"
 
 
 
