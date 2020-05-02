@@ -51,9 +51,9 @@
         state: "{{ item.state }}"
       register: node_result
 
-#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+      when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
-#      with_items:
-#        - "{{ nodes }}"
+      with_items:
+        - "{{ nodes }}"
 
     - debug: var=node_result
