@@ -1,0 +1,6 @@
+
+  - name: "FDO2031124L"
+    serial: "FDO2031124L"
+    node_id: "1011"
+    switch: "fab4-sw1011"
+    state: query
