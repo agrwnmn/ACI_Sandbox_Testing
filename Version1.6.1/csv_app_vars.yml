@@ -137,7 +137,7 @@
     block: "{{ lookup('file', 'output/l3outs/{{ reference }}l3out.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible L3out Section"
-    insertbefore: "EOF"
+    insertbefore: "nodes:"
 
 #- name: "Task 4.17: Insert L3out bindings Vars"
 #  blockinfile:
