@@ -1,0 +1,29 @@
+
+- name: "Task 4.1: Copy original CSV file"
+  copy:
+    src: input/vars_node.csv
+    dest: input/csv_copies/{{ reference }}.csv
+    mode: preserve
+
+- name: "Task 4.2: Create File List for Jinja2 temps"
+  include_vars: csv_vars/csv_vars.yml
+
+- name: "Task 4.3: Read CSV file"
+  read_csv:
+    path: input/csv_copies/{{ reference }}.csv
+  register: csv_values
+
+- name: "Task 4.4: Create Node YAML Vars"
+  template:
+    src: templates/csv_node.j2
+    dest: output/nodes/{{ reference }}node.yml
+
+- name: "Task 4.5: Insert Node Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/nodes/{{ reference }}node.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible Node Section"
+    insertbefore: "#EOF"
+
+
+
