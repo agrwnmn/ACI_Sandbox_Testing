@@ -47,7 +47,7 @@
         password: "{{ password }}"
         name: "{{ item.name }}"
         state: "{{ item.state }}"
-      register: node_result
+      register: cdp_result
 
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
