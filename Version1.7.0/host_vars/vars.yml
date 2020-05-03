@@ -3,6 +3,14 @@ aci_apic:
   host: "apic"
   ipv4: 64.103.37.54
 
+#Build Fabric Section
+cdp:  
+
+lldp:
+
+port_channel: 
+
+#EOI
 #Build Infra Section
 tns:  
 
