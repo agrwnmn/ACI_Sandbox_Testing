@@ -80,5 +80,5 @@
     - name: "Task 11: Clear Node contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
-        marker: "# {mark} Ansible Node Section"
+        marker: "# {mark} Ansible CDP Section"
         state: absent
