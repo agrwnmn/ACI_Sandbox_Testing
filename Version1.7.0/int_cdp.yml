@@ -56,27 +56,27 @@
 
     - debug: var=cdp_result
 
-    - name: "Task 10: Change 'present' to 'query' "
+    - name: "Task 8: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOF'
 
-    - name: "Task 11: Change 'absent' to 'query' "
+    - name: "Task 9: Change 'absent' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOF'
 
-    - name: "Task 12: Copy var file to new location"
+    - name: "Task 10: Copy var file to new location"
       copy: 
         src: host_vars/vars.yml
         dest: completed_plays/{{reference}}-vars_play.yml
         mode: preserve
     
-    - name: "Task 13: Clear Node contents of host_vars template"
+    - name: "Task 11: Clear Node contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Node Section"
