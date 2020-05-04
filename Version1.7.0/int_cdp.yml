@@ -77,7 +77,7 @@
         dest: completed_plays/{{reference}}-vars_play.yml
         mode: preserve
     
-    - name: "Task 11: Clear Node contents of host_vars template"
+    - name: "Task 11: Clear CDP contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible CDP Section"
