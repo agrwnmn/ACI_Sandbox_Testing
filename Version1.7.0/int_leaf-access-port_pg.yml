@@ -42,10 +42,11 @@
         description: Automation snapshot before configs
 
     - name: "Task 7: Create Leaf Access Port-Group Policy"
-      aci_interface_policy_port_channel:
+      aci_interface_policy_leaf_policy_group:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
         password: "{{ password }}"
+        policy_group: "{{ item.name }}"
         lag_type: "{{ item.lag_type }}"
         link_level_policy: "{{ item.link_level_policy }}"
         state: "{{ item.state }}"
