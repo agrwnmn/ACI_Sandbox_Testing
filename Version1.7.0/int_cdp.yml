@@ -42,11 +42,11 @@
         description: Automation snapshot before configs
 
     - name: "Task 7: Create CDP Interface Policy"
-      aci_fabric_node:
+      aci_interface_policy_cdp:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
         password: "{{ password }}"
-        cdp_policy: "{{ item.serial }}"
+        cdp_policy: "{{ item.name }}"
         state: "{{ item.state }}"
       register: cdp_result
 
