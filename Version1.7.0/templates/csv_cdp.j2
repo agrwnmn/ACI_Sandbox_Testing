@@ -3,6 +3,6 @@
 {%     set list = item.split(",") %}
 
   - name: "{{ list[0]|trim() }}"
-    state: present
+    state: query
 {%      endif %}
 {%  endfor %}
