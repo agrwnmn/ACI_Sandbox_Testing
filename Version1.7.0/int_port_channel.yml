@@ -46,7 +46,7 @@
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
         password: "{{ password }}"
-        port_channel: '{{ item.port_channel }}'
+        port_channel: '{{ item.name }}'
         mode: '{{ item.mode }}'
         state: "{{ item.state }}"
       register: pc_result
