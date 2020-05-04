@@ -42,13 +42,14 @@
         description: Automation snapshot before configs
 
     - name: "Task 7: Create LLDP Interface Policy"
-      aci_interface_policy_cdp:
+      aci_interface_policy_lldp:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
         password: "{{ password }}"
-        cdp_policy: "{{ item.name }}"
-        state: "{{ item.state }}"
-      register: cdp_result
+        lldp_policy: "{{ item.name }}"
+        receive_state: "{{ item.receive_state }}"
+        transmit_state: "{{ item.transmit_state }}"
+      register: lldp_result
 
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
@@ -77,7 +78,7 @@
         dest: completed_plays/{{reference}}-vars_play.yml
         mode: preserve
     
-    - name: "Task 11: Clear Node contents of host_vars template"
+    - name: "Task 11: Clear LLDP contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible LLDP Section"
