@@ -28,26 +28,37 @@
     src: templates/csv_lldp.j2
     dest: output/lldp/{{ reference }}lldp.yml
 
-- name: "Task 4.7: Insert Fabric Marker"
+- name: "Task 4.7: Create Leaf Access Port Policy-Group Fabric YAML Vars"
+  template:
+    src: templates/csv_leaf_access_pg.j2
+    dest: output/leaf_access_pg/{{ reference }}leaf_access_pg.yml
+
+- name: "Task 4.7: Insert CDP Fabric Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/cdp/{{ reference }}cdp.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible CDP Section"
     insertbefore: "lldp:"
 
-- name: "Task 4.8: Insert Fabric Marker"
+- name: "Task 4.8: Insert LLDP Fabric Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/lldp/{{ reference }}lldp.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible LLDP Section"
     insertbefore: "port_channel:"
 
-- name: "Task 4.9: Insert Fabric Marker"
+- name: "Task 4.9: Insert Port-Channel Fabric Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/pc/{{ reference }}pc.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Port_Channel Section"
-    insertbefore: "#EOI"
+    insertbefore: "leaf_access_port_group:"
 
+- name: "Task 4.9: Insert Leaf-Access Port-Group Fabric Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/leaf_access_pg/{{ reference }}leaf_access_pg.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible Leaf Access Port-Group Section"
+    insertbefore: "#EOI"
 
 

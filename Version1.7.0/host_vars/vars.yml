@@ -10,6 +10,8 @@ lldp:
 
 port_channel: 
 
+leaf_access_port_group:
+
 #EOI
 #Build Infra Section
 tns:  
