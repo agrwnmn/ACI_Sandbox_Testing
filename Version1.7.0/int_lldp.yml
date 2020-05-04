@@ -49,6 +49,7 @@
         lldp_policy: "{{ item.name }}"
         receive_state: "{{ item.receive_state }}"
         transmit_state: "{{ item.transmit_state }}"
+        state: "{{ item.state }}"
       register: lldp_result
 
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
