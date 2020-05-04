@@ -13,17 +13,23 @@
     path: input/csv_copies/{{ reference }}.csv
   register: csv_values
 
-- name: "Task 4.4: Create Fabric YAML Vars"
+- name: "Task 4.4: Create CDP Fabric YAML Vars"
   template:
     src: templates/csv_cdp.j2
     dest: output/cdp/{{ reference }}cdp.yml
 
+- name: "Task 4.5: Create CDP Fabric YAML Vars"
+  template:
+    src: templates/csv_lldp.j2
+    dest: output/lldp/{{ reference }}lldp.yml
+
+
 - name: "Task 4.5: Insert Fabric Marker"
   blockinfile:
-    block: "{{ lookup('file', 'output/cdp/{{ reference }}cdp.yml') }}"
+    block: "{{ lookup('file', 'output/lldp/{{ reference }}lldp.yml') }}"
     dest: host_vars/vars.yml
-    marker: "# {mark} Ansible CDP Section"
-    insertbefore: "lldp:"
+    marker: "# {mark} Ansible LLDP Section"
+    insertbefore: "port_channel:"
 
 
 
