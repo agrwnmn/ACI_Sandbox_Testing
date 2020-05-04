@@ -78,8 +78,8 @@
         dest: completed_plays/{{reference}}-vars_play.yml
         mode: preserve
     
-    - name: "Task 11: Clear LLDP contents of host_vars template"
+    - name: "Task 11: Clear Port_Channel contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
-        marker: "# {mark} Ansible LLDP Section"
+        marker: "# {mark} Ansible Port_Channel Section"
         state: absent
