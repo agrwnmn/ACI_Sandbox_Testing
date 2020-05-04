@@ -54,7 +54,7 @@
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
       with_items:
-        - "{{ pc }}"
+        - "{{ port_channel }}"
 
     - debug: var=pc_result
 

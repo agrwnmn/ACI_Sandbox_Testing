@@ -47,7 +47,7 @@
     block: "{{ lookup('file', 'output/pc/{{ reference }}pc.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Port_Channel Section"
-    insertbefore: "#EOI:"
+    insertbefore: "#EOI"
 
 
 
