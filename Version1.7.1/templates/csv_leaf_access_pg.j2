@@ -6,8 +6,8 @@
     lag_type: leaf
     link_level_policy: "{{ list[5]|trim() }}"
     lldp_policy: "{{ list[1]|trim() }}"
-    cdp_policy: "{{ list[2]|trim() }}"
-    aep: "{{ list[8]|trim() }}"
+    cdp_policy: "{{ list[0]|trim() }}"
+    aep: "{{ list[6]|trim() }}"
     state: present
 {%      endif %}
 {%  endfor %}
