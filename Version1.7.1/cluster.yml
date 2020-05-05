@@ -95,6 +95,13 @@
         state: "{{ item.state }}"
       register: pc_result
 
+      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+
+      with_items:
+        - "{{ port_channel }}"
+
+    - debug: var=pc_result
+
     - name: "Task 11: Create Leaf Access Port-Group Policy"
       aci_interface_policy_leaf_policy_group:
         host: "{{ inventory_hostname }}"
