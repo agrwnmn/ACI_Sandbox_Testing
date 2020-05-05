@@ -68,7 +68,7 @@
 
 - name: "Task 4.9: Insert AEP Fabric Marker"
   blockinfile:
-    block: "{{ lookup('file', 'output/leaf_access_pg/{{ reference }}leaf_access_pg.yml') }}"
+    block: "{{ lookup('file', 'output/aep/{{ reference }}aep.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Leaf Access Port-Group Section"
     insertbefore: "#EOI"
