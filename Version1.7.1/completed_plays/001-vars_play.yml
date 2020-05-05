@@ -1,0 +1,624 @@
+---
+aci_apic:
+  host: "apic"
+  ipv4: 64.103.37.54
+
+#Build Infra Section
+tns:  
+
+vrfs:
+
+cons: 
+
+#EOS
+#Build Apps Section
+
+apps:
+
+# BEGIN Ansible App Section
+
+  - name: "app-1555"
+    tenant: "Shore-Test-1"
+    description: New App
+    state: query
+
+  - name: "app-1555"
+    tenant: "Shore-Test-1"
+    description: New App
+    state: query
+
+  - name: "app-3555"
+    tenant: "Shore-Test-2"
+    description: New App
+    state: query
+
+  - name: "app-3555"
+    tenant: "Shore-Test-2"
+    description: New App
+    state: query
+
+  - name: "app-5555"
+    tenant: "Shore-Test-3"
+    description: New App
+    state: query
+
+  - name: "app-5560"
+    tenant: "Shore-Test-3"
+    description: New App
+    state: query
+
+  - name: "app-1560"
+    tenant: "Shore-Test-1"
+    description: New App
+    state: query
+
+  - name: "app-1570"
+    tenant: "Shore-Test-1"
+    description: New App
+    state: query
+
+  - name: "app-3560"
+    tenant: "Shore-Test-2"
+    description: New App
+    state: query
+
+  - name: "app-3570"
+    tenant: "Shore-Test-2"
+    description: New App
+    state: query
+
+  - name: "app-3575"
+    tenant: "Shore-Test-2"
+    description: New App
+    state: query
+# END Ansible App Section
+bds:
+
+# BEGIN Ansible BD Section
+
+  - name: "app-1555_App-bd"
+    tenant: "Shore-Test-1"
+    vrf: "AT1"
+    state: query
+    validate_certs: no
+
+  - name: "app-1555_Web-bd"
+    tenant: "Shore-Test-1"
+    vrf: "AT1"
+    state: query
+    validate_certs: no
+
+  - name: "app-3555_Web-bd"
+    tenant: "Shore-Test-2"
+    vrf: "AT2"
+    state: query
+    validate_certs: no
+
+  - name: "app-3555_DB-bd"
+    tenant: "Shore-Test-2"
+    vrf: "AT2"
+    state: query
+    validate_certs: no
+
+  - name: "app-5555_Web-bd"
+    tenant: "Shore-Test-3"
+    vrf: "AT3"
+    state: query
+    validate_certs: no
+
+  - name: "app-5560_App-bd"
+    tenant: "Shore-Test-3"
+    vrf: "AT3"
+    state: query
+    validate_certs: no
+
+  - name: "app-1560_App-bd"
+    tenant: "Shore-Test-1"
+    vrf: "AT1"
+    state: query
+    validate_certs: no
+
+  - name: "app-1570_DB-bd"
+    tenant: "Shore-Test-1"
+    vrf: "AT1"
+    state: query
+    validate_certs: no
+
+  - name: "app-3560_App-bd"
+    tenant: "Shore-Test-2"
+    vrf: "AT2"
+    state: query
+    validate_certs: no
+
+  - name: "app-3570_DB-bd"
+    tenant: "Shore-Test-2"
+    vrf: "AT2"
+    state: query
+    validate_certs: no
+
+  - name: "app-3575_Web-bd"
+    tenant: "Shore-Test-2"
+    vrf: "AT2"
+    state: query
+    validate_certs: no
+# END Ansible BD Section
+epgs:
+
+# BEGIN Ansible EPG Section
+
+  - name: "app-1555_App-epg"
+    tenant: "Shore-Test-1"
+    ap: "app-1555"
+    description: EPG for app
+    bd: "app-1555_App-bd"
+    preferred_group: yes
+    state: query
+
+  - name: "app-1555_Web-epg"
+    tenant: "Shore-Test-1"
+    ap: "app-1555"
+    description: EPG for app
+    bd: "app-1555_Web-bd"
+    preferred_group: yes
+    state: query
+
+  - name: "app-3555_Web-epg"
+    tenant: "Shore-Test-2"
+    ap: "app-3555"
+    description: EPG for app
+    bd: "app-3555_Web-bd"
+    preferred_group: yes
+    state: query
+
+  - name: "app-3555_DB-epg"
+    tenant: "Shore-Test-2"
+    ap: "app-3555"
+    description: EPG for app
+    bd: "app-3555_DB-bd"
+    preferred_group: yes
+    state: query
+
+  - name: "app-5555_Web-epg"
+    tenant: "Shore-Test-3"
+    ap: "app-5555"
+    description: EPG for app
+    bd: "app-5555_Web-bd"
+    preferred_group: yes
+    state: query
+
+  - name: "app-5560_App-epg"
+    tenant: "Shore-Test-3"
+    ap: "app-5560"
+    description: EPG for app
+    bd: "app-5560_App-bd"
+    preferred_group: yes
+    state: query
+
+  - name: "app-1560_App-epg"
+    tenant: "Shore-Test-1"
+    ap: "app-1560"
+    description: EPG for app
+    bd: "app-1560_App-bd"
+    preferred_group: yes
+    state: query
+
+  - name: "app-1570_DB-epg"
+    tenant: "Shore-Test-1"
+    ap: "app-1570"
+    description: EPG for app
+    bd: "app-1570_DB-bd"
+    preferred_group: yes
+    state: query
+
+  - name: "app-3560_App-epg"
+    tenant: "Shore-Test-2"
+    ap: "app-3560"
+    description: EPG for app
+    bd: "app-3560_App-bd"
+    preferred_group: yes
+    state: query
+
+  - name: "app-3570_DB-epg"
+    tenant: "Shore-Test-2"
+    ap: "app-3570"
+    description: EPG for app
+    bd: "app-3570_DB-bd"
+    preferred_group: yes
+    state: query
+
+  - name: "app-3575_Web-epg"
+    tenant: "Shore-Test-2"
+    ap: "app-3575"
+    description: EPG for app
+    bd: "app-3575_Web-bd"
+    preferred_group: yes
+    state: query
+# END Ansible EPG Section
+subs:
+
+# BEGIN Ansible Subnet Section
+
+  - name: "192.168.100.0"
+    tenant: "Shore-Test-1"
+    bd: "app-1555_App-bd"
+    gateway: "192.168.100.1"
+    mask: "24"
+    scope: public
+    state: query
+
+  - name: "192.168.200.0"
+    tenant: "Shore-Test-1"
+    bd: "app-1555_Web-bd"
+    gateway: "192.168.200.1"
+    mask: "24"
+    scope: public
+    state: query
+
+  - name: "172.16.100.0"
+    tenant: "Shore-Test-2"
+    bd: "app-3555_Web-bd"
+    gateway: "172.16.100.1"
+    mask: "24"
+    scope: public
+    state: query
+
+  - name: "172.16.200.0"
+    tenant: "Shore-Test-2"
+    bd: "app-3555_DB-bd"
+    gateway: "172.16.200.1"
+    mask: "24"
+    scope: public
+    state: query
+
+  - name: "10.10.2.0"
+    tenant: "Shore-Test-3"
+    bd: "app-5555_Web-bd"
+    gateway: "10.10.2.1"
+    mask: "24"
+    scope: public
+    state: query
+
+  - name: "10.10.3.0"
+    tenant: "Shore-Test-3"
+    bd: "app-5560_App-bd"
+    gateway: "10.10.3.1"
+    mask: "24"
+    scope: public
+    state: query
+
+  - name: "192.168.110.0"
+    tenant: "Shore-Test-1"
+    bd: "app-1560_App-bd"
+    gateway: "192.168.110.1"
+    mask: "24"
+    scope: public
+    state: query
+
+  - name: "192.168.120.0"
+    tenant: "Shore-Test-1"
+    bd: "app-1570_DB-bd"
+    gateway: "192.168.120.1"
+    mask: "24"
+    scope: public
+    state: query
+
+  - name: "172.16.110.0"
+    tenant: "Shore-Test-2"
+    bd: "app-3560_App-bd"
+    gateway: "172.16.110.1"
+    mask: "24"
+    scope: public
+    state: query
+
+  - name: "172.16.120.0"
+    tenant: "Shore-Test-2"
+    bd: "app-3570_DB-bd"
+    gateway: "172.16.120.1"
+    mask: "24"
+    scope: public
+    state: query
+
+  - name: "172.16.130.0"
+    tenant: "Shore-Test-2"
+    bd: "app-3575_Web-bd"
+    gateway: "172.16.130.1"
+    mask: "24"
+    scope: public
+    state: query
+# END Ansible Subnet Section
+con_bindings:
+
+# BEGIN Ansible Contract_Binding Section
+
+  - name: "app-1555_permit_all"
+    tenant: "Shore-Test-1"
+    ap: "app-1555"
+    epg: "app-1555_App-epg"
+    contract: "permit_all"
+    contract_type: provider
+    state: query
+
+  - name: "app-1555_web-contract"
+    tenant: "Shore-Test-1"
+    ap: "app-1555"
+    epg: "app-1555_Web-epg"
+    contract: "web-contract"
+    contract_type: provider
+    state: query
+
+  - name: "app-3555_web-contract"
+    tenant: "Shore-Test-2"
+    ap: "app-3555"
+    epg: "app-3555_Web-epg"
+    contract: "web-contract"
+    contract_type: provider
+    state: query
+
+  - name: "app-3555_db-contract"
+    tenant: "Shore-Test-2"
+    ap: "app-3555"
+    epg: "app-3555_DB-epg"
+    contract: "db-contract"
+    contract_type: provider
+    state: query
+
+  - name: "app-5555_web-contract"
+    tenant: "Shore-Test-3"
+    ap: "app-5555"
+    epg: "app-5555_Web-epg"
+    contract: "web-contract"
+    contract_type: provider
+    state: query
+
+  - name: "app-5560_permit_all"
+    tenant: "Shore-Test-3"
+    ap: "app-5560"
+    epg: "app-5560_App-epg"
+    contract: "permit_all"
+    contract_type: provider
+    state: query
+
+  - name: "app-1560_permit_all"
+    tenant: "Shore-Test-1"
+    ap: "app-1560"
+    epg: "app-1560_App-epg"
+    contract: "permit_all"
+    contract_type: provider
+    state: query
+
+  - name: "app-1570_db-contract"
+    tenant: "Shore-Test-1"
+    ap: "app-1570"
+    epg: "app-1570_DB-epg"
+    contract: "db-contract"
+    contract_type: provider
+    state: query
+
+  - name: "app-3560_permit_all"
+    tenant: "Shore-Test-2"
+    ap: "app-3560"
+    epg: "app-3560_App-epg"
+    contract: "permit_all"
+    contract_type: provider
+    state: query
+
+  - name: "app-3570_db-contract"
+    tenant: "Shore-Test-2"
+    ap: "app-3570"
+    epg: "app-3570_DB-epg"
+    contract: "db-contract"
+    contract_type: provider
+    state: query
+
+  - name: "app-3575_web-contract"
+    tenant: "Shore-Test-2"
+    ap: "app-3575"
+    epg: "app-3575_Web-epg"
+    contract: "web-contract"
+    contract_type: provider
+    state: query
+# END Ansible Contract_Binding Section
+domains:
+
+# BEGIN Ansible Domain Section
+
+  - name: "spod1"
+    tenant: "Shore-Test-1"
+    ap: "app-1555"
+    epg: "app-1555_App-epg"
+    domain: "spod1"
+    domain_type: "vmm"
+    vm_provider: "vmware"
+    deploy_immediacy: immediate
+    resolution_immediacy: immediate
+    state: query
+
+  - name: "spod1"
+    tenant: "Shore-Test-1"
+    ap: "app-1555"
+    epg: "app-1555_Web-epg"
+    domain: "spod1"
+    domain_type: "vmm"
+    vm_provider: "vmware"
+    deploy_immediacy: immediate
+    resolution_immediacy: immediate
+    state: query
+
+  - name: "spod1"
+    tenant: "Shore-Test-2"
+    ap: "app-3555"
+    epg: "app-3555_Web-epg"
+    domain: "spod1"
+    domain_type: "vmm"
+    vm_provider: "vmware"
+    deploy_immediacy: immediate
+    resolution_immediacy: immediate
+    state: query
+
+  - name: "spod1"
+    tenant: "Shore-Test-2"
+    ap: "app-3555"
+    epg: "app-3555_DB-epg"
+    domain: "spod1"
+    domain_type: "vmm"
+    vm_provider: "vmware"
+    deploy_immediacy: immediate
+    resolution_immediacy: immediate
+    state: query
+
+  - name: "spod1"
+    tenant: "Shore-Test-3"
+    ap: "app-5555"
+    epg: "app-5555_Web-epg"
+    domain: "spod1"
+    domain_type: "vmm"
+    vm_provider: "vmware"
+    deploy_immediacy: immediate
+    resolution_immediacy: immediate
+    state: query
+
+  - name: "spod1"
+    tenant: "Shore-Test-3"
+    ap: "app-5560"
+    epg: "app-5560_App-epg"
+    domain: "spod1"
+    domain_type: "vmm"
+    vm_provider: "vmware"
+    deploy_immediacy: immediate
+    resolution_immediacy: immediate
+    state: query
+
+  - name: "spod1"
+    tenant: "Shore-Test-1"
+    ap: "app-1560"
+    epg: "app-1560_App-epg"
+    domain: "spod1"
+    domain_type: "vmm"
+    vm_provider: "vmware"
+    deploy_immediacy: immediate
+    resolution_immediacy: immediate
+    state: query
+
+  - name: "spod1"
+    tenant: "Shore-Test-1"
+    ap: "app-1570"
+    epg: "app-1570_DB-epg"
+    domain: "spod1"
+    domain_type: "vmm"
+    vm_provider: "vmware"
+    deploy_immediacy: immediate
+    resolution_immediacy: immediate
+    state: query
+
+  - name: "spod1"
+    tenant: "Shore-Test-2"
+    ap: "app-3560"
+    epg: "app-3560_App-epg"
+    domain: "spod1"
+    domain_type: "vmm"
+    vm_provider: "vmware"
+    deploy_immediacy: immediate
+    resolution_immediacy: immediate
+    state: query
+
+  - name: "spod1"
+    tenant: "Shore-Test-2"
+    ap: "app-3570"
+    epg: "app-3570_DB-epg"
+    domain: "spod1"
+    domain_type: "vmm"
+    vm_provider: "vmware"
+    deploy_immediacy: immediate
+    resolution_immediacy: immediate
+    state: query
+
+  - name: "spod1"
+    tenant: "Shore-Test-2"
+    ap: "app-3575"
+    epg: "app-3575_Web-epg"
+    domain: "spod1"
+    domain_type: "vmm"
+    vm_provider: "vmware"
+    deploy_immediacy: immediate
+    resolution_immediacy: immediate
+    state: query
+# END Ansible Domain Section
+new_l3:
+
+l3outs:
+
+# BEGIN Ansible L3out Section
+
+  - name: "﻿App_Tier - (App/Web/DB)-bd-l3"
+    tenant: "Tenant"
+    bd: "﻿App_Tier - (App/Web/DB)-bd"
+    l3out: "L3"
+    state: query
+
+  - name: "app-1555_App-bd-l3"
+    tenant: "Shore-Test-1"
+    bd: "app-1555_App-bd"
+    l3out: "ospf_test"
+    state: query
+
+  - name: "app-1555_Web-bd-l3"
+    tenant: "Shore-Test-1"
+    bd: "app-1555_Web-bd"
+    l3out: "ospf_test"
+    state: query
+
+  - name: "app-3555_Web-bd-l3"
+    tenant: "Shore-Test-2"
+    bd: "app-3555_Web-bd"
+    l3out: "ospf_test"
+    state: query
+
+  - name: "app-3555_DB-bd-l3"
+    tenant: "Shore-Test-2"
+    bd: "app-3555_DB-bd"
+    l3out: "ospf_test"
+    state: query
+
+  - name: "app-5555_Web-bd-l3"
+    tenant: "Shore-Test-3"
+    bd: "app-5555_Web-bd"
+    l3out: "ospf_test"
+    state: query
+
+  - name: "app-5560_App-bd-l3"
+    tenant: "Shore-Test-3"
+    bd: "app-5560_App-bd"
+    l3out: "ospf_test"
+    state: query
+
+  - name: "app-1560_App-bd-l3"
+    tenant: "Shore-Test-1"
+    bd: "app-1560_App-bd"
+    l3out: "ospf_test"
+    state: query
+
+  - name: "app-1570_DB-bd-l3"
+    tenant: "Shore-Test-1"
+    bd: "app-1570_DB-bd"
+    l3out: "ospf_test"
+    state: query
+
+  - name: "app-3560_App-bd-l3"
+    tenant: "Shore-Test-2"
+    bd: "app-3560_App-bd"
+    l3out: "ospf_test"
+    state: query
+
+  - name: "app-3570_DB-bd-l3"
+    tenant: "Shore-Test-2"
+    bd: "app-3570_DB-bd"
+    l3out: "ospf_test"
+    state: query
+
+  - name: "app-3575_Web-bd-l3"
+    tenant: "Shore-Test-2"
+    bd: "app-3575_Web-bd"
+    l3out: "ospf_test"
+    state: query
+# END Ansible L3out Section
+#EOF

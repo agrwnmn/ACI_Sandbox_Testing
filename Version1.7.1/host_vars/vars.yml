@@ -1,0 +1,46 @@
+---
+aci_apic:
+  host: "apic"
+  ipv4: 64.103.37.54
+
+#Build Fabric Section
+cdp:  
+
+lldp:
+
+port_channel: 
+
+leaf_access_port_group:
+
+aep:
+
+#EOI
+#Build Infra Section
+tns:  
+
+vrfs:
+
+cons: 
+
+#EOS
+#Build Apps Section
+
+apps:
+
+bds:
+
+epgs:
+
+subs:
+
+con_bindings:
+
+domains:
+
+new_l3:
+
+l3outs:
+
+nodes:
+
+#EOF
