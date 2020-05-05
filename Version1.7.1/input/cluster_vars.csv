@@ -1,2 +1,2 @@
-﻿CDP Policy Name,LLDP Policy Name,Port-Channel Name,Port-Channel Mode,Leaf_Access Port Policy Group Name,Link_Level_Policy,AEP,Domain,Domain_Type,VM_Provider,Switch_Name,VPC Name,Link-type
-CDP-Enable,LLDP-Disable,LACP-Active,active,PAN_vWire_Port_1,10G,SPOD-1,SPOD-1,vmm,vmware,601,CH-99-A-M-VPC,node
+﻿CDP Policy Name,LLDP Policy Name,Port-Channel Name,Port-Channel Mode,Policy_Name,Link_Level_Policy,AEP,Domain,Domain_Type,VM_Provider,Switch_Name,Link-type
+CDP-Enable,LLDP-Disable,LACP-Active,active,CH-99-A-M-VPC,10G,SPOD-1,SPOD-1,vmm,vmware,601,node
