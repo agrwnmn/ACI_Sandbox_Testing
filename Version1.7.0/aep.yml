@@ -42,7 +42,7 @@
         description: Automation snapshot before configs
 
     - name: "Task 7: Create Attached Entity Profile"
-      aci_interface_policy_leaf_policy_group:
+      aci_aep:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
         password: "{{ password }}"
