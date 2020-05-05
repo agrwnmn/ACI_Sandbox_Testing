@@ -110,6 +110,9 @@
         policy_group: "{{ item.name }}"
         lag_type: "{{ item.lag_type }}"
         link_level_policy: "{{ item.link_level_policy }}"
+        lldp_policy: "{{ item.lldp_policy }}"
+        cdp_policy: "{{ item.cdp_policy }}"
+        aep: "{{ item.aep }}"
         state: "{{ item.state }}"
       register: leaf_access_result
 
