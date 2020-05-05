@@ -1,0 +1,148 @@
+---
+
+- name: ACI Nutanix Build
+  hosts: apic
+  gather_facts: False
+  ignore_errors: Yes
+  connection: local
+
+  vars_prompt:
+  - name: ref_prompt
+    prompt: "CR Number"
+    private: no  
+
+  tasks: 
+    - name: "Task 1: Gather Login info"
+      include_vars: auth/secrets.yml
+  
+    - name: "Task 2: Gather Reference Number"
+      set_fact:
+        reference: "{{ ref_prompt }}"
+    
+    - name: "Task 3: Set user/pass info"
+      set_fact:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+
+    - name: "Task 4: Update '{{ inventory_hostname }}'' from CSV"
+      include: csv_cluster_vars.yml
+
+    - name: "Task 5: Add Var File"
+      include_vars: host_vars/vars.yml
+
+    - name: "Task 6: Create a Snapshot"
+      aci_config_snapshot:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        state: present
+        export_policy: ansible_snapshot
+        max_count: 10
+        description: Automation snapshot before configs
+
+    - name: "Task 7: Create Attached Entity Profile"
+      aci_aep:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        aep: "{{ item.name }}"
+        state: "{{ item.state }}"
+      register: aep_result
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+
+      with_items:
+        - "{{ aep }}"
+
+    - name: "Task 8: Create CDP Interface Policy"
+      aci_interface_policy_cdp:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        cdp_policy: "{{ item.name }}"
+        state: "{{ item.state }}"
+      register: cdp_result
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+
+      with_items:
+        - "{{ cdp }}"
+
+    - name: "Task 9: Create LLDP Interface Policy"
+      aci_interface_policy_lldp:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        lldp_policy: "{{ item.name }}"
+        receive_state: "{{ item.receive_state }}"
+        transmit_state: "{{ item.transmit_state }}"
+        state: "{{ item.state }}"
+      register: lldp_result
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+
+      with_items:
+        - "{{ lldp }}"
+
+    - name: "Task 10: Create Leaf Access Port-Group Policy"
+      aci_interface_policy_leaf_policy_group:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        policy_group: "{{ item.name }}"
+        lag_type: "{{ item.lag_type }}"
+        link_level_policy: "{{ item.link_level_policy }}"
+        state: "{{ item.state }}"
+      register: leaf_access_result
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+
+      with_items:
+        - "{{ leaf_access_port_group }}"
+
+    - debug: var=leaf_access_result
+
+    - name: "Task 11: Change 'present' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        before: '#EOF'
+
+    - name: "Task 12: Change 'absent' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        before: '#EOF'
+
+    - name: "Task 13: Copy var file to new location"
+      copy: 
+        src: host_vars/vars.yml
+        dest: completed_plays/{{reference}}-vars_play.yml
+        mode: preserve
+
+    - name: "Task 14: Clear AEP contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible AEP Section"
+        state: absent
+
+    - name: "Task 15: Clear CDP contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible CDP Section"
+        state: absent
+        
+    - name: "Task 16: Clear Port_Channel contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible LLDP Section"
+        state: absent
+
+    - name: "Task 17: Clear Port_Channel contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible Leaf Access Port-Group Section"
+        state: absent
