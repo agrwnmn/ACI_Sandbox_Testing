@@ -55,19 +55,19 @@
       with_items:
         - "{{ aep }}"
 
-    - name: "Task 8: Create CDP Interface Policy"
-      aci_interface_policy_cdp:
-        host: "{{ inventory_hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        cdp_policy: "{{ item.name }}"
-        state: "{{ item.state }}"
-      register: cdp_result
+#    - name: "Task 8: Create CDP Interface Policy"
+#      aci_interface_policy_cdp:
+#        host: "{{ inventory_hostname }}"
+#        username: "{{ username }}"
+#        password: "{{ password }}"
+#        cdp_policy: "{{ item.name }}"
+#        state: "{{ item.state }}"
+#      register: cdp_result
 
-      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
-      with_items:
-        - "{{ cdp }}"
+#     with_items:
+#       - "{{ cdp }}"
 
     - name: "Task 9: Create LLDP Interface Policy"
       aci_interface_policy_lldp:
