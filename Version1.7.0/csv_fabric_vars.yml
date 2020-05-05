@@ -33,6 +33,11 @@
     src: templates/csv_leaf_access_pg.j2
     dest: output/leaf_access_pg/{{ reference }}leaf_access_pg.yml
 
+- name: "Task 4.7: Create AEP Fabric YAML Vars"
+  template:
+    src: templates/csv_aep.j2
+    dest: output/aep/{{ reference }}aep.yml
+
 - name: "Task 4.7: Insert CDP Fabric Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/cdp/{{ reference }}cdp.yml') }}"
@@ -59,6 +64,12 @@
     block: "{{ lookup('file', 'output/leaf_access_pg/{{ reference }}leaf_access_pg.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Leaf Access Port-Group Section"
-    insertbefore: "#EOI"
+    insertbefore: "aep:"
 
+- name: "Task 4.9: Insert AEP Fabric Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/leaf_access_pg/{{ reference }}leaf_access_pg.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible Leaf Access Port-Group Section"
+    insertbefore: "#EOI"
 
