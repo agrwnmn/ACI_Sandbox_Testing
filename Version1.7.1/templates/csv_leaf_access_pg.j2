@@ -3,7 +3,7 @@
 {%     set list = item.split(",") %}
 
   - name: "{{ list[4]|trim() }}"
-    lag_type: leaf
+    lag_type: "{{ list[12]|trim() }}"
     link_level_policy: "{{ list[5]|trim() }}"
     lldp_policy: "{{ list[1]|trim() }}"
     cdp_policy: "{{ list[0]|trim() }}"
