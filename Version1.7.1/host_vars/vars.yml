@@ -14,6 +14,8 @@ leaf_access_port_group:
 
 aep:
 
+sw_profile:
+
 #EOI
 #Build Infra Section
 tns:  
