@@ -2,7 +2,7 @@
 {%   if loop.index !=1 %}
 {%     set list = item.split(",") %}
 
-  - name: "{{ list[12]|trim() }}"
+  - name: "{{ list[0]|trim() }}"
     state: absent
 {%      endif %}
 {%  endfor %}
