@@ -54,7 +54,7 @@
 
 - name: "Task 4.12: Create Access Port Cluster YAML Vars"
   template:
-    src: templates/csv_access_ports.j2
+    src: templates/csv_access_port.j2
     dest: output/access_ports/{{ reference }}access_ports.yml
 
 #- name: "Task 4.9: Create Leaf Int Profile Cluster YAML Vars"
