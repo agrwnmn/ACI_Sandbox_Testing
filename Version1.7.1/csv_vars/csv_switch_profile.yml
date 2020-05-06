@@ -1,2 +1,2 @@
 ---
-csvswitch_vars: "{{ lookup('file', 'input/csv_copies/{{ reference }}.csv') }}"
+csvswitch_vars: "{{ lookup('file', 'input/csv_copies/{{ reference }}-switch.csv') }}"
