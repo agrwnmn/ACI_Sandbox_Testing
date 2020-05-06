@@ -129,7 +129,7 @@
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
         password: "{{ password }}"
-        leaf_interface_profile: "{{ item.leaf_int_profile }}"
+        leaf_interface_profile: "{{ item.leaf_interface_profile }}"
         access_port_selector: "{{ item.name }}"
         leaf_port_blk: "{{ item.leaf_port_blk }}"
         from_port: "{{ item.from_port }}"
