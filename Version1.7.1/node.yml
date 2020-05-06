@@ -57,28 +57,49 @@
 
     - debug: var=node_result
 
-    - name: "Task 10: Change 'present' to 'query' "
+    - name: "Task 8: Create Leaf Interface Profile"
+      aci_switch_policy_leaf_profile:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        leaf_profile: "{{ item.name }}"
+        state: present
+      register: leaf_profile
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+
+      with_items:
+        - "{{ sw_profile }}"     
+
+
+    - name: "Task 9: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOF'
 
-    - name: "Task 11: Change 'absent' to 'query' "
+    - name: "Task 10: Change 'absent' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOF'
 
-    - name: "Task 12: Copy var file to new location"
+    - name: "Task 11: Copy var file to new location"
       copy: 
         src: host_vars/vars.yml
         dest: completed_plays/{{reference}}-vars_play.yml
         mode: preserve
     
-    - name: "Task 13: Clear Node contents of host_vars template"
+    - name: "Task 12: Clear Node contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Node Section"
+        state: absent
+
+    - name: "Task 13: Clear Leaf Int Profile contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible Leaf Profile Section"
         state: absent
