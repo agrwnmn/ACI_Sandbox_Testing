@@ -57,7 +57,7 @@
 
     - debug: var=node_result
 
-    - name: "Task 8: Create Leaf Interface Profile"
+    - name: "Task 8: Create Leaf Switch Profile"
       aci_switch_policy_leaf_profile:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -71,7 +71,7 @@
       with_items:
         - "{{ sw_profile }}"     
 
-    - name: "Task: 9 Create leaf_interface_profile"
+    - name: "Task: 9 Create Leaf Interface Profile"
       aci_interface_policy_leaf_profile:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
