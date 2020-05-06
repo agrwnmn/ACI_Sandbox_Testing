@@ -134,7 +134,7 @@
         leaf_port_blk: "{{ item.leaf_port_blk }}"
         from_port: "{{ item.from_port }}"
         to_port: "{{ item.to_port }}"
-        policy_group: "{{ item.access_group }}"
+        policy_group: "{{ item.policy_group }}"
         state: present
       register: access_ports
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
