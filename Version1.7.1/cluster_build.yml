@@ -124,20 +124,20 @@
 
     - debug: var=leaf_access_result
 
-    - name: "Task: 12 Create leaf_interface_profile"
-      aci_interface_policy_leaf_profile:
-        host: "{{ inventory_hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        leaf_interface_profile: "{{ item.name }}"
-        state: "{{ item.state }}"
-      register: leaf_int_profile
-      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+#    - name: "Task: 12 Create leaf_interface_profile"
+#      aci_interface_policy_leaf_profile:
+#        host: "{{ inventory_hostname }}"
+#        username: "{{ username }}"
+#        password: "{{ password }}"
+#        leaf_interface_profile: "{{ item.name }}"
+#        state: "{{ item.state }}"
+#      register: leaf_int_profile
+#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
-      with_items:
-        - "{{ leaf_int_profile }}"
+#      with_items:
+#        - "{{ leaf_int_profile }}"
 
-    - debug: var=leaf_int_profile
+#    - debug: var=leaf_int_profile
 
     - name: "Task 13: Change 'present' to 'query' "
       replace: 
@@ -189,8 +189,8 @@
         marker: "# {mark} Ansible Leaf Access Port-Group Section"
         state: absent
 
-    - name: "Task 22: Clear Leaf Int Profile contents of host_vars template"
-      blockinfile:
-        path: host_vars/vars.yml
-        marker: "# {mark} Ansible Leaf Int Profile Section"
-        state: absent
+#    - name: "Task 22: Clear Leaf Int Profile contents of host_vars template"
+#      blockinfile:
+#        path: host_vars/vars.yml
+#        marker: "# {mark} Ansible Leaf Int Profile Section"
+#        state: absent

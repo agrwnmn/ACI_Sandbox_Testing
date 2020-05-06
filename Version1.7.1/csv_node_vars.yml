@@ -37,19 +37,31 @@
     src: templates/csv_leaf_profile.j2
     dest: output/leaf_profile/{{ reference }}leaf_profile.yml
 
-- name: "Task 4.9: Insert Node Marker"
+- name: "Task 4.9: Create Leaf Int Profile Fabric YAML Vars"
+  template:
+    src: templates/csv_leaf_int_profile.j2
+    dest: output/leaf_int_profile/{{ reference }}leaf_int_profile.yml
+
+- name: "Task 4.10: Insert Node Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/nodes/{{ reference }}node.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Node Section"
     insertbefore: "#EOF"
 
-- name: "Task 4.10: Insert Leaf Profile Marker"
+- name: "Task 4.11: Insert Leaf Profile Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/leaf_profile/{{ reference }}leaf_profile.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Leaf Profile Section"
     insertbefore: "#EOI"
+
+- name: "Task 4.12: Insert Leaf Int Profile Fabric Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/leaf_int_profile/{{ reference }}leaf_int_profile.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible Leaf Int Profile Section"
+    insertbefore: "aep:"
 
 
 

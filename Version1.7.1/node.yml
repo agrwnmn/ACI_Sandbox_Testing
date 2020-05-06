@@ -71,35 +71,55 @@
       with_items:
         - "{{ sw_profile }}"     
 
+    - name: "Task: 9 Create leaf_interface_profile"
+      aci_interface_policy_leaf_profile:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        leaf_interface_profile: "{{ item.name }}"
+        state: "{{ item.state }}"
+      register: leaf_int_profile
+      when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
-    - name: "Task 9: Change 'present' to 'query' "
+      with_items:
+        - "{{ leaf_int_profile }}"
+
+    - debug: var=leaf_int_profile
+
+    - name: "Task 10: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOF'
 
-    - name: "Task 10: Change 'absent' to 'query' "
+    - name: "Task 11: Change 'absent' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOF'
 
-    - name: "Task 11: Copy var file to new location"
+    - name: "Task 12: Copy var file to new location"
       copy: 
         src: host_vars/vars.yml
         dest: completed_plays/{{reference}}-vars_play.yml
         mode: preserve
     
-    - name: "Task 12: Clear Node contents of host_vars template"
+    - name: "Task 13: Clear Node contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Node Section"
         state: absent
 
-    - name: "Task 13: Clear Leaf Int Profile contents of host_vars template"
+    - name: "Task 14: Clear Leaf Int Profile contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Leaf Profile Section"
+        state: absent
+
+    - name: "Task 15: Clear Leaf Int Profile contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible Leaf Int Profile Section"
         state: absent
