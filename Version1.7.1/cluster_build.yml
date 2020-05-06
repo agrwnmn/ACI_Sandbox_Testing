@@ -135,6 +135,13 @@
         from_port: "{{ item.from_port }}"
         to_port: "{{ item.to_port }}"
         state: present
+      register: access_ports
+      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+
+      with_items:
+        - "{{ access_ports }}"
+
+    - debug: var=access_ports
 
 #    - name: "Task: 12 Create leaf_interface_profile"
 #      aci_interface_policy_leaf_profile:
