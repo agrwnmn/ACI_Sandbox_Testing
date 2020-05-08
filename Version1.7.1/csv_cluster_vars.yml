@@ -57,6 +57,11 @@
     src: templates/csv_access_port.j2
     dest: output/access_ports/{{ reference }}access_ports.yml
 
+- name: "Task 4.13: Create vPC Port Group Cluster YAML Vars"
+  template:
+    src: templates/csv_vpc_pg.j2
+    dest: output/vpc_pg/{{ reference }}vpc_pg.yml
+
 #- name: "Task 4.9: Create Leaf Int Profile Cluster YAML Vars"
 #  template:
 #    src: templates/csv_leaf_int_profile.j2
@@ -102,6 +107,13 @@
     block: "{{ lookup('file', 'output/access_ports/{{ reference }}access_ports.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Access Ports Section"
+    insertbefore: "vPC_pg:"
+
+- name: "Task 4.15: Insert Access Port Cluster Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/vpg_pg/{{ reference }}vpc_pg.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible vPC Port Group Section"
     insertbefore: "sw_profile:"
 
 #- name: "Task 4.15: Insert Leaf Int Profile Cluster Marker"
