@@ -158,7 +158,7 @@
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
       with_items:
-        - "{{ vpc_group }}"
+        - "{{ vPC_pg }}"
 
 #    - name: "Task: 12 Create leaf_interface_profile"
 #      aci_interface_policy_leaf_profile:
