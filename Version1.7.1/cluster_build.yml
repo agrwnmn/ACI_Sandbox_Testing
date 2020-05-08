@@ -144,7 +144,7 @@
 
     - debug: var=access_ports
 
-    - name: "Task 18: Add vPC Protection Group"
+    - name: "Task 13: Add vPC Protection Group"
       aci_switch_policy_vpc_protection_group:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -175,63 +175,63 @@
 
 #    - debug: var=leaf_int_profile
 
-    - name: "Task 13: Change 'present' to 'query' "
+    - name: "Task 14: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOF'
 
-    - name: "Task 14: Change 'absent' to 'query' "
+    - name: "Task 15: Change 'absent' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOF'
 
-    - name: "Task 15: Copy var file to new location"
+    - name: "Task 16: Copy var file to new location"
       copy: 
         src: host_vars/vars.yml
         dest: completed_plays/{{reference}}-vars_play.yml
         mode: preserve
 
-    - name: "Task 16: Clear AEP contents of host_vars template"
+    - name: "Task 17: Clear AEP contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible AEP Section"
         state: absent
 
-    - name: "Task 17: Clear CDP contents of host_vars template"
+    - name: "Task 18: Clear CDP contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible CDP Section"
         state: absent
         
-    - name: "Task 18: Clear LLDP contents of host_vars template"
+    - name: "Task 19: Clear LLDP contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible LLDP Section"
         state: absent
 
-    - name: "Task 19: Clear Port_Channel contents of host_vars template"
+    - name: "Task 20: Clear Port_Channel contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Port_Channel Section"
         state: absent
 
-    - name: "Task 20: Clear Port_Channel contents of host_vars template"
+    - name: "Task 21: Clear Port_Channel contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Leaf Access Port-Group Section"
         state: absent
 
-    - name: "Task 21: Clear Int Access Ports contents of host_vars template"
+    - name: "Task 22: Clear Int Access Ports contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Access Ports Section"
         state: absent
 
-    - name: "Task 22: Clear vPC Protection_Group contents of host_vars template"
+    - name: "Task 23: Clear vPC Protection_Group contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Leaf Int Profile Section"
