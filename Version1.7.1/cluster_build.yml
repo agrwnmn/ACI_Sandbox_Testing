@@ -144,6 +144,22 @@
 
     - debug: var=access_ports
 
+    - name: "Task 18: Add vPC Protection Group"
+      aci_switch_policy_vpc_protection_group:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        protection_group: "{{ item.name }}"
+        protection_group_id: "{{ item.proection_group_id }}"
+        switch_1_id: "{{ item.switch_1_id }}"
+        switch_2_id: "{{ item.switch_2_id }}"
+        state: "{{ item.state }}"
+      register: vpc_group
+      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+
+      with_items:
+        - "{{ vpg_group }}"
+
 #    - name: "Task: 12 Create leaf_interface_profile"
 #      aci_interface_policy_leaf_profile:
 #        host: "{{ inventory_hostname }}"
@@ -215,8 +231,8 @@
         marker: "# {mark} Ansible Access Ports Section"
         state: absent
 
-#    - name: "Task 22: Clear Leaf Int Profile contents of host_vars template"
-#      blockinfile:
-#        path: host_vars/vars.yml
-#        marker: "# {mark} Ansible Leaf Int Profile Section"
-#        state: absent
+    - name: "Task 22: Clear vPC Protection_Group contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible Leaf Int Profile Section"
+        state: absent

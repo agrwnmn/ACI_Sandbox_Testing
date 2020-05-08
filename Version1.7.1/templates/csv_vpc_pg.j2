@@ -1,0 +1,12 @@
+{% for item in csvswitch_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%     set list = item.split(",") %}
+
+  - name: "{{ list[0]|trim() }}"
+    protection_group: " VPC-{{ list[14]|trim() }}-"{{ list[15]|trim() }}""
+    switch_1_id: "{{ list[14]|trim() }}"
+    switch_2_id: "{{ list[15]|trim() }}"
+    protection_group_id: "{{ list[14]|trim() }}"
+    state: present
+{%      endif %}
+{%  endfor %}
