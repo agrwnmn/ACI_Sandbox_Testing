@@ -71,5 +71,5 @@
     block: "{{ lookup('file', 'output/aep/{{ reference }}aep.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible AEP Section"
-    insertbefore: "sw_profile"
+    insertbefore: "access_ports"
 
