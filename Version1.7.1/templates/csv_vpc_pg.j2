@@ -2,11 +2,10 @@
 {%   if loop.index !=1 %}
 {%     set list = item.split(",") %}
 
-  - name: "{{ list[12]|trim() }}"
-    protection_group: "VPC-{{ list[12]|trim() }}-{{ list[13]|trim() }}"
+  - name: "VPC-{{ list[12]|trim() }}-{{ list[13]|trim() }}"
+    protection_group_id: "{{ list[12]|trim() }}"
     switch_1_id: "{{ list[12]|trim() }}"
     switch_2_id: "{{ list[13]|trim() }}"
-    protection_group_id: "{{ list[12]|trim() }}"
-    state: present
+    state: active
 {%      endif %}
 {%  endfor %}
