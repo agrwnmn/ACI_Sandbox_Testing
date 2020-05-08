@@ -109,9 +109,9 @@
     marker: "# {mark} Ansible Access Ports Section"
     insertbefore: "vPC_pg:"
 
-- name: "Task 4.15: Insert Access Port Cluster Marker"
+- name: "Task 4.15: Insert vPC Protection Group Cluster Marker"
   blockinfile:
-    block: "{{ lookup('file', 'output/vpg_pg/{{ reference }}vpc_pg.yml') }}"
+    block: "{{ lookup('file', 'output/vpc_pg/{{ reference }}vpc_pg.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible vPC Port Group Section"
     insertbefore: "sw_profile:"
