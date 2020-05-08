@@ -150,7 +150,7 @@
         username: "{{ username }}"
         password: "{{ password }}"
         protection_group: "{{ item.name }}"
-        protection_group_id: "{{ item.proection_group_id }}"
+        protection_group_id: "{{ item.protection_group_id }}"
         switch_1_id: "{{ item.switch_1_id }}"
         switch_2_id: "{{ item.switch_2_id }}"
         state: "{{ item.state }}"
