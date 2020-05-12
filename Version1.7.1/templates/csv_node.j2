@@ -7,6 +7,6 @@
     node_id: "{{ list[1]|trim() }}"
     switch: "{{ list[2]|trim() }}"
     role: "{{ list[3]|trim() }}"
-    state: query
+    state: present
 {%      endif %}
 {%  endfor %}
