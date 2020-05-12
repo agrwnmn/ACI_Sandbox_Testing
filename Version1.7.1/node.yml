@@ -47,6 +47,8 @@
         password: "{{ password }}"
         serial: "{{ item.serial }}"
         node_id: "{{ item.node_id }}"
+        switch: "{{ item.switch }}"
+        role: "{{ item.role }}"
         state: "{{ item.state }}"
       register: node_result
 
