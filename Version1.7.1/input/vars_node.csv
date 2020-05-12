@@ -1,2 +1,5 @@
-﻿Serial,Node_ID,Switch,Role,Switch_Name
-FDO2031124L,1011,fab4-sw1011,leaf,901
+﻿Serial,Node_ID,Switch,Role
+123456,901,901,leaf
+234567,902,902,leaf
+abcdef,903,903,leaf
+bcdefg,904,904,leaf
