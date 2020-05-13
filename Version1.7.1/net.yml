@@ -101,40 +101,60 @@
         - "{{ cons }}"
     
     - debug: var=contract_output
+
+    - name: "Task 10: Add Contract subject to Contract "
+      aci_contract_subject:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}" 
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        contract: "{{ item.name }}"
+        subject: "{{ item.name }}"
+        reverse_filter: "{{ item.revers_filter }}"
+        priority: "{{ item.priority }}"
+        state: present
+      register: con-subject_output
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ con_subject }}"
     
-    - name: "Task 10: Change 'present' to 'query' "
+    - debug: var=con-subject_output
+    
+    - name: "Task 11: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOS'
 
-    - name: "Task 11: Change 'absent' to 'query' "
+    - name: "Task 12: Change 'absent' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOS'
     
-    - name: "Task 12: Copy var file to new location"
+    - name: "Task 13: Copy var file to new location"
       copy: 
         src: host_vars/vars.yml
         dest: completed_plays/{{reference}}-vars_play.yml
         mode: preserve
     
-    - name: "Task 13: Clear TN contents of host_vars template"
+    - name: "Task 14: Clear TN contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible TN Section"
         state: absent
 
-    - name: "Task 14: Clear VRF contents of host_vars template"
+    - name: "Task 15: Clear VRF contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible VRF Section"
         state: absent
 
-    - name: "Task 15: Clear Contract contents of host_vars template"
+    - name: "Task 16: Clear Contract contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible CON Section"
