@@ -118,7 +118,7 @@
       when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
 
       with_items:
-        - "{{ con_subject }}"
+        - "{{ con_sub }}"
     
     - debug: var=con-subject_output
     
