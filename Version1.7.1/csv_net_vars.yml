@@ -52,7 +52,7 @@
     block: "{{ lookup('file', 'output/cons/{{ reference }}cons.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible CON Section"
-    insertbefore: "#con_sub"
+    insertbefore: "con_sub"
 
 - name: "Task 4.9: Insert Contract Subject Marker"
   blockinfile:
