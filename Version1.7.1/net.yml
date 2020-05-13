@@ -110,7 +110,7 @@
         tenant: "{{ item.tenant }}"
         contract: "{{ item.name }}"
         subject: "{{ item.name }}"
-        reverse_filter: "{{ item.revers_filter }}"
+        reverse_filter: "{{ item.reverse_filter }}"
         priority: "{{ item.priority }}"
         state: present
       register: con-subject_output
