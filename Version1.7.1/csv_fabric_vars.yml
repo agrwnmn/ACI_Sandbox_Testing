@@ -64,7 +64,7 @@
     block: "{{ lookup('file', 'output/leaf_access_pg/{{ reference }}leaf_access_pg.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Leaf Access Port-Group Section"
-    insertbefore: "aep:"
+    insertbefore: "leaf_int_profile:"
 
 - name: "Task 4.13: Insert AEP Fabric Marker"
   blockinfile:
