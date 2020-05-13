@@ -58,7 +58,7 @@
   blockinfile:
     block: "{{ lookup('file', 'output/con_sub/{{ reference }}con_sub.yml') }}"
     dest: host_vars/vars.yml
-    marker: "# {mark} Ansible CON Section"
+    marker: "# {mark} Ansible CON_Sub Section"
     insertbefore: "#EOS"
 
 
