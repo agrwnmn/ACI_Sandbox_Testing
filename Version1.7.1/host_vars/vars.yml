@@ -47,6 +47,8 @@ subs:
 
 con_bindings:
 
+new_domains:
+
 domains:
 
 new_l3:
