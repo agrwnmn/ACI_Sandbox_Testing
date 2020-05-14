@@ -108,7 +108,7 @@
         username: "{{ username }}" 
         password: "{{ password }}"
         tenant: "{{ item.tenant }}"
-        contract: "{{ item.name }}"
+        contract: "{{ item.contract }}"
         subject: "{{ item.name }}"
         reverse_filter: "{{ item.reverse_filter }}"
         priority: "{{ item.priority }}"
