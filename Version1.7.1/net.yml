@@ -160,6 +160,13 @@
         marker: "# {mark} Ansible CON Section"
         state: absent
 
+    - name: "Task 16: Clear Contract Subject contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible CON_Sub Section"
+        state: absent
+
+
 
 
 
