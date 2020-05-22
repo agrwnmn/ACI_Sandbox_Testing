@@ -43,12 +43,17 @@
     src: templates/csv_domain.j2
     dest: output/domain/{{ reference }}domain.yml
 
-- name: "Task 4.10: Create L3out bindings YAML Vars"
+- name: "Task 4.10: Create New_L3Out YAML Vars"
+  template:
+    src: templates/csv_new_l3.j2
+    dest: output/new_l3/{{ reference }}new_l3.yml
+
+- name: "Task 4.11: Create L3out bindings YAML Vars"
   template:
     src: templates/csv_l3out.j2
     dest: output/l3outs/{{ reference }}l3out.yml
 
-- name: "Task 4.11: Insert App Marker"
+- name: "Task 4.12: Insert App Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/apps/{{ reference }}app.yml') }}"
     dest: host_vars/vars.yml
@@ -62,7 +67,7 @@
 #    marker: "#{{ reference }}-app"
 #    insertbefore: "bds:"
 
-- name: "Task 4.12: Insert BDs Marker"
+- name: "Task 4.13: Insert BDs Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/bds/{{ reference }}bd.yml') }}"
     dest: host_vars/vars.yml
@@ -76,7 +81,7 @@
 #    marker: "#{{ reference }}-bd"
 #    insertbefore: "epgs:"
 
-- name: "Task 4.13: Insert EPG Marker"
+- name: "Task 4.14: Insert EPG Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/epgs/{{ reference }}epg.yml') }}"
     dest: host_vars/vars.yml
@@ -90,7 +95,7 @@
 #    marker: "#{{ reference }}-epg"
 #    insertbefore: "subs:"
 
-- name: "Task 4.14: Insert Subnet Marker"
+- name: "Task 4.15: Insert Subnet Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/subs/{{ reference }}subs.yml') }}"
     dest: host_vars/vars.yml
@@ -104,7 +109,7 @@
 #    marker: "#{{ reference }}-subs"
 #    insertbefore: "con_bindings:"
 
-- name: "Task 4.15: Insert Contract Bindings Marker"
+- name: "Task 4.16: Insert Contract Bindings Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/con_bind/{{ reference }}con_bind.yml') }}"
     dest: host_vars/vars.yml
@@ -118,7 +123,7 @@
 #    marker: "#{{ reference }}-con_bind"
 #    insertbefore: "domains:"
 
-- name: "Task 4.16: Insert Domain Marker"
+- name: "Task 4.17: Insert Domain Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/domain/{{ reference }}domain.yml') }}"
     dest: host_vars/vars.yml
@@ -132,7 +137,14 @@
 #    marker: "#{{ reference }}-domain"
 #    insertbefore: "new_l3:"    
 
-- name: "Task 4.17: Insert L3out Bindings Marker"
+- name: "Task 4.18: Insert New_L3Out Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/new_l3/{{ reference }}new_l3.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible New_L3Out Section"
+    insertbefore: "l3outs:"
+
+- name: "Task 4.19: Insert L3out Bindings Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/l3outs/{{ reference }}l3out.yml') }}"
     dest: host_vars/vars.yml

@@ -58,27 +58,27 @@
 
     - debug: var=new_dom_out
 
-    - name: "Task 11: Change 'present' to 'query' "
+    - name: "Task 8: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOS'
 
-    - name: "Task 12: Change 'absent' to 'query' "
+    - name: "Task 9: Change 'absent' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOS'
     
-    - name: "Task 13: Copy var file to new location"
+    - name: "Task 10: Copy var file to new location"
       copy: 
         src: host_vars/vars.yml
         dest: completed_plays/{{reference}}-vars_play.yml
         mode: preserve
     
-    - name: "Task 14: Clear New Domain contents of host_vars template"
+    - name: "Task 11: Clear New Domain contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible New Domain Section"
