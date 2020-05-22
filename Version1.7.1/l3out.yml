@@ -48,7 +48,6 @@
         password: "{{ password }}"
         tenant: "{{ item.tenant }}"
         name: "{{ item.name }}"
-        description: "{{ item.descr }}"
         domain: "{{ item.domain }}"
         vrf: "{{ item.vrf }}"
         l3protocol: "{{ item.l3protocol }}"
