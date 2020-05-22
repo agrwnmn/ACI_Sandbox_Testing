@@ -114,7 +114,7 @@
     block: "{{ lookup('file', 'output/con_bind/{{ reference }}con_bind.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Contract_Binding Section"
-    insertbefore: "domains:"
+    insertbefore: "new_domains:"
 
 #- name: "Task 4.15: Insert Con Bindings Vars"
 #  blockinfile:
