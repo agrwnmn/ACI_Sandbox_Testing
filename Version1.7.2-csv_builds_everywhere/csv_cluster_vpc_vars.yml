@@ -30,8 +30,8 @@
 
 - name: "Task 4.7: Create VPC Port Policy-Group Fabric YAML Vars"
   template:
-    src: templates/csv_vpc_pg.j2
-    dest: output/vpc_pg/{{ reference }}vpc_pg.yml
+    src: templates/csv_leaf_vpc_pg.j2
+    dest: output/leaf_vpc_pg/{{ reference }}leaf_vpc_pg.yml
 
 - name: "Task 4.8: Create AEP Fabric YAML Vars"
   template:
@@ -61,7 +61,7 @@
 
 - name: "Task 4.12: Insert VPC Port-Group Fabric Marker"
   blockinfile:
-    block: "{{ lookup('file', 'output/vpc_pg/{{ reference }}vpc_pg.yml') }}"
+    block: "{{ lookup('file', 'output/leaf_vpc_pg/{{ reference }}leaf_vpc_pg.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible VPC Port-Group Section"
     insertbefore: "leaf_int_profile:"
