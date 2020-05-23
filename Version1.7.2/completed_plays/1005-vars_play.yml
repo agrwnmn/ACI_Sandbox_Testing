@@ -1,0 +1,266 @@
+---
+aci_apic:
+  host: "apic"
+  ipv4: 64.103.37.54
+
+#Build Infra Section
+tns:  
+
+# BEGIN Ansible TN Section
+
+  - name: "Shore-Test-1"
+    state: query
+    validate_certs: False
+
+  - name: "Shore-Test-1"
+    state: query
+    validate_certs: False
+
+  - name: "Shore-Test-2"
+    state: query
+    validate_certs: False
+
+  - name: "Shore-Test-2"
+    state: query
+    validate_certs: False
+
+  - name: "Shore-Test-3"
+    state: query
+    validate_certs: False
+
+  - name: "Shore-Test-3"
+    state: query
+    validate_certs: False
+
+  - name: "Shore-Test-1"
+    state: query
+    validate_certs: False
+
+  - name: "Shore-Test-1"
+    state: query
+    validate_certs: False
+
+  - name: "Shore-Test-2"
+    state: query
+    validate_certs: False
+
+  - name: "Shore-Test-2"
+    state: query
+    validate_certs: False
+
+  - name: "Shore-Test-2"
+    state: query
+    validate_certs: False
+
+  - name: "Shore-Test-2"
+    state: query
+    validate_certs: False
+# END Ansible TN Section
+vrfs:
+# BEGIN Ansible VRF Section
+ 
+
+  - name: "AT1"
+    tenant: "Shore-Test-1"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: query
+    validate_certs: False
+ 
+
+  - name: "AT1"
+    tenant: "Shore-Test-1"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: query
+    validate_certs: False
+ 
+
+  - name: "AT2"
+    tenant: "Shore-Test-2"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: query
+    validate_certs: False
+ 
+
+  - name: "AT2"
+    tenant: "Shore-Test-2"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: query
+    validate_certs: False
+ 
+
+  - name: "AT3"
+    tenant: "Shore-Test-3"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: query
+    validate_certs: False
+ 
+
+  - name: "AT3"
+    tenant: "Shore-Test-3"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: query
+    validate_certs: False
+ 
+
+  - name: "AT1"
+    tenant: "Shore-Test-1"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: query
+    validate_certs: False
+ 
+
+  - name: "AT1"
+    tenant: "Shore-Test-1"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: query
+    validate_certs: False
+ 
+
+  - name: "AT2"
+    tenant: "Shore-Test-2"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: query
+    validate_certs: False
+ 
+
+  - name: "AT2"
+    tenant: "Shore-Test-2"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: query
+    validate_certs: False
+ 
+
+  - name: "AT2"
+    tenant: "Shore-Test-2"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: query
+    validate_certs: False
+ 
+
+  - name: "AT2"
+    tenant: "Shore-Test-2"
+    policy_control_preference: enforced
+    policy_control_direction: ingress
+    state: query
+    validate_certs: False
+# END Ansible VRF Section
+
+cons: 
+
+# BEGIN Ansible CON Section
+
+  - name: "permit_all"
+    tenant: "Shore-Test-1"
+    description: Communication between APPs
+    scope: application-profile
+    state: query
+    validate_certs: False
+
+  - name: "web-contract"
+    tenant: "Shore-Test-1"
+    description: Communication between APPs
+    scope: application-profile
+    state: query
+    validate_certs: False
+
+  - name: "web-contract"
+    tenant: "Shore-Test-2"
+    description: Communication between APPs
+    scope: application-profile
+    state: query
+    validate_certs: False
+
+  - name: "db-contract"
+    tenant: "Shore-Test-2"
+    description: Communication between APPs
+    scope: application-profile
+    state: query
+    validate_certs: False
+
+  - name: "web-contract"
+    tenant: "Shore-Test-3"
+    description: Communication between APPs
+    scope: application-profile
+    state: query
+    validate_certs: False
+
+  - name: "permit_all"
+    tenant: "Shore-Test-3"
+    description: Communication between APPs
+    scope: application-profile
+    state: query
+    validate_certs: False
+
+  - name: "permit_all"
+    tenant: "Shore-Test-1"
+    description: Communication between APPs
+    scope: application-profile
+    state: query
+    validate_certs: False
+
+  - name: "db-contract"
+    tenant: "Shore-Test-1"
+    description: Communication between APPs
+    scope: application-profile
+    state: query
+    validate_certs: False
+
+  - name: "permit_all"
+    tenant: "Shore-Test-2"
+    description: Communication between APPs
+    scope: application-profile
+    state: query
+    validate_certs: False
+
+  - name: "db-contract"
+    tenant: "Shore-Test-2"
+    description: Communication between APPs
+    scope: application-profile
+    state: query
+    validate_certs: False
+
+  - name: "web-contract"
+    tenant: "Shore-Test-2"
+    description: Communication between APPs
+    scope: application-profile
+    state: query
+    validate_certs: False
+
+  - name: "permit_all"
+    tenant: "Shore-Test-2"
+    description: Communication between APPs
+    scope: application-profile
+    state: query
+    validate_certs: False
+# END Ansible CON Section
+#EOS
+#Build Apps Section
+
+apps:
+
+bds:
+
+epgs:
+
+subs:
+
+con_bindings:
+
+domains:
+
+new_l3:
+
+l3outs:
+
+#EOF

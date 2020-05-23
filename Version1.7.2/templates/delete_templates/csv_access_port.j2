@@ -1,0 +1,12 @@
+{% for item in csvswitch_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%     set list = item.split(",") %}
+
+  - name: "{{ list[0]|trim() }}"
+    leaf_interface_profile: "{{ list[0]|trim() }}"
+    leaf_port_blk: test
+    from_port: 1
+    to_port: 4
+    state: absent
+{%      endif %}
+{%  endfor %}

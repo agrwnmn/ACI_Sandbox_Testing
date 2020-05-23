@@ -1,0 +1,8 @@
+{% for item in csvfile_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%     set list = item.split(",") %}
+
+  - name: "{{ list[0]|trim() }}"
+    state: query
+{%      endif %}
+{%  endfor %}

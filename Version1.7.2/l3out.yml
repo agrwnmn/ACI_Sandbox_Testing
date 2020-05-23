@@ -1,0 +1,89 @@
+---
+
+- name: ACI L3_Out Build
+  hosts: apic
+  gather_facts: False
+  connection: local
+
+  vars_prompt:
+  - name: ref_prompt
+    prompt: "CR Number"
+    private: no
+
+  tasks: 
+    - name: "Task 1: Gather Login info"
+      include_vars: auth/secrets.yml
+
+    - name: "Task 2: Gather Reference Number"
+      set_fact:
+        reference: "{{ ref_prompt }}"
+
+    - name: "Task 3: Set user/pass info"
+      set_fact:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+
+    - name: "Task 4: Update '{{ inventory_hostname }}' from CSV"
+      include: csv_app_vars.yml
+
+    - name: "Task 5: Add Var File"
+      include_vars: host_vars/vars.yml
+
+    - name: "Task 6: Create a Snapshot"
+      aci_config_snapshot:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        state: present
+        export_policy: ansible_snapshot
+        max_count: 10
+        description: Automation snapshot before configs
+
+
+    - name: "Task 7: Add a new L3Out"
+      aci_l3out:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        name: "{{ item.name }}"
+        domain: "{{ item.domain }}"
+        vrf: "{{ item.vrf }}"
+        l3protocol: "{{ item.l3protocol }}"
+        route_control: "{{ item.route_control }}"
+        state: "{{ item.state }}"
+      register: l3_output
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ new_l3 }}"
+    
+    - debug: var=l3_output
+
+    - name: "Task 8: Change 'present' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        before: '#EOS'
+
+    - name: "Task 9: Change 'absent' to 'query' "
+      replace: 
+        path: host_vars/vars.yml
+        regexp: 'state: present'
+        replace: 'state: query'
+        before: '#EOS'
+    
+    - name: "Task 10: Copy var file to new location"
+      copy: 
+        src: host_vars/vars.yml
+        dest: completed_plays/{{reference}}-vars_play.yml
+        mode: preserve
+    
+    - name: "Task 11: Clear New_L3Out contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible New_L3Out Section"
+        state: absent

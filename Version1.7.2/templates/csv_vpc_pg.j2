@@ -1,0 +1,11 @@
+{% for item in csvfile_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%     set list = item.split(",") %}
+
+  - name: "VPC-{{ list[12]|trim() }}-{{ list[13]|trim() }}"
+    protection_group_id: "{{ list[14]|trim() }}"
+    switch_1_id: "{{ list[12]|trim() }}"
+    switch_2_id: "{{ list[13]|trim() }}"
+    state: present
+{%      endif %}
+{%  endfor %}
