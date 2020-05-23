@@ -83,4 +83,4 @@
     block: "{{ lookup('file', 'output/vpc_protection_group/{{ reference }}vpc_protection_group.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible vPC Protection Group Section"
-    insertbefore: "sw_profiles:"
+    insertbefore: "sw_profile:"
