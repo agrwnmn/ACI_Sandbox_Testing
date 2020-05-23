@@ -25,7 +25,7 @@
         password: "{{ password }}"
 
     - name: "Task 4: Update '{{ inventory_hostname }}' from CSV"
-      include: csv_app_vars.yml
+      include: csv_domain_vars.yml
 
     - name: "Task 5: Add Var File"
       include_vars: host_vars/vars.yml
