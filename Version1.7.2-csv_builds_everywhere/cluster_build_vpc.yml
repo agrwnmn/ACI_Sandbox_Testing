@@ -120,7 +120,7 @@
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
       with_items:
-        - "{{ leaf_access_port_group }}"
+        - "{{ vpc_port_group }}"
 
     - debug: var=leaf_access_result
 
