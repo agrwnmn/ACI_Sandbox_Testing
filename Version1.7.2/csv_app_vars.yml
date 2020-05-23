@@ -83,28 +83,14 @@
     marker: "# {mark} Ansible Contract_Binding Section"
     insertbefore: "new_domains:"
 
-- name: "Task 4.16: Insert New Domain Marker"
-  blockinfile:
-    block: "{{ lookup('file', 'output/new_domain/{{ reference }}new_domain.yml') }}"
-    dest: host_vars/vars.yml
-    marker: "# {mark} Ansible New Domain Section"
-    insertbefore: "domains:"
-
-- name: "Task 4.17: Insert Domain Marker"
+- name: "Task 4.16: Insert Domain Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/domain/{{ reference }}domain.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Domain Section"
     insertbefore: "new_l3:"   
 
-- name: "Task 4.18: Insert New_L3Out Marker"
-  blockinfile:
-    block: "{{ lookup('file', 'output/new_l3/{{ reference }}new_l3.yml') }}"
-    dest: host_vars/vars.yml
-    marker: "# {mark} Ansible New_L3Out Section"
-    insertbefore: "l3outs:"
-
-- name: "Task 4.19: Insert L3out Bindings Marker"
+- name: "Task 4.17: Insert L3out Bindings Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/l3outs/{{ reference }}l3out.yml') }}"
     dest: host_vars/vars.yml
