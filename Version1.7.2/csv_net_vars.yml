@@ -28,33 +28,33 @@
     src: templates/csv_con.j2
     dest: output/cons/{{ reference }}cons.yml
 
-- name: "Task 4.6: Create Contract Subject YAML Vars"
+- name: "Task 4.7: Create Contract Subject YAML Vars"
   template:
     src: templates/csv_con_subject.j2
     dest: output/con_sub/{{ reference }}con_sub.yml
 
-- name: "Task 4.7: Insert TN Marker"
+- name: "Task 4.8: Insert TN Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/tns/{{ reference }}TNs.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible TN Section"
     insertbefore: "vrfs:"
 
-- name: "Task 4.8: Insert VRF Marker"
+- name: "Task 4.9: Insert VRF Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/vrfs/{{ reference }}vrfs.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible VRF Section"
     insertafter: "vrfs:"
 
-- name: "Task 4.9: Insert Contract Marker"
+- name: "Task 4.10: Insert Contract Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/cons/{{ reference }}cons.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible CON Section"
     insertbefore: "con_sub"
 
-- name: "Task 4.9: Insert Contract Subject Marker"
+- name: "Task 4.11: Insert Contract Subject Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/con_sub/{{ reference }}con_sub.yml') }}"
     dest: host_vars/vars.yml
