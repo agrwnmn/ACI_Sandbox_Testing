@@ -26,7 +26,7 @@
         password: "{{ password }}"
 
     - name: "Task 4: Update '{{ inventory_hostname }}'' from CSV"
-      include: csv_cluster_vars.yml
+      include: csv_cluster_pc_vars.yml
 
     - name: "Task 5: Add Var File"
       include_vars: host_vars/vars.yml
@@ -102,7 +102,7 @@
 
     - debug: var=pc_result
 
-    - name: "Task 11: Create Leaf Access Port-Group Policy"
+    - name: "Task 11: Create PC Port-Group Policy"
       aci_interface_policy_leaf_policy_group:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -124,7 +124,7 @@
 
     - debug: var=leaf_access_result
 
-    - name: "Task 12: Create interface access port selector"
+    - name: "Task 12: Create port selector"
       aci_access_port_to_interface_policy_leaf_profile:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -159,21 +159,6 @@
 
       with_items:
         - "{{ vPC_pg }}"
-
-#    - name: "Task: 12 Create leaf_interface_profile"
-#      aci_interface_policy_leaf_profile:
-#        host: "{{ inventory_hostname }}"
-#        username: "{{ username }}"
-#        password: "{{ password }}"
-#        leaf_interface_profile: "{{ item.name }}"
-#        state: "{{ item.state }}"
-#      register: leaf_int_profile
-#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-
-#      with_items:
-#        - "{{ leaf_int_profile }}"
-
-#    - debug: var=leaf_int_profile
 
     - name: "Task 14: Change 'present' to 'query' "
       replace: 
@@ -219,10 +204,10 @@
         marker: "# {mark} Ansible Port_Channel Section"
         state: absent
 
-    - name: "Task 21: Clear Port_Channel contents of host_vars template"
+    - name: "Task 21: Clear PC Port-Group contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
-        marker: "# {mark} Ansible Leaf Access Port-Group Section"
+        marker: "# {mark} Ansible PC Port-Group Section"
         state: absent
 
     - name: "Task 22: Clear Int Access Ports contents of host_vars template"

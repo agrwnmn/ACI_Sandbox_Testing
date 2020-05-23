@@ -12,6 +12,10 @@ port_channel:
 
 leaf_access_port_group:
 
+port_channel_port_group:
+
+vpc_port_group:
+
 leaf_int_profile:
 
 aep:
