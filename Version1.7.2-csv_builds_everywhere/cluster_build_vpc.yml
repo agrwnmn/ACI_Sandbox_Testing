@@ -219,5 +219,5 @@
     - name: "Task 23: Clear vPC Protection_Group contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
-        marker: "# {mark} Ansible Leaf Int Profile Section"
+        marker: "# {mark} Ansible vPC Protection Group Section"
         state: absent
