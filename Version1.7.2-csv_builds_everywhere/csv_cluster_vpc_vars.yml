@@ -78,3 +78,9 @@
     marker: "# {mark} Ansible AEP Section"
     insertbefore: "access_ports"
 
+- name: "Task 4.14: Insert vPC Protection-Group Cluster Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/vpc_protection_group/{{ reference }}vpc_protection_group.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible vPC Protection Group Section"
+    insertbefore: "sw_profiles:"
