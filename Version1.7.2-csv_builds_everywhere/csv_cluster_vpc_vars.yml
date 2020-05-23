@@ -83,12 +83,12 @@
     marker: "# {mark} Ansible AEP Section"
     insertbefore: "access_ports"
 
-- name: "Task 4.14: Insert AEP Fabric Marker"
+- name: "Task 4.14: Insert Access Ports Selector Fabric Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/access_ports/{{ reference }}access_ports.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Access Ports Section"
-    insertbefore: "vPC_PG:"
+    insertbefore: "vPC_pg:"
 
 - name: "Task 4.14: Insert vPC Protection-Group Cluster Marker"
   blockinfile:
