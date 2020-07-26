@@ -1,7 +1,7 @@
 ---
 aci_apic:
   host: "apic"
-  ipv4: 64.103.37.54
+  ipv4: https://sandboxapicdc.cisco.com
 
 #Build Fabric Section
 cdp:  
