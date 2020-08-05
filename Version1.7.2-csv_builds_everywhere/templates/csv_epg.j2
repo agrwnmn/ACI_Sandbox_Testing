@@ -7,7 +7,7 @@
     ap: "{{ list[0]|trim() }}"
     description: EPG for app
     bd: "{{ list[0]|trim() }}_{{ list[3]|trim() }}-bd"
-    preferred_group: yes
+    preferred_group: no
     state: present
 {%      endif %}
 {% endfor %}
