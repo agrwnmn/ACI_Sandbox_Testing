@@ -102,7 +102,7 @@
 
     - debug: var=pc_result
 
-    - name: "Task 11: Create Leaf Access Port-Group Policy"
+    - name: "Task 11: Create VPC Port-Group Policy"
       aci_interface_policy_leaf_policy_group:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
