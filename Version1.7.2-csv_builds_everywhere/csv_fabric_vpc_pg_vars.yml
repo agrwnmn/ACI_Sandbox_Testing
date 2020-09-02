@@ -1,7 +1,7 @@
 
 - name: "Task 4.1: Copy original CSV file"
   copy:
-    src: input/vpc_pg.csv
+    src: input/fabric_node.csv
     dest: input/csv_copies/{{ reference }}.csv
     mode: preserve
 
@@ -30,7 +30,7 @@
 
 - name: "Task 4.7: Create VPC Policy-Group Fabric YAML Vars"
   template:
-    src: templates/csv_vpc_pg.j2
+    src: templates/csv_leaf_vpc_pg.j2
     dest: output/vpc_pg/{{ reference }}vpc_pg.yml
 
 - name: "Task 4.8: Create AEP Fabric YAML Vars"
