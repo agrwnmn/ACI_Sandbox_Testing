@@ -1,9 +1,9 @@
 ﻿CDP Policy Name,LLDP Policy Name,Port-Channel Name,Port-Channel Mode,Leaf_Access Port Policy Group Name,Link_Level_Policy,AEP,Link-type
-CDP-Enable,LLDP-Enable,Static-On,active,SPOD-1_PG_A_M,10G,SPOD-1,leaf
-CDP-Disable,LLDP-Disable,Static-On,active,SPOD-1_PG_A,10G,SPOD-1,leaf
-CDP-Enable,LLDP-Enable,Static-On,active,SPOD-1_PG_B_M,10G,SPOD-1,leaf
-CDP-Disable,LLDP-Disable,Static-On,active,SPOD-1_PG_B,10G,SPOD-1,leaf
-CDP-Enable,LLDP-Enable,Static-On,active,SPOD-1_PG_C_M,10G,SPOD-1,leaf
-CDP-Disable,LLDP-Disable,Static-On,active,SPOD-1_PG_C,10G,SPOD-1,leaf
-CDP-Enable,LLDP-Enable,Static-On,active,SPOD-1_PG_D_M,10G,SPOD-1,leaf
-CDP-Disable,LLDP-Disable,Static-On,active,SPOD-1_PG_D,10G,SPOD-1,leaf
+CDP-Enable,LLDP-Disable,Static-On,active,SPOD-1_PG_A_M,10G,SPOD-1,leaf
+CDP-Enable,LLDP-Disable,Static-On,active,SPOD-1_PG_A,10G,SPOD-1,leaf
+CDP-Enable,LLDP-Disable,Static-On,active,SPOD-1_PG_B_M,10G,SPOD-1,leaf
+CDP-Enable,LLDP-Disable,Static-On,active,SPOD-1_PG_B,10G,SPOD-1,leaf
+CDP-Enable,LLDP-Disable,Static-On,active,SPOD-1_PG_C_M,10G,SPOD-1,leaf
+CDP-Enable,LLDP-Disable,Static-On,active,SPOD-1_PG_C,10G,SPOD-1,leaf
+CDP-Enable,LLDP-Disable,Static-On,active,SPOD-1_PG_D_M,10G,SPOD-1,leaf
+CDP-Enable,LLDP-Disable,Static-On,active,SPOD-1_PG_D,10G,SPOD-1,leaf
