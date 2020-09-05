@@ -1,0 +1,25 @@
+- name: "Task 4.1: Copy original CSV file"
+  copy:
+    src: input/vars2.csv
+    dest: input/csv_copies/{{ reference }}.csv
+    mode: preserve
+
+- name: "Task 4.2: Create File List for Jinja2 temps"
+  include_vars: csv_vars/csv_vars.yml
+
+- name: "Task 4.3: Read CSV file"
+  read_csv: 
+    path: input/csv_copies/{{ reference }}.csv
+  register: csv_values
+
+- name: "Task 4.4: Create New_Domain YAML Vars"
+  template:
+    src: templates/csv_new_domain.j2
+    dest: output/new_domain/{{ reference }}new_domain.yml
+
+- name: "Task 4.5: Insert New Domain Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/new_domain/{{ reference }}new_domain.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible New Domain Section"
+    insertbefore: "domains:"

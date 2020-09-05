@@ -1,0 +1,10 @@
+
+  - name: "PAN_vWire_Port_1"
+    lag_type: leaf
+    link_level_policy: "10G"
+    state: present
+
+  - name: "PAN_vWire_Port_2"
+    lag_type: leaf
+    link_level_policy: "10G"
+    state: present

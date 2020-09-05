@@ -1,0 +1,12 @@
+{% for item in csvfile_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%     set list = item.split(",") %}
+
+  - name: "{{ list[3]|trim() }}"
+    serial: "{{ list[0]|trim() }}"
+    node_id: "{{ list[1]|trim() }}"
+    switch: "{{ list[2]|trim() }}"
+    role: "{{ list[3]|trim() }}"
+    state: present
+{%      endif %}
+{%  endfor %}
