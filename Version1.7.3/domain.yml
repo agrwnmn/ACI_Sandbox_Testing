@@ -48,6 +48,7 @@
         domain: "{{ item.domain }}"
         domain_type: "{{ item.domain_type }}"
         vm_provider: "{{ item.vm_provider }}"
+        encap_mode: "{{ item.encap_mode }}"
         state: "{{ item.state }}"
       register: new_dom_out
 

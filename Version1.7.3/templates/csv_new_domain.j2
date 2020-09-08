@@ -9,6 +9,7 @@
     domain: "{{ list[10]|trim() }}"
     domain_type: "{{ list[7]|trim() }}"
     vm_provider: "{{ list[11]|trim() }}"
+    encap_mode: vlan
     deploy_immediacy: immediate
     resolution_immediacy: immediate
     state: present
