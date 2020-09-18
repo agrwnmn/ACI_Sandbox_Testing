@@ -38,6 +38,7 @@
         state: present
         export_policy: ansible_snapshot
         max_count: 10
+        validate_certs: no
         description: Automation snapshot before configs
 
     - name: "Task 7: Add a new AP"
@@ -49,6 +50,7 @@
         ap: "{{ item.name }}"
         description: "{{ item.description }}"
         state: "{{ item.state }}"
+        validate_certs: no
       register: app_output
       when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
 
@@ -86,6 +88,7 @@
         bd: "{{ item.bd }}"
         preferred_group: "{{ item.preferred_group }}"
         state: "{{ item.state }}"
+        validate_certs: no
       register: epg_out
 
       when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
@@ -106,6 +109,7 @@
         mask: "{{ item.mask }}"
         scope: "{{ item.scope }}"
         state: "{{ item.state }}"
+        validate_certs: no
       register: subs_out
 
       when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
@@ -125,6 +129,7 @@
         contract: "{{ item.contract }}"
         contract_type: "{{ item.contract_type }}"
         state: "{{ item.state }}"
+        validate_certs: no
       register: binding_out
 
       when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
@@ -148,6 +153,7 @@
         deploy_immediacy: "{{ item.deploy_immediacy }}"
         resolution_immediacy: "{{ item.resolution_immediacy }}"
         state: "{{ item.state }}"
+        validate_certs: no
       register: domain_output
 
       when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
@@ -165,6 +171,7 @@
         bd: "{{ item.bd }}"
         l3out: "{{ item.l3out }}"
         state: "{{ item.state }}"
+        validate_certs: no
       register: l3out_output
 
       when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
