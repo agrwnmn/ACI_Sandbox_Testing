@@ -36,6 +36,7 @@
         username: "{{ username }}"
         password: "{{ password }}"
         state: present
+        validate_certs: no
         export_policy: ansible_snapshot
         max_count: 10
         description: Automation snapshot before configs
