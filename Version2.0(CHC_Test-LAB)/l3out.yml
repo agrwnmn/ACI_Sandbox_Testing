@@ -38,6 +38,7 @@
         state: present
         export_policy: ansible_snapshot
         max_count: 10
+        validate_certs: no
         description: Automation snapshot before configs
 
 
@@ -53,6 +54,7 @@
         l3protocol: "{{ item.l3protocol }}"
         route_control: "{{ item.route_control }}"
         state: "{{ item.state }}"
+        validate_certs: no
       register: l3_output
 
       when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
