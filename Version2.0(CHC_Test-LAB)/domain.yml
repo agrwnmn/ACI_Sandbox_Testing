@@ -38,6 +38,7 @@
         state: present
         export_policy: ansible_snapshot
         max_count: 10
+        validate_certs: no
         description: Automation snapshot before configs
 
     - name: "Task 7: Add a new VMM domain"
@@ -50,6 +51,7 @@
         vm_provider: "{{ item.vm_provider }}"
         encap_mode: "{{ item.encap_mode }}"
         state: "{{ item.state }}"
+        validate_certs: no
       register: new_dom_out
 
       when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
