@@ -26,6 +26,7 @@
         state: present
         export_policy: ansible_snapshot
         max_count: 10
+        validate_cert: no
         description: Automation snapshote before configs
 
     - name: "Task 5: Add a new contract to tenant"
