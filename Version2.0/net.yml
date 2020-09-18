@@ -112,6 +112,7 @@
         reverse_filter: "{{ item.reverse_filter }}"
         priority: "{{ item.priority }}"
         state: present
+        validate_certs: no 
       register: con-subject_output
 
       when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
