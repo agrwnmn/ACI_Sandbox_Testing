@@ -118,7 +118,7 @@
         - "{{ subs }}"
     - debug: var=subs_out
 
-    - name: "Task 11: Add a new contract to EPG binding"
+    - name: "Task 11: Add a new Provider contract to EPG binding"
       aci_epg_to_contract:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -135,9 +135,30 @@
       when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
 
       with_items:
-        - "{{ con_bindings }}"
+        - "{{ provided_con_bindings }}"
 
     - debug: var=binding_out
+
+    - name: "Task 12: Add a new Consumed contract to EPG binding"
+      aci_epg_to_contract:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        ap: "{{ item.ap }}"
+        epg: "{{ item.epg }}"
+        contract: "{{ item.contract }}"
+        contract_type: "{{ item.contract_type }}"
+        state: "{{ item.state }}"
+        validate_certs: no
+      register: consumed_binding_out
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ consumed_con_bindings }}"
+
+    - debug: var=consumed_binding_out
 
     - name: "Task 12: Add domain to EPG binding"
       aci_epg_to_domain:

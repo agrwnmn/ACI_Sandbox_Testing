@@ -33,54 +33,66 @@
     src: templates/csv_subs.j2
     dest: output/subs/{{ reference }}subs.yml
 
-- name: "Task 4.8: Create EPG Contract Bindings YAML Vars"
+- name: "Task 4.8: Create EPG Provided Contract Bindings YAML Vars"
   template:
     src: templates/csv_con_bind.j2
     dest: output/con_bind/{{ reference }}con_bind.yml
 
-- name: "Task 4.9: Create Domain YAML Vars"
+- name: "Task 4.9: Create EPG Consumed Contract Bindings YAML Vars"
+  template:
+    src: templates/csv_con_bind_consumed.j2
+    dest: output/con_bind_consumed/{{ reference }}con_bind_consumed.yml
+
+- name: "Task 4.10: Create Domain YAML Vars"
   template:
     src: templates/csv_domain.j2
     dest: output/domain/{{ reference }}domain.yml
 
-- name: "Task 4.10: Create L3out bindings YAML Vars"
+- name: "Task 4.11: Create L3out bindings YAML Vars"
   template:
     src: templates/csv_l3out.j2
     dest: output/l3outs/{{ reference }}l3out.yml
 
-- name: "Task 4.11: Insert App Marker"
+- name: "Task 4.12: Insert App Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/apps/{{ reference }}app.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible App Section"
     insertbefore: "bds:"
 
-- name: "Task 4.12: Insert BDs Marker"
+- name: "Task 4.13: Insert BDs Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/bds/{{ reference }}bd.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible BD Section"
     insertbefore: "epgs:"
 
-- name: "Task 4.13: Insert EPG Marker"
+- name: "Task 4.14: Insert EPG Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/epgs/{{ reference }}epg.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible EPG Section"
     insertbefore: "subs:"
 
-- name: "Task 4.14: Insert Subnet Marker"
+- name: "Task 4.15: Insert Subnet Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/subs/{{ reference }}subs.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Subnet Section"
-    insertbefore: "con_bindings:"
+    insertbefore: "provided_con_bindings:"
 
-- name: "Task 4.15: Insert Contract Bindings Marker"
+- name: "Task 4.16: Insert Contract Bindings Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/con_bind/{{ reference }}con_bind.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Contract_Binding Section"
+    insertbefore: "consumed_con_bindings:"
+
+- name: "Task 4.16: Insert Consumed Contract Bindings Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/con_bind_consumed/{{ reference }}con_bind_consumed.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible Consumed Contract_Binding Section"
     insertbefore: "new_domains:"
 
 - name: "Task 4.16: Insert Domain Marker"

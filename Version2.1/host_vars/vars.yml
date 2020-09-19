@@ -49,7 +49,9 @@ epgs:
 
 subs:
 
-con_bindings:
+provided_con_bindings:
+
+consumed_con_bindings:
 
 new_domains:
 
