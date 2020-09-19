@@ -160,7 +160,7 @@
 
     - debug: var=consumed_binding_out
 
-    - name: "Task 12: Add domain to EPG binding"
+    - name: "Task 13: Add domain to EPG binding"
       aci_epg_to_domain:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -183,7 +183,7 @@
         - "{{ domains }}"
     - debug: var=domain_output
 
-    - name: "Task 13: Bind BD to L3out"
+    - name: "Task 14: Bind BD to L3out"
       aci_bd_to_l3out:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -202,55 +202,62 @@
     
     - debug: var=l3out_output
 
-    - name: "Task 14: Change 'present' to 'query' "
+    - name: "Task 15: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         after: 'apps'
 
-    - name: "Task 15: Change 'absent' to 'query' "
+    - name: "Task 16: Change 'absent' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         after: 'apps'
 
-    - name: "Task 16: Copy var file to new location"
+    - name: "Task 17: Copy var file to new location"
       copy: 
         src: host_vars/vars.yml
         dest: completed_plays/{{reference}}-vars_play.yml
         mode: preserve
 
-    - name: "Task 17: Clear Apps contents of host_vars template"
+    - name: "Task 18: Clear Apps contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible App Section"
         state: absent
 
-    - name: "Task 18: Clear BDs contents of host_vars template"
+    - name: "Task 19: Clear BDs contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible BD Section"
         state: absent
 
-    - name: "Task 19: Clear EPGs contents of host_vars template"
+    - name: "Task 20: Clear EPGs contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible EPG Section"
         state: absent
 
-    - name: "Task 20: Clear Subs contents of host_vars template"
+    - name: "Task 21: Clear Subs contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Subnet Section"
         state: absent
 
-    - name: "Task 21: Clear Con_Bindings contents of host_vars template"
+    - name: "Task 22: Clear Con_Bindings contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Contract_Binding Section"
         state: absent
+
+    - name: "Task 23: Clear Consumed_Con_Bindings contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible Consumed Contract_Binding Section"
+        state: absent
+
 
     - name: "Task 22: Clear Domains contents of host_vars template"
       blockinfile:
