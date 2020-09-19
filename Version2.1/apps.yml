@@ -259,13 +259,13 @@
         state: absent
 
 
-    - name: "Task 22: Clear Domains contents of host_vars template"
+    - name: "Task 24: Clear Domains contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Domain Section"
         state: absent
 
-    - name: "Task 23: Clear L3Outs contents of host_vars template"
+    - name: "Task 25: Clear L3Outs contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible L3out Section"
