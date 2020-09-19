@@ -1,0 +1,96 @@
+---
+aci_apic:
+  host: "apic"
+  ipv4: 64.103.37.54
+
+#Build Fabric Section
+cdp:  
+
+# BEGIN Ansible CDP Section
+
+  - name: "CDP-Enable"
+    state: query
+
+  - name: "CDP-Disable"
+    state: query
+# END Ansible CDP Section
+lldp:
+
+# BEGIN Ansible LLDP Section
+
+  - name: "LLDP-Enable"
+    receive_state: yes
+    transmit_state: yes
+    state: query
+
+  - name: "LLDP-Disable"
+    receive_state: yes
+    transmit_state: yes
+    state: query
+# END Ansible LLDP Section
+port_channel: 
+
+# BEGIN Ansible Port_Channel Section
+
+  - name: "LACP_Active"
+    mode: "active"
+    state: query
+
+  - name: "LACP_MACPin"
+    mode: "mac-pin"
+    state: query
+# END Ansible Port_Channel Section
+leaf_access_port_group:
+
+# BEGIN Ansible Leaf Access Port-Group Section
+
+  - name: "PAN_vWire_Port_1"
+    lag_type: leaf
+    link_level_policy: "10G"
+    state: query
+
+  - name: "PAN_vWire_Port_2"
+    lag_type: leaf
+    link_level_policy: "10G"
+    state: query
+# END Ansible Leaf Access Port-Group Section
+aep:
+
+# BEGIN Ansible AEP Section
+
+  - name: "SPOD-1"
+    state: query
+
+  - name: "SPOD-1"
+    state: query
+# END Ansible AEP Section
+#EOI
+#Build Infra Section
+tns:  
+
+vrfs:
+
+cons: 
+
+#EOS
+#Build Apps Section
+
+apps:
+
+bds:
+
+epgs:
+
+subs:
+
+con_bindings:
+
+domains:
+
+new_l3:
+
+l3outs:
+
+nodes:
+
+#EOF

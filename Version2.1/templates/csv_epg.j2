@@ -1,0 +1,13 @@
+{% for item in csvfile_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%     set list = item.split(",") %}
+
+  - name: "{{ list[0]|trim() }}_{{ list[3]|trim() }}-epg"
+    tenant: "{{ list[1]|trim() }}"
+    ap: "{{ list[0]|trim() }}"
+    description: EPG for app
+    bd: "{{ list[0]|trim() }}_{{ list[3]|trim() }}-bd"
+    preferred_group: no
+    state: present
+{%      endif %}
+{% endfor %}
