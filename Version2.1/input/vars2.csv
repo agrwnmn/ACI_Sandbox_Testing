@@ -1,2 +1,3 @@
 ﻿App,Tenant,VRF,Tier - (App/Web/DB),Subnet,Gateway,Sunbet Mask,Virtual or BareMetal Server,Contract Provided,L3,domain,vm provider,AEP,Contract Consumed
 app-1555,Shore-Test-1,AT1,App,192.168.100.0,192.168.100.1,24,vmm,Golf_to_all_Shore-Test,ospf_test,spod1,vmware,SPOD1_AEP,FW_to_all_Shore-Test
+app-shore,Shore-Test-1,AT1,DB,192.168.101.0,192.168.101.1,24,vmm,Golf_to_all_Shore-Test,ospf_test,spod1,vmware,SPOD1_AEP,FW_to_all_Shore-Test
