@@ -1,0 +1,66 @@
+---
+aci_apic:
+  host: "apic"
+  ipv4: 10.165.2.214
+
+#Build Fabric Section
+cdp:  
+
+lldp:
+
+port_channel: 
+
+leaf_access_port_group:
+
+port_channel_port_group:
+
+vpc_port_group:
+
+leaf_int_profile:
+
+aep:
+
+access_ports:
+
+vPC_pg: 
+
+sw_profile:
+
+
+
+#EOI
+#Build Infra Section
+tns:  
+
+vrfs:
+
+cons: 
+
+con_sub:
+
+#EOS
+#Build Apps Section
+
+apps:
+
+bds:
+
+epgs:
+
+subs:
+
+provided_con_bindings:
+
+consumed_con_bindings:
+
+new_domains:
+
+domains:
+
+new_l3:
+
+l3outs:
+
+nodes:
+
+#EOF
