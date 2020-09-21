@@ -53,6 +53,11 @@
     src: templates/csv_l3out.j2
     dest: output/l3outs/{{ reference }}l3out.yml
 
+- name: "Task 4.11: Create 2nd L3out bindings YAML Vars"
+  template:
+    src: templates/csv_l3out2.j2
+    dest: output/l3outs2/{{ reference }}l3out2.yml
+
 - name: "Task 4.12: Insert App Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/apps/{{ reference }}app.yml') }}"
@@ -107,4 +112,11 @@
     block: "{{ lookup('file', 'output/l3outs/{{ reference }}l3out.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible L3out Section"
+    insertbefore: "l3outs2:"
+
+- name: "Task 4.19: Insert L3out Bindings Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/l3outs2/{{ reference }}l3out2.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible L3out2 Section"
     insertbefore: "nodes:"

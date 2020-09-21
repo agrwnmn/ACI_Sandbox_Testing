@@ -202,6 +202,25 @@
     
     - debug: var=l3out_output
 
+    - name: "Task 14: Bind BD to L3out(2)"
+      aci_bd_to_l3out:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ item.tenant }}"
+        bd: "{{ item.bd }}"
+        l3out: "{{ item.l3out }}"
+        state: "{{ item.state }}"
+        validate_certs: no
+      register: l3out_output
+
+      when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
+
+      with_items:
+        - "{{ l3outs2 }}"
+    
+    - debug: var=l3out_output
+
     - name: "Task 15: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
