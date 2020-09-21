@@ -289,3 +289,9 @@
         path: host_vars/vars.yml
         marker: "# {mark} Ansible L3out Section"
         state: absent
+
+    - name: "Task 25: Clear 2nd L3Outs contents of host_vars template"
+      blockinfile:
+        path: host_vars/vars.yml
+        marker: "# {mark} Ansible L3out2 Section"
+        state: absent
