@@ -1,0 +1,102 @@
+---
+aci_apic:
+  host: "apic"
+  ipv4: https://sandboxapicdc.cisco.com
+
+#Build Fabric Section
+cdp:  
+
+# BEGIN Ansible CDP Section
+
+  - name: "CDP-Enable"
+    state: query
+
+  - name: "CDP-Disable"
+    state: query
+# END Ansible CDP Section
+lldp:
+
+# BEGIN Ansible LLDP Section
+
+  - name: "LLDP-Enable"
+    receive_state: yes
+    transmit_state: yes
+    state: query
+
+  - name: "LLDP-Disable"
+    receive_state: yes
+    transmit_state: yes
+    state: query
+# END Ansible LLDP Section
+port_channel: 
+
+# BEGIN Ansible Port_Channel Section
+
+  - name: "LACP_Active"
+    mode: "active"
+    state: query
+
+  - name: "LACP_MACPin"
+    mode: "mac-pin"
+    state: query
+# END Ansible Port_Channel Section
+leaf_access_port_group:
+
+port_channel_port_group:
+
+vpc_port_group:
+
+leaf_int_profile:
+
+aep:
+
+# BEGIN Ansible AEP Section
+
+  - name: "SPOD-1"
+    state: query
+
+  - name: "SPOD-1"
+    state: query
+# END Ansible AEP Section
+access_ports:
+
+vPC_pg: 
+
+sw_profile:
+
+
+
+#EOI
+#Build Infra Section
+tns:  
+
+vrfs:
+
+cons: 
+
+con_sub:
+
+#EOS
+#Build Apps Section
+
+apps:
+
+bds:
+
+epgs:
+
+subs:
+
+con_bindings:
+
+new_domains:
+
+domains:
+
+new_l3:
+
+l3outs:
+
+nodes:
+
+#EOF

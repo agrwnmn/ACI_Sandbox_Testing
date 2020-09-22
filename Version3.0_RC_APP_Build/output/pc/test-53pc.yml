@@ -1,0 +1,8 @@
+
+  - name: "LACP_Active"
+    mode: "active"
+    state: present
+
+  - name: "LACP_MACPin"
+    mode: "mac-pin"
+    state: present

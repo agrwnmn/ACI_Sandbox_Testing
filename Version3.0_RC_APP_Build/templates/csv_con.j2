@@ -1,0 +1,12 @@
+{% for item in csvfile_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%    set list = item.split(",") %}
+
+  - name: "{{ list[8]|trim() }}_con"
+    tenant: "{{ list[1]|trim() }}"
+    description: Communication between APPs
+    scope: application-profile
+    state: present
+    validate_certs: False
+{%   endif %}
+{% endfor %}
