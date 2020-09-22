@@ -2,7 +2,7 @@
 {%   if loop.index !=1 %}
 {%     set list = item.split(",") %}
 
-  - name: "{{ list[0]|trim() }}"
+  - name: "{{ list[0]|trim() }}-{{ list[15]|trim() }}"
     tenant: "{{ list[1]|trim() }}"
     description: New App
     state: present
