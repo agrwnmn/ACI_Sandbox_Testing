@@ -113,14 +113,14 @@
         priority: "{{ item.priority }}"
         state: present
         validate_certs: no 
-      register: con-subject_output
+#      register: con-subject_output
 
       when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
 
       with_items:
         - "{{ con_sub }}"
     
-    - debug: var=con-subject_output
+#    - debug: var=con-subject_output
     
     - name: "Task 11: Change 'present' to 'query' "
       replace: 
