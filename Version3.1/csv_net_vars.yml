@@ -38,6 +38,11 @@
     src: templates/csv_con_subject.j2
     dest: output/con_sub/{{ reference }}con_sub.yml
 
+- name: "Task 4.7: Create Contract Subject YAML Vars"
+  template:
+    src: templates/csv_con_subject2.j2
+    dest: output/con_sub/{{ reference }}con_sub2.yml
+
 - name: "Task 4.8: Insert TN Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/tns/{{ reference }}TNs.yml') }}"
@@ -71,6 +76,13 @@
     block: "{{ lookup('file', 'output/con_sub/{{ reference }}con_sub.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible CON_Sub Section"
+    insertbefore: "#EOS"
+
+- name: "Task 4.11_b: Insert Contract Subject Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/con_sub/{{ reference }}con_sub2.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible CON_Sub2 Section"
     insertbefore: "#EOS"
 
 
