@@ -6,7 +6,7 @@
     tenant: "{{ list[1]|trim() }}"
     ap: "{{ list[0]|trim() }}-{{ list[15]|trim() }}"
     epg: "{{ list[0]|trim() }}_{{ list[3]|trim() }}-epg"
-    contract: "{{ list[13]|trim() }}"
+    contract: "{{ list[13]|trim() }}_con"
     contract_type: consumer
     state: present
 {%      endif %}
