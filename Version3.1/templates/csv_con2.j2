@@ -2,7 +2,7 @@
 {%   if loop.index !=1 %}
 {%    set list = item.split(",") %}
 
-  - name: "{{ list[13]|trim() }}_con"
+  - name: "{{ list[13]|trim() }}"
     tenant: "{{ list[1]|trim() }}"
     description: Communication between APPs
     scope: application-profile
