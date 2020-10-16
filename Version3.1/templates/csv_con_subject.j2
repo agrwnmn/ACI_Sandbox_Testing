@@ -2,10 +2,10 @@
 {%   if loop.index !=1 %}
 {%    set list = item.split(",") %}
 
-  - name: "{{ list[8]|trim() }}_sub"
+  - name: "{{ list[8]|trim() }}-subj"
     tenant: "{{ list[1]|trim() }}"
     contract: "{{ list[8]|trim() }}"
-    subject: "{{ list[8]|trim() }}_sub"
+    subject: "{{ list[8]|trim() }}-subj"
     reverse_filter: yes
     priority: unspecified
     state: present
