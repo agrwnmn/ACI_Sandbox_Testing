@@ -1,0 +1,9 @@
+﻿CDP Policy Name,LLDP Policy Name,Port-Channel Name,Port-Channel Mode,VPC Policy Group Name,Link_Level_Policy,AEP,Link-type,VPC-Switch_1,VPC-Switch_2,Domain_Type,VM_Provider,Domain,Port
+CDP-Enable,LLDP-Enable,LACP_Active,active,SPOD-1_PG_A_M,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,1
+CDP-Disable,LLDP-Disable,LACP_MACPin,mac-pin,SPOD-1_PG_A,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,1
+CDP-Enable,LLDP-Enable,LACP_Active,active,SPOD-1_PG_B_M,10G,SPOD-1,node,903,904,vmm,vmware,SPOD-1,2
+CDP-Enable,LLDP-Enable,LACP_MACPin,mac-pin,SPOD-1_PG_B,10G,SPOD-1,node,903,904,vmm,vmware,SPOD-1,2
+CDP-Enable,LLDP-Enable,LACP_Active,active,SPOD-1_PG_C_M,10G,SPOD-1,node,905,906,vmm,vmware,SPOD-1,3
+CDP-Enable,LLDP-Enable,LACP_MACPin,mac-pin,SPOD-1_PG_C,10G,SPOD-1,node,905,906,vmm,vmware,SPOD-1,3
+CDP-Enable,LLDP-Enable,LACP_Active,active,SPOD-1_PG_D_M,10G,SPOD-1,node,907,908,vmm,vmware,SPOD-1,4
+CDP-Enable,LLDP-Enable,LACP_MACPin,mac-pin,SPOD-1_PG_D,10G,SPOD-1,node,907,908,vmm,vmware,SPOD-1,4

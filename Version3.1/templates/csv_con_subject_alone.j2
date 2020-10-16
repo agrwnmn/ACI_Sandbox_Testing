@@ -1,0 +1,14 @@
+{% for item in csvfile_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%    set list = item.split(",") %}
+
+  - name: "{{ list[1]|trim() }}_sub"
+    tenant: "{{ list[0]|trim() }}"
+    contract: "{{ list[1]|trim() }}_con"
+    subject: "{{ list[1]|trim() }}_sub"
+    reverse_filter: yes
+    priority: unspecified
+    state: present
+    validate_certs: False
+{%   endif %}
+{% endfor %}

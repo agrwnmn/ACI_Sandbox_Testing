@@ -1,0 +1,10 @@
+{% for item in csvfile_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%     set list = item.split(",") %}
+
+  - name: "{{ list[1]|trim() }}"
+    receive_state: yes
+    transmit_state: yes
+    state: absent
+{%      endif %}
+{%  endfor %}

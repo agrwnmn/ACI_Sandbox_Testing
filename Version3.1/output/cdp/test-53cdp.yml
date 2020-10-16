@@ -1,0 +1,6 @@
+
+  - name: "CDP-Enable"
+    state: query
+
+  - name: "CDP-Disable"
+    state: query

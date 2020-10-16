@@ -1,0 +1,13 @@
+{% for item in csvfile_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%     set list = item.split(",") %}
+
+  - name: "{{ list[4]|trim() }}"
+    tenant: "{{ list[1]|trim() }}"
+    bd: "{{ list[0]|trim() }}_{{ list[3]|trim() }}-bd"
+    gateway: "{{ list[5]|trim() }}"
+    mask: "{{ list[6]|trim() }}"
+    scope: public
+    state: absent
+{%      endif %}
+{% endfor %}
