@@ -3,7 +3,7 @@
 - name: ACI Nutanix Build
   hosts: apic
   gather_facts: False
-  ignore_errors: Yes
+  ignore_errors: no
   connection: local
 
   vars_prompt:
@@ -37,6 +37,7 @@
         username: "{{ username }}"
         password: "{{ password }}"
         state: present
+        validate_certs: no
         export_policy: ansible_snapshot
         max_count: 10
         description: Automation snapshot before configs
@@ -48,6 +49,7 @@
         password: "{{ password }}"
         aep: "{{ item.name }}"
         state: "{{ item.state }}"
+        validate_certs: False
       register: aep_result
 
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
@@ -78,6 +80,7 @@
         receive_state: "{{ item.receive_state }}"
         transmit_state: "{{ item.transmit_state }}"
         state: "{{ item.state }}"
+        validate_certs: False
       register: lldp_result
 
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
@@ -93,6 +96,7 @@
         port_channel: '{{ item.name }}'
         mode: '{{ item.mode }}'
         state: "{{ item.state }}"
+        validate_certs: False
       register: pc_result
 
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
@@ -115,6 +119,7 @@
         cdp_policy: "{{ item.cdp_policy }}"
         aep: "{{ item.aep }}"
         state: "{{ item.state }}"
+        validate_certs: False
       register: leaf_access_result
 
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
@@ -136,6 +141,7 @@
         to_port: "{{ item.to_port }}"
         policy_group: "{{ item.policy_group }}"
         state: present
+        validate_certs: False
       register: access_ports
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
@@ -154,6 +160,7 @@
         switch_1_id: "{{ item.switch_1_id }}"
         switch_2_id: "{{ item.switch_2_id }}"
         state: "{{ item.state }}"
+        validate_certs: False
       register: vpc_group
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
