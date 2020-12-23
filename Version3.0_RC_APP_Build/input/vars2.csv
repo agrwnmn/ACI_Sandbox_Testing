@@ -1,7 +1,7 @@
 ﻿App,Tenant,VRF,Tier - (App/Web/DB),Subnet,Gateway,Sunbet Mask,Virtual or BareMetal Server,Contract Provided,L3,domain,vm provider,AEP,Contract Consumed,L3Out2,Application_Profile
-1555,Shore-Test-1,AT1,App,192.168.100.0,192.168.100.1,24,vmm,Golf_to_all_Shore-Test,Golf_Shore-Test_L3_Out,spod1,vmware,SPOD1_AEP,FW_to_all_Shore-Test,FW_Shore-Test_L3_Out,AP
-1555,Shore-Test-1,AT1,Web,192.168.101.0,192.168.101.1,24,vmm,Golf_to_all_Shore-Test,Golf_Shore-Test_L3_Out,spod1,vmware,SPOD1_AEP,FW_to_all_Shore-Test,FW_Shore-Test_L3_Out,AP
-1555,Shore-Test-1,AT1,DB,192.168.102.0,192.168.102.1,24,vmm,Golf_to_all_Shore-Test,Golf_to_all_Shore-Test,spod1,vmware,SPOD1_AEP,FW_to_all_Shore-Test,FW_to_all_Shore-Test,AP
-4555,Shore-Test-1,AT1,App,192.168.200.0,192.168.200.1,24,vmm,Golf_to_all_Shore-Test,Golf_to_all_Shore-Test,spod1,vmware,SPOD1_AEP,FW_to_all_Shore-Test,FW_to_all_Shore-Test,AP
-4555,Shore-Test-1,AT1,Web,192.168.201.0,192.168.201.1,24,vmm,Golf_to_all_Shore-Test,Golf_to_all_Shore-Test,spod1,vmware,SPOD1_AEP,FW_to_all_Shore-Test,FW_to_all_Shore-Test,AP
-4555,Shore-Test-1,AT1,DB,192.168.202.0,192.168.202.1,24,vmm,Golf_to_all_Shore-Test,Golf_to_all_Shore-Test,spod1,vmware,SPOD1_AEP,FW_to_all_Shore-Test,FW_to_all_Shore-Test,AP
+2472,Production,PROD,App,10.93.24.0,10.93.24.1,28,vmm,Golf_to_all_Shore-Test,Golf_Shore-Test_L3_Out,AE_VMM_Prod_vDS,vmware,AE_Prod_AEP,FW_to_all_Shore-Test,FW_Shore-Test_L3_Out,AP
+2472,Production,PROD,Web,10.93.24.48,10.93.24.49,28,vmm,Golf_to_all_Shore-Test,Golf_Shore-Test_L3_Out,AE_VMM_Prod_vDS,vmware,AE_Prod_AEP,FW_to_all_Shore-Test,FW_Shore-Test_L3_Out,AP
+2472,Production,PROD,DB,10.93.24.64,10.93.24.65,28,vmm,Golf_to_all_Shore-Test,Golf_to_all_Shore-Test,AE_VMM_Prod_vDS,vmware,AE_Prod_AEP,FW_to_all_Shore-Test,FW_to_all_Shore-Test,AP
+2472,Production,PROD,App,10.93.24.16,10.93.24.17,28,vmm,Golf_to_all_Shore-Test,Golf_to_all_Shore-Test,AE_VMM_Prod_vDS,vmware,AE_Prod_AEP,FW_to_all_Shore-Test,FW_to_all_Shore-Test,AP
+2472,Production,PROD,Web,10.93.24.32,10.93.24.33,28,vmm,Golf_to_all_Shore-Test,Golf_to_all_Shore-Test,AE_VMM_Prod_vDS,vmware,AE_Prod_AEP,FW_to_all_Shore-Test,FW_to_all_Shore-Test,AP
+2472,Production,PROD,DB,10.93.24.80,10.93.24.81,28,vmm,Golf_to_all_Shore-Test,Golf_to_all_Shore-Test,AE_VMM_Prod_vDS,vmware,AE_Prod_AEP,FW_to_all_Shore-Test,FW_to_all_Shore-Test,AP
