@@ -111,7 +111,7 @@
         reverse_filter: "{{ item.reverse_filter }}"
         priority: "{{ item.priority }}"
         state: present
-      register: con-subject_output
+      register: con_subject_output
 
       when: (item.state == "present" or item.state == "absent" or item.state == "ignore")
 
