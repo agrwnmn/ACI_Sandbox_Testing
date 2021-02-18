@@ -160,6 +160,26 @@
       with_items:
         - "{{ vPC_pg }}"
 
+    - name: "Task 14: Deploy Static Path binding for given EPG"
+      aci_static_binding_to_epg:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: Shore-Test-1
+        ap: app-1555
+        epg: app-1555_App-epg
+        encap_id: 222
+        deploy_immediacy: immediate
+        interface_mode: trunk
+        interface_type: switch_port
+        pod_id: 1
+        leafs: 101
+        interface: '1/7'
+        state: present
+      register: static_assigned
+
+    - debug: var=static_assigned
+
     - name: "Task 14: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
