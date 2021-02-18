@@ -26,7 +26,7 @@
         password: "{{ password }}"
 
     - name: "Task 4: Update '{{ inventory_hostname }}'' from CSV"
-      include: csv_cluster_vpc_vars.yml
+      include: csv_nutanix_vpc_vars.yml
 
     - name: "Task 5: Add Var File"
       include_vars: host_vars/vars.yml
@@ -41,19 +41,19 @@
         max_count: 10
         description: Automation snapshot before configs
 
-    - name: "Task 7: Create Attached Entity Profile"
-      aci_aep:
-        host: "{{ inventory_hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        aep: "{{ item.name }}"
-        state: "{{ item.state }}"
-      register: aep_result
+#    - name: "Task 7: Create Attached Entity Profile"
+#      aci_aep:
+#        host: "{{ inventory_hostname }}"
+#        username: "{{ username }}"
+#        password: "{{ password }}"
+#        aep: "{{ item.name }}"
+#        state: "{{ item.state }}"
+#      register: aep_result
 
-      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
-      with_items:
-        - "{{ aep }}"
+#      with_items:
+#        - "{{ aep }}"
 
 #    - name: "Task 8: Create CDP Interface Policy"
 #      aci_interface_policy_cdp:
@@ -69,38 +69,38 @@
 #     with_items:
 #       - "{{ cdp }}"
 
-    - name: "Task 9: Create LLDP Interface Policy"
-      aci_interface_policy_lldp:
-        host: "{{ inventory_hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        lldp_policy: "{{ item.name }}"
-        receive_state: "{{ item.receive_state }}"
-        transmit_state: "{{ item.transmit_state }}"
-        state: "{{ item.state }}"
-      register: lldp_result
+#    - name: "Task 9: Create LLDP Interface Policy"
+#      aci_interface_policy_lldp:
+#        host: "{{ inventory_hostname }}"
+#        username: "{{ username }}"
+#        password: "{{ password }}"
+#        lldp_policy: "{{ item.name }}"
+#        receive_state: "{{ item.receive_state }}"
+#        transmit_state: "{{ item.transmit_state }}"
+#        state: "{{ item.state }}"
+#      register: lldp_result
 
-      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
-      with_items:
-        - "{{ lldp }}"
+#      with_items:
+#        - "{{ lldp }}"
 
-    - name: "Task 10: Create Port-Channel Policy"
-      aci_interface_policy_port_channel:
-        host: "{{ inventory_hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        port_channel: '{{ item.name }}'
-        mode: '{{ item.mode }}'
-        state: "{{ item.state }}"
-      register: pc_result
+#    - name: "Task 10: Create Port-Channel Policy"
+#      aci_interface_policy_port_channel:
+#        host: "{{ inventory_hostname }}"
+#        username: "{{ username }}"
+#        password: "{{ password }}"
+#        port_channel: '{{ item.name }}'
+#        mode: '{{ item.mode }}'
+#        state: "{{ item.state }}"
+#      register: pc_result
 
-      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
-      with_items:
-        - "{{ port_channel }}"
+#      with_items:
+#        - "{{ port_channel }}"
 
-    - debug: var=pc_result
+#    - debug: var=pc_result
 
     - name: "Task 11: Create VPC Port-Group Policy"
       aci_interface_policy_leaf_policy_group:

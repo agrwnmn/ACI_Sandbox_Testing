@@ -13,30 +13,30 @@
     path: input/csv_copies/{{ reference }}.csv
   register: csv_values
 
-- name: "Task 4.4: Create CDP Fabric YAML Vars"
-  template:
-    src: templates/csv_cdp.j2
-    dest: output/cdp/{{ reference }}cdp.yml
+#- name: "Task 4.4: Create CDP Fabric YAML Vars"
+#  template:
+#    src: templates/csv_cdp.j2
+#    dest: output/cdp/{{ reference }}cdp.yml
 
 - name: "Task 4.5: Create Port_Channel Fabric YAML Vars"
   template:
     src: templates/csv_pc.j2
     dest: output/pc/{{ reference }}pc.yml
 
-- name: "Task 4.6: Create LLDP Fabric YAML Vars"
-  template:
-    src: templates/csv_lldp.j2
-    dest: output/lldp/{{ reference }}lldp.yml
+#- name: "Task 4.6: Create LLDP Fabric YAML Vars"
+#  template:
+#    src: templates/csv_lldp.j2
+#    dest: output/lldp/{{ reference }}lldp.yml
 
 - name: "Task 4.7: Create VPC Port Policy-Group Fabric YAML Vars"
   template:
     src: templates/csv_leaf_vpc_pg.j2
     dest: output/vpc_pg/{{ reference }}leaf_vpc_pg.yml
 
-- name: "Task 4.8: Create AEP Fabric YAML Vars"
-  template:
-    src: templates/csv_aep.j2
-    dest: output/aep/{{ reference }}aep.yml
+#- name: "Task 4.8: Create AEP Fabric YAML Vars"
+#  template:
+#    src: templates/csv_aep.j2
+#    dest: output/aep/{{ reference }}aep.yml
 
 - name: "Task 4.9: Create AEP Fabric YAML Vars"
   template:
