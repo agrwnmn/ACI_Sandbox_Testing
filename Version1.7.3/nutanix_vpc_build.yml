@@ -41,7 +41,7 @@
         max_count: 10
         description: Automation snapshot before configs
 
-#    - name: "Task 7: Create Attached Entity Profile"
+#    - name: "Task 7: Create Attached Entity Profiles"
 #      aci_aep:
 #        host: "{{ inventory_hostname }}"
 #        username: "{{ username }}"
