@@ -3,7 +3,7 @@
 {%     set list = item.split(",") %}
 
   - name: "Port-{{ list[15]|trim() }}"
-    leaf_interface_profile: "Leaf-{{ list[8]|trim() }}-{{ list[9]|trim() }}"
+    leaf_interface_profile: "Leaf-{{ list[14]|trim() }}"
     leaf_port_blk: test
     from_port: "{{ list[15]|trim() }}"
     to_port: "{{ list[15]|trim() }}"
