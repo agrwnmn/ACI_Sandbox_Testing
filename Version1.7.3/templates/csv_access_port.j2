@@ -2,7 +2,7 @@
 {%   if loop.index !=1 %}
 {%     set list = item.split(",") %}
 
-  - name: "{{ list[8]|trim() }}-{{ list[9]|trim() }}-{{ list[15]|trim() }}"
+  - name: "{{ list[8]|trim() }}-{{ list[9]|trim() }}"
     leaf_interface_profile: "Leaf-{{ list[8]|trim() }}-{{ list[9]|trim() }}"
     leaf_port_blk: test
     from_port: "{{ list[13]|trim() }}"
