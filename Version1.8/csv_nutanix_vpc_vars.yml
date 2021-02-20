@@ -1,0 +1,98 @@
+
+- name: "Task 4.1: Copy original CSV file"
+  copy:
+    src: input/vpc_pg.csv
+    dest: input/csv_copies/{{ reference }}.csv
+    mode: preserve
+
+- name: "Task 4.2: Create File List for Jinja2 temps"
+  include_vars: csv_vars/csv_vars.yml
+
+- name: "Task 4.3: Read CSV file"
+  read_csv:
+    path: input/csv_copies/{{ reference }}.csv
+  register: csv_values
+
+#- name: "Task 4.4: Create CDP Fabric YAML Vars"
+#  template:
+#    src: templates/csv_cdp.j2
+#    dest: output/cdp/{{ reference }}cdp.yml
+
+#- name: "Task 4.5: Create Port_Channel Fabric YAML Vars"
+#  template:
+#    src: templates/csv_pc.j2
+#    dest: output/pc/{{ reference }}pc.yml
+
+#- name: "Task 4.6: Create LLDP Fabric YAML Vars"
+#  template:
+#    src: templates/csv_lldp.j2
+#    dest: output/lldp/{{ reference }}lldp.yml
+
+- name: "Task 4.7: Create VPC Port Policy-Group Fabric YAML Vars"
+  template:
+    src: templates/csv_leaf_vpc_pg.j2
+    dest: output/vpc_pg/{{ reference }}leaf_vpc_pg.yml
+
+#- name: "Task 4.8: Create AEP Fabric YAML Vars"
+#  template:
+#    src: templates/csv_aep.j2
+#    dest: output/aep/{{ reference }}aep.yml
+
+- name: "Task 4.9: Create Access Port Section YAML Vars"
+  template:
+    src: templates/csv_access_port.j2
+    dest: output/access_ports/{{ reference }}access_ports.yml
+
+- name: "Task 4.10: Create vPC Protection Group Cluster YAML Vars"
+  template:
+    src: templates/csv_vpc_pg.j2
+    dest: output/vpc_protection_group/{{ reference }}vpc_protection_group.yml
+
+#- name: "Task 4.11: Insert CDP Fabric Marker"
+#  blockinfile:
+#    block: "{{ lookup('file', 'output/cdp/{{ reference }}cdp.yml') }}"
+#    dest: host_vars/vars.yml
+#    marker: "# {mark} Ansible CDP Section"
+#    insertbefore: "lldp:"
+
+#- name: "Task 4.12: Insert LLDP Fabric Marker"
+#  blockinfile:
+#    block: "{{ lookup('file', 'output/lldp/{{ reference }}lldp.yml') }}"
+#    dest: host_vars/vars.yml
+#    marker: "# {mark} Ansible LLDP Section"
+#    insertbefore: "port_channel:"
+
+#- name: "Task 4.13: Insert Port-Channel Fabric Marker"
+#  blockinfile:
+#    block: "{{ lookup('file', 'output/pc/{{ reference }}pc.yml') }}"
+#    dest: host_vars/vars.yml
+#    marker: "# {mark} Ansible Port_Channel Section"
+#    insertbefore: "leaf_access_port_group:"
+
+- name: "Task 4.14: Insert VPC Port-Group Fabric Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/vpc_pg/{{ reference }}leaf_vpc_pg.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible VPC Port-Group Section"
+    insertbefore: "leaf_int_profile:"
+
+#- name: "Task 4.15: Insert AEP Fabric Marker"
+#  blockinfile:
+#    block: "{{ lookup('file', 'output/aep/{{ reference }}aep.yml') }}"
+#    dest: host_vars/vars.yml
+#    marker: "# {mark} Ansible AEP Section"
+#    insertbefore: "access_ports"
+
+- name: "Task 4.16: Insert Access Ports Selector Fabric Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/access_ports/{{ reference }}access_ports.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible Access Ports Section"
+    insertbefore: "vPC_pg:"
+
+- name: "Task 4.17: Insert vPC Protection-Group Cluster Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/vpc_protection_group/{{ reference }}vpc_protection_group.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible vPC Protection Group Section"
+    insertbefore: "sw_profile:"

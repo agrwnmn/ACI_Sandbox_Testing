@@ -1,0 +1,13 @@
+{% for item in csvfile_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%     set list = item.split(",") %}
+
+  - name: "{{ list[4]|trim() }}"
+    lag_type: leaf
+    link_level_policy: "{{ list[5]|trim() }}"
+    lldp_policy: "{{ list[1]|trim() }}"
+    cdp_policy: "{{ list[0]|trim() }}"
+    aep: "{{ list[6]|trim() }}"
+    state: absent
+{%      endif %}
+{%  endfor %}

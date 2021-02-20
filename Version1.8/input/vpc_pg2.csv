@@ -1,0 +1,2 @@
+﻿CDP Policy Name,LLDP Policy Name,Port-Channel Name,Port-Channel Mode,VPC Policy Group Name,Link_Level_Policy,AEP,Link-type,VPC-Switch_1,VPC-Switch_2,Domain_Type,VM_Provider,Domain,Port,Port
+CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS04-A,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,26,48

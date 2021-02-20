@@ -1,0 +1,67 @@
+
+- name: "Task 4.1: Copy original node CSV file"
+  copy:
+    src: input/vars_node.csv
+    dest: input/csv_copies/{{ reference }}.csv
+    mode: preserve
+
+- name: "Task 4.2: Create File List for Jinja2 temps"
+  include_vars: csv_vars/csv_vars.yml
+
+- name: "Task 4.3: Read CSV file"
+  read_csv:
+    path: input/csv_copies/{{ reference }}.csv
+  register: csv_values
+
+- name: "Task 4.4: Copy original Switch profile CSV file"
+  copy:
+    src: input/switch_profile.csv
+    dest: input/csv_copies/{{ reference }}-switch.csv
+    mode: preserve
+
+- name: "Task 4.5: Create File List for Jinja2 temps"
+  include_vars: csv_vars/csv_switch_profile.yml
+
+- name: "Task 4.6: Read CSV file"
+  read_csv:
+    path: input/csv_copies/{{ reference }}-switch.csv
+  register: csv_switch_profile_values
+
+- name: "Task 4.7: Create Node YAML Vars"
+  template:
+    src: templates/csv_node.j2
+    dest: output/nodes/{{ reference }}node.yml
+
+- name: "Task 4.8: Create Leaf Profile YAML Vars"
+  template:
+    src: templates/csv_leaf_profile.j2
+    dest: output/leaf_profile/{{ reference }}leaf_profile.yml
+
+- name: "Task 4.9: Create Leaf Int Profile Fabric YAML Vars"
+  template:
+    src: templates/csv_leaf_int_profile.j2
+    dest: output/leaf_int_profile/{{ reference }}leaf_int_profile.yml
+
+- name: "Task 4.10: Insert Node Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/nodes/{{ reference }}node.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible Node Section"
+    insertbefore: "#EOF"
+
+- name: "Task 4.11: Insert Leaf Profile Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/leaf_profile/{{ reference }}leaf_profile.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible Leaf Profile Section"
+    insertbefore: "#EOI"
+
+- name: "Task 4.12: Insert Leaf Int Profile Fabric Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/leaf_int_profile/{{ reference }}leaf_int_profile.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible Leaf Int Profile Section"
+    insertbefore: "aep:"
+
+
+

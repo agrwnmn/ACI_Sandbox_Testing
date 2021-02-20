@@ -1,0 +1,10 @@
+
+  - name: "LLDP-Enable"
+    receive_state: yes
+    transmit_state: yes
+    state: present
+
+  - name: "LLDP-Disable"
+    receive_state: yes
+    transmit_state: yes
+    state: present

@@ -1,0 +1,13 @@
+{% for item in csvfile_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%     set list = item.split(",") %}
+
+  - name: "{{ list[0]|trim() }}_{{ list[8]|trim() }}"
+    tenant: "{{ list[1]|trim() }}"
+    ap: "{{ list[0]|trim() }}"
+    epg: "{{ list[0]|trim() }}_{{ list[3]|trim() }}-epg"
+    contract: "{{ list[8]|trim() }}"
+    contract_type: provider
+    state: absent
+{%      endif %}
+{% endfor %}

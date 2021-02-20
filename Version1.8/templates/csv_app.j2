@@ -1,0 +1,10 @@
+{% for item in csvfile_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%     set list = item.split(",") %}
+
+  - name: "{{ list[0]|trim() }}"
+    tenant: "{{ list[1]|trim() }}"
+    description: New App
+    state: present
+{%      endif %}
+{%  endfor %}
