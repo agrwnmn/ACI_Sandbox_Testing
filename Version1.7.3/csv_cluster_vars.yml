@@ -54,7 +54,7 @@
 
 - name: "Task 4.12: Create Access Port Cluster YAML Vars"
   template:
-    src: templates/csv_access_port.j2
+    src: templates/csv_access_port2.j2
     dest: output/access_ports/{{ reference }}access_ports.yml
 
 - name: "Task 4.13: Create vPC Port Group Cluster YAML Vars"
@@ -93,7 +93,7 @@
     block: "{{ lookup('file', 'output/leaf_access_pg/{{ reference }}leaf_access_pg.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Leaf Access Port-Group Section"
-    insertbefore: "leaf_int_profile:"
+    insertbefore: "port_channel_port_group:"
 
 - name: "Task 4.18: Insert AEP Cluster Marker"
   blockinfile:
