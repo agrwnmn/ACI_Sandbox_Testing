@@ -59,7 +59,7 @@
 
 - name: "Task 4.13: Create vPC Port Group Cluster YAML Vars"
   template:
-    src: templates/csv_vpc_pg.j2
+    src: templates/csv_vpc_pg2.j2
     dest: output/vpc_pg/{{ reference }}vpc_pg.yml
 
 #- name: "Task 4.9: Create Leaf Int Profile Cluster YAML Vars"
