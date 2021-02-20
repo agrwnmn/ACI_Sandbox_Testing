@@ -88,7 +88,7 @@
     block: "{{ lookup('file', 'output/access_ports/{{ reference }}access_ports.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Access Ports Section"
-    insertbefore: "vPC_pg:"
+    insertbefore: "access_ports2:"
 
 - name: "Task 4.17: Insert vPC Protection-Group Cluster Marker"
   blockinfile:
