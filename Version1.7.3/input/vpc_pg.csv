@@ -1,13 +1,13 @@
-﻿CDP Policy Name,LLDP Policy Name,Port-Channel Name,Port-Channel Mode,VPC Policy Group Name,Link_Level_Policy,AEP,Link-type,VPC-Switch_1,VPC-Switch_2,Domain_Type,VM_Provider,Domain,Port,Port
-CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS04-A,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,26,48
-CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS04-B,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,46,26
-CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS04-C,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,44,26
-CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS04-D,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,42,26
-CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS05-A,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,40,26
-CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS05-B,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,38,26
-CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS05-C,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,36,26
-CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS05-D,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,34,26
-CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS06-A,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,32,26
-CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS06-B,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,30,26
-CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS06-C,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,28,26
-CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS06-D,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,26,26
+﻿CDP Policy Name,LLDP Policy Name,Port-Channel Name,Port-Channel Mode,VPC Policy Group Name,Link_Level_Policy,AEP,Link-type,VPC-Switch_1,VPC-Switch_2,Domain_Type,VM_Provider,Domain,Port,Port,Iteration
+CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS04-A,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,48,26,a
+CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS04-B,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,46,26,b
+CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS04-C,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,44,26,c
+CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS04-D,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,42,26,d
+CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS05-A,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,40,26,e
+CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS05-B,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,38,26,f
+CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS05-C,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,36,26,g
+CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS05-D,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,34,26,h
+CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS06-A,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,32,26,i
+CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS06-B,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,30,26,j
+CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS06-C,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,28,26,k
+CDP-Enable,LLDP-Disable,Static-On,active,N-P-NXCHAS06-D,10G,SPOD-1,node,901,902,vmm,vmware,SPOD-1,26,26,l
