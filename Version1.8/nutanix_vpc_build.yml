@@ -41,68 +41,7 @@
         max_count: 10
         description: Automation snapshot before configs
 
-#    - name: "Task 7: Create Attached Entity Profiles"
-#      aci_aep:
-#        host: "{{ inventory_hostname }}"
-#        username: "{{ username }}"
-#        password: "{{ password }}"
-#        aep: "{{ item.name }}"
-#        state: "{{ item.state }}"
-#      register: aep_result
-
-#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-
-#      with_items:
-#        - "{{ aep }}"
-
-#    - name: "Task 8: Create CDP Interface Policy"
-#      aci_interface_policy_cdp:
-#        host: "{{ inventory_hostname }}"
-#        username: "{{ username }}"
-#        password: "{{ password }}"
-#        cdp_policy: "{{ item.name }}"
-#        state: "{{ item.state }}"
-#      register: cdp_result
-
-#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-
-#     with_items:
-#       - "{{ cdp }}"
-
-#    - name: "Task 9: Create LLDP Interface Policy"
-#      aci_interface_policy_lldp:
-#        host: "{{ inventory_hostname }}"
-#        username: "{{ username }}"
-#        password: "{{ password }}"
-#        lldp_policy: "{{ item.name }}"
-#        receive_state: "{{ item.receive_state }}"
-#        transmit_state: "{{ item.transmit_state }}"
-#        state: "{{ item.state }}"
-#      register: lldp_result
-
-#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-
-#      with_items:
-#        - "{{ lldp }}"
-
-#    - name: "Task 10: Create Port-Channel Policy"
-#      aci_interface_policy_port_channel:
-#        host: "{{ inventory_hostname }}"
-#        username: "{{ username }}"
-#        password: "{{ password }}"
-#        port_channel: '{{ item.name }}'
-#        mode: '{{ item.mode }}'
-#        state: "{{ item.state }}"
-#      register: pc_result
-
-#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-
-#      with_items:
-#        - "{{ port_channel }}"
-
-#    - debug: var=pc_result
-
-    - name: "Task 11: Create VPC Port-Group Policy"
+    - name: "Task 7: Create VPC Port-Group Policy"
       aci_interface_policy_leaf_policy_group:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -124,7 +63,7 @@
 
     - debug: var=leaf_access_result
 
-    - name: "Task 12: Create interface access port selector"
+    - name: "Task 8: Create interface access port selector"
       aci_access_port_to_interface_policy_leaf_profile:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -144,7 +83,7 @@
 
     - debug: var=access_ports
 
-    - name: "Task 13: Add vPC Protection Group"
+    - name: "Task 9: Add vPC Protection Group"
       aci_switch_policy_vpc_protection_group:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -160,7 +99,7 @@
       with_items:
         - "{{ vPC_pg }}"
 
-    - name: "Task 14: Deploy Static Path binding for given EPG"
+    - name: "Task 10: Deploy Static Path binding for given EPG"
       aci_static_binding_to_epg:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -180,67 +119,67 @@
 
     - debug: var=static_assigned
 
-    - name: "Task 14: Change 'present' to 'query' "
+    - name: "Task 11: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOF'
 
-    - name: "Task 15: Change 'absent' to 'query' "
+    - name: "Task 12: Change 'absent' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOF'
 
-    - name: "Task 16: Copy var file to new location"
+    - name: "Task 13: Copy var file to new location"
       copy: 
         src: host_vars/vars.yml
         dest: completed_plays/{{reference}}-vars_play.yml
         mode: preserve
 
-    - name: "Task 17: Clear AEP contents of host_vars template"
+    - name: "Task 14: Clear AEP contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible AEP Section"
         state: absent
 
-    - name: "Task 18: Clear CDP contents of host_vars template"
+    - name: "Task 15: Clear CDP contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible CDP Section"
         state: absent
         
-    - name: "Task 19: Clear LLDP contents of host_vars template"
+    - name: "Task 16: Clear LLDP contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible LLDP Section"
         state: absent
 
-    - name: "Task 20: Clear Port_Channel contents of host_vars template"
+    - name: "Task 17: Clear Port_Channel contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Port_Channel Section"
         state: absent
 
-    - name: "Task 21: Clear VPC Port-Group contents of host_vars template"
+    - name: "Task 18: Clear VPC Port-Group contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible VPC Port-Group Section"
         state: absent
 
-    - name: "Task 22: Clear Int Access Ports contents of host_vars template"
+    - name: "Task 19: Clear Int Access Ports contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Access Ports Section"
         state: absent
 
-    - name: "Task 23: Clear vPC Protection_Group contents of host_vars template"
+    - name: "Task 20: Clear vPC Protection_Group contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible vPC Protection Group Section"
         state: absent
 
-    - name: "Task 4: Update '{{ inventory_hostname }}'' from CSV"
+    - name: "Task 21: Update '{{ inventory_hostname }}'' from CSV"
       include: cluster_build_access.yml
