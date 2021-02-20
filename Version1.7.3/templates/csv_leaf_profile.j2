@@ -2,7 +2,7 @@
 {%   if loop.index !=1 %}
 {%     set list = item.split(",") %}
 
-  - name: "{{ list[0]|trim() }}"
+  - name: "Leaf-{{ list[0]|trim() }}"
     state: present
 {%      endif %}
 {%  endfor %}
