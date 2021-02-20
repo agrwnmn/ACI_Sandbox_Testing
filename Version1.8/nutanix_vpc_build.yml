@@ -241,3 +241,6 @@
         path: host_vars/vars.yml
         marker: "# {mark} Ansible vPC Protection Group Section"
         state: absent
+
+    - name: "Task 4: Update '{{ inventory_hostname }}'' from CSV"
+      include: cluster_build_access.yml
