@@ -83,21 +83,21 @@
 
     - debug: var=access_ports
 
-    - name: "Task 9: Add vPC Protection Group"
-      aci_switch_policy_vpc_protection_group:
-        host: "{{ inventory_hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        protection_group: "{{ item.name }}"
-        protection_group_id: "{{ item.protection_group_id }}"
-        switch_1_id: "{{ item.switch_1_id }}"
-        switch_2_id: "{{ item.switch_2_id }}"
-        state: "{{ item.state }}"
-      register: vpc_group
-      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-
-      with_items:
-        - "{{ vPC_pg }}"
+#    - name: "Task 9: Add vPC Protection Group"
+#      aci_switch_policy_vpc_protection_group:
+#        host: "{{ inventory_hostname }}"
+#        username: "{{ username }}"
+#        password: "{{ password }}"
+#        protection_group: "{{ item.name }}"
+#        protection_group_id: "{{ item.protection_group_id }}"
+#        switch_1_id: "{{ item.switch_1_id }}"
+#        switch_2_id: "{{ item.switch_2_id }}"
+#        state: "{{ item.state }}"
+#      register: vpc_group
+#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+#
+#      with_items:
+#        - "{{ vPC_pg }}"
 
     - name: "Task 10: Deploy Static Path binding for given EPG"
       aci_static_binding_to_epg:
@@ -182,4 +182,4 @@
         state: absent
 
     - name: "Task 21: Update '{{ inventory_hostname }}'' from CSV"
-      include: cluster_build_access.yml
+      include: nutanix_build_access_ports.yml
