@@ -1,36 +1,24 @@
-#---
-#
-#- name: ACI Nutanix Build
-#  hosts: apic
-#  gather_facts: False
-#  ignore_errors: Yes
-#  connection: local
-#
-#  vars_prompt:
-#  - name: ref_prompt
-#    prompt: "CR Number"
-#    private: no  
-#  tasks: 
-    - name: "Task 1: Gather Login info"
+
+    - name: "Task 21.1: Gather Login info"
       include_vars: auth/secrets.yml
   
-    - name: "Task 2: Gather Reference Number"
+    - name: "Task 21.2: Gather Reference Number"
       set_fact:
         reference: "{{ ref_prompt }}"
     
-    - name: "Task 3: Set user/pass info"
+    - name: "Task 21.3: Set user/pass info"
       set_fact:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
         password: "{{ password }}"
 
-    - name: "Task 4: Update '{{ inventory_hostname }}'' from CSV"
-      include: csv_cluster_vars.yml
+    - name: "Task 21.4: Update '{{ inventory_hostname }}'' from CSV"
+      include: csv_cluster_vars2.yml
 
-    - name: "Task 5: Add Var File"
+    - name: "Task 21.5: Add Var File"
       include_vars: host_vars/vars.yml
 
-    - name: "Task 6: Create a Snapshot"
+    - name: "Task 21.6: Create a Snapshot"
       aci_config_snapshot:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -40,89 +28,7 @@
         max_count: 10
         description: Automation snapshot before configs
 
-#    - name: "Task 7: Create Attached Entity Profile"
-#      aci_aep:
-#        host: "{{ inventory_hostname }}"
-#        username: "{{ username }}"
-#        password: "{{ password }}"
-#        aep: "{{ item.name }}"
-#        state: "{{ item.state }}"
-#      register: aep_result
-#
-#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-#
-#      with_items:
-#        - "{{ aep }}"
-
-#    - name: "Task 8: Create CDP Interface Policy"
-#      aci_interface_policy_cdp:
-#        host: "{{ inventory_hostname }}"
-#        username: "{{ username }}"
-#        password: "{{ password }}"
-#        cdp_policy: "{{ item.name }}"
-#        state: "{{ item.state }}"
-#      register: cdp_result
-
-#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-
-#     with_items:
-#       - "{{ cdp }}"
-#
-#    - name: "Task 9: Create LLDP Interface Policy"
-#      aci_interface_policy_lldp:
-#        host: "{{ inventory_hostname }}"
-#        username: "{{ username }}"
-#        password: "{{ password }}"
-#        lldp_policy: "{{ item.name }}"
-#        receive_state: "{{ item.receive_state }}"
-#        transmit_state: "{{ item.transmit_state }}"
-#        state: "{{ item.state }}"
-#      register: lldp_result
-#
-#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-#
-#      with_items:
-#        - "{{ lldp }}"
-#
-#    - name: "Task 10: Create Port-Channel Policy"
-#      aci_interface_policy_port_channel:
-#        host: "{{ inventory_hostname }}"
-#        username: "{{ username }}"
-#        password: "{{ password }}"
-#        port_channel: '{{ item.name }}'
-#        mode: '{{ item.mode }}'
-#        state: "{{ item.state }}"
-#      register: pc_result
-#
-#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-#
-#      with_items:
-#        - "{{ port_channel }}"
-#
-#    - debug: var=pc_result
-#
-#    - name: "Task 11: Create Leaf Access Port-Group Policy"
-#      aci_interface_policy_leaf_policy_group:
-#        host: "{{ inventory_hostname }}"
-#        username: "{{ username }}"
-#        password: "{{ password }}"
-#        policy_group: "{{ item.name }}"
-#        lag_type: "{{ item.lag_type }}"
-#        link_level_policy: "{{ item.link_level_policy }}"
-#        lldp_policy: "{{ item.lldp_policy }}"
-#        cdp_policy: "{{ item.cdp_policy }}"
-#        aep: "{{ item.aep }}"
-#        state: "{{ item.state }}"
-#      register: leaf_access_result
-#
-#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-#
-#      with_items:
-#        - "{{ leaf_access_port_group }}"
-#
-#    - debug: var=leaf_access_result
-
-    - name: "Task 12: Create interface access port selector"
+    - name: "Task 21.7: Create interface access port selector"
       aci_access_port_to_interface_policy_leaf_profile:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
@@ -142,94 +48,63 @@
 
     - debug: var=access_ports2
 
-#    - name: "Task 13: Add vPC Protection Group"
-#      aci_switch_policy_vpc_protection_group:
-#        host: "{{ inventory_hostname }}"
-#        username: "{{ username }}"
-#        password: "{{ password }}"
-#        protection_group: "{{ item.name }}"
-#        protection_group_id: "{{ item.protection_group_id }}"
-#        switch_1_id: "{{ item.switch_1_id }}"
-#        switch_2_id: "{{ item.switch_2_id }}"
-#        state: "{{ item.state }}"
-#      register: vpc_group
-#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-#
-#      with_items:
-#        - "{{ vPC_pg }}"
-
-#    - name: "Task: 12 Create leaf_interface_profile"
-#      aci_interface_policy_leaf_profile:
-#        host: "{{ inventory_hostname }}"
-#        username: "{{ username }}"
-#        password: "{{ password }}"
-#        leaf_interface_profile: "{{ item.name }}"
-#        state: "{{ item.state }}"
-#      register: leaf_int_profile
-#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-
-#      with_items:
-#        - "{{ leaf_int_profile }}"
-
-#    - debug: var=leaf_int_profile
-
-    - name: "Task 14: Change 'present' to 'query' "
+    - name: "Task 21.8: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOF'
 
-    - name: "Task 15: Change 'absent' to 'query' "
+    - name: "Task 21.9: Change 'absent' to 'query' "
       replace: 
         path: host_vars/vars.yml
         regexp: 'state: present'
         replace: 'state: query'
         before: '#EOF'
 
-    - name: "Task 16: Copy var file to new location"
+    - name: "Task 21.10: Copy var file to new location"
       copy: 
         src: host_vars/vars.yml
         dest: completed_plays/{{reference}}-vars_play.yml
         mode: preserve
 
-    - name: "Task 17: Clear AEP contents of host_vars template"
+    - name: "Task 21.11: Clear AEP contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible AEP Section"
         state: absent
 
-    - name: "Task 18: Clear CDP contents of host_vars template"
+    - name: "Task 21.12: Clear CDP contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible CDP Section"
         state: absent
         
-    - name: "Task 19: Clear LLDP contents of host_vars template"
+    - name: "Task 21.13: Clear LLDP contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible LLDP Section"
         state: absent
 
-    - name: "Task 20: Clear Port_Channel contents of host_vars template"
+    - name: "Task 21.14: Clear Port_Channel contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Port_Channel Section"
         state: absent
 
-    - name: "Task 21: Clear Port_Channel contents of host_vars template"
+    - name: "Task 21.15: Clear Port_Channel contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Leaf Access Port-Group Section"
         state: absent
 
-    - name: "Task 22: Clear Int Access Ports contents of host_vars template"
+    - name: "Task 21.16: Clear Int Access Ports contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Access Ports Section"
         state: absent
 
-    - name: "Task 23: Clear vPC Protection_Group contents of host_vars template"
+    - name: "Task 21.17: Clear vPC Protection_Group contents of host_vars template"
       blockinfile:
         path: host_vars/vars.yml
         marker: "# {mark} Ansible Leaf Int Profile Section"

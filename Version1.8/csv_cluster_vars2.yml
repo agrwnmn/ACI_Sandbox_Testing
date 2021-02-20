@@ -1,0 +1,40 @@
+
+- name: "Task 21.4.1: Copy original CSV file"
+  copy:
+    src: input/cluster_vars.csv
+    dest: input/csv_copies/{{ reference }}.csv
+    mode: preserve
+
+- name: "Task 21.4.2: Create File List for Jinja2 temps"
+  include_vars: csv_vars/csv_vars.yml
+
+- name: "Task 21.4.3: Read CSV file"
+  read_csv:
+    path: input/csv_copies/{{ reference }}.csv
+  register: csv_values
+
+- name: "Task 21.4.4: Copy original Switch profile CSV file"
+  copy:
+    src: input/switch_profile.csv
+    dest: input/csv_copies/{{ reference }}-switch.csv
+    mode: preserve
+
+- name: "Task 21.4.5: Create File List for Jinja2 temps"
+  include_vars: csv_vars/csv_switch_profile.yml
+
+- name: "Task 21.4.6: Read CSV file"
+  read_csv:
+    path: input/csv_copies/{{ reference }}-switch.csv
+  register: csv_switch_profile_values
+
+- name: "Task 21.4.7: Create Access Port Cluster YAML Vars"
+  template:
+    src: templates/csv_access_port2.j2
+    dest: output/access_ports/{{ reference }}access_ports.yml
+
+- name: "Task 21.4.8: Insert Access Port Cluster Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/access_ports/{{ reference }}access_ports.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible Access Ports Section"
+    insertbefore: "vPC_pg:"
