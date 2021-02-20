@@ -42,10 +42,10 @@
 #    src: templates/csv_lldp.j2
 #    dest: output/lldp/{{ reference }}lldp.yml
 
-- name: "Task 4.10: Create Leaf Access Port Policy-Group Cluster YAML Vars"
-  template:
-    src: templates/csv_leaf_access_pg.j2
-    dest: output/leaf_access_pg/{{ reference }}leaf_access_pg.yml
+#- name: "Task 4.10: Create Leaf Access Port Policy-Group Cluster YAML Vars"
+#  template:
+#    src: templates/csv_leaf_access_pg.j2
+#    dest: output/leaf_access_pg/{{ reference }}leaf_access_pg.yml
 
 #- name: "Task 4.11: Create AEP Cluster YAML Vars"
 #  template:
@@ -88,12 +88,12 @@
 #    marker: "# {mark} Ansible Port_Channel Section"
 #    insertbefore: "leaf_access_port_group:"
 
-- name: "Task 4.17: Insert Leaf-Access Port-Group Cluster Marker"
-  blockinfile:
-    block: "{{ lookup('file', 'output/leaf_access_pg/{{ reference }}leaf_access_pg.yml') }}"
-    dest: host_vars/vars.yml
-    marker: "# {mark} Ansible Leaf Access Port-Group Section"
-    insertbefore: "port_channel_port_group:"
+#- name: "Task 4.17: Insert Leaf-Access Port-Group Cluster Marker"
+#  blockinfile:
+#    block: "{{ lookup('file', 'output/leaf_access_pg/{{ reference }}leaf_access_pg.yml') }}"
+#    dest: host_vars/vars.yml
+#    marker: "# {mark} Ansible Leaf Access Port-Group Section"
+#    insertbefore: "port_channel_port_group:"
 
 #- name: "Task 4.18: Insert AEP Cluster Marker"
 #  blockinfile:

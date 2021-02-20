@@ -102,26 +102,26 @@
 #
 #    - debug: var=pc_result
 #
-    - name: "Task 11: Create Leaf Access Port-Group Policy"
-      aci_interface_policy_leaf_policy_group:
-        host: "{{ inventory_hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        policy_group: "{{ item.name }}"
-        lag_type: "{{ item.lag_type }}"
-        link_level_policy: "{{ item.link_level_policy }}"
-        lldp_policy: "{{ item.lldp_policy }}"
-        cdp_policy: "{{ item.cdp_policy }}"
-        aep: "{{ item.aep }}"
-        state: "{{ item.state }}"
-      register: leaf_access_result
-
-      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-
-      with_items:
-        - "{{ leaf_access_port_group }}"
-
-    - debug: var=leaf_access_result
+#    - name: "Task 11: Create Leaf Access Port-Group Policy"
+#      aci_interface_policy_leaf_policy_group:
+#        host: "{{ inventory_hostname }}"
+#        username: "{{ username }}"
+#        password: "{{ password }}"
+#        policy_group: "{{ item.name }}"
+#        lag_type: "{{ item.lag_type }}"
+#        link_level_policy: "{{ item.link_level_policy }}"
+#        lldp_policy: "{{ item.lldp_policy }}"
+#        cdp_policy: "{{ item.cdp_policy }}"
+#        aep: "{{ item.aep }}"
+#        state: "{{ item.state }}"
+#      register: leaf_access_result
+#
+#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+#
+#      with_items:
+#        - "{{ leaf_access_port_group }}"
+#
+#    - debug: var=leaf_access_result
 
     - name: "Task 12: Create interface access port selector"
       aci_access_port_to_interface_policy_leaf_profile:
