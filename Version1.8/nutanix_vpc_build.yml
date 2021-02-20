@@ -28,6 +28,9 @@
     - name: "Task 4: Update '{{ inventory_hostname }}'' from CSV"
       include: csv_nutanix_vpc_vars.yml
 
+    - name: "Task 14: Update '{{ inventory_hostname }}'' from CSV"
+      include: cluster_build_access.yml
+
     - name: "Task 5: Add Var File"
       include_vars: host_vars/vars.yml
 
