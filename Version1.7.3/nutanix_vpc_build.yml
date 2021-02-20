@@ -180,6 +180,18 @@
 
     - debug: var=static_assigned
 
+    - name: Associate an access port block (single port) to an interface selector
+      cisco.aci.aci_access_port_block_to_access_port:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        interface_profile: Leaf-901
+        access_port_selector: Port-47
+        port_blk: "1/47"
+        from_port: 47
+        to_port: 47
+        state: present
+
     - name: "Task 14: Change 'present' to 'query' "
       replace: 
         path: host_vars/vars.yml
