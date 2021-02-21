@@ -104,19 +104,23 @@
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
         password: "{{ password }}"
-        tenant: Shore-Test-1
-        ap: app-1555
-        epg: app-1555_App-epg
-        encap_id: 222
+        tenant: Management
+        ap: MGMT-AP
+        epg: ESX-Hosts
+        encap_id: "{{item.encap_id}}"
         deploy_immediacy: immediate
         interface_mode: trunk
         interface_type: switch_port
         pod_id: 1
-        leafs: 101
-        interface: '1/7'
+        leafs: "{{ item.leafs }}"
+        interface: "{{ item.interface }}"
         state: present
       register: static_assigned
+      when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
+      with_items:
+        - "{{ esx-host_VLAN }}"
+        
     - debug: var=static_assigned
 
     - name: "Task 11: Change 'present' to 'query' "

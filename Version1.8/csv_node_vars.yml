@@ -54,7 +54,7 @@
     block: "{{ lookup('file', 'output/leaf_profile/{{ reference }}leaf_profile.yml') }}"
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Leaf Profile Section"
-    insertbefore: "#EOI"
+    insertbefore: "#esx-host_VLAN"
 
 - name: "Task 4.12: Insert Leaf Int Profile Fabric Marker"
   blockinfile:

@@ -23,6 +23,16 @@
     src: templates/csv_access_port.j2
     dest: output/access_ports/{{ reference }}access_ports.yml
 
+- name: "Task 4.6: Create ESX-Hosts VLAN Vars"
+  template: 
+    src: templates/esx_vlans/csv_esx_vlans.j2
+    dest: output/esx_vlans/{{ reference }}esx_vlans.yml
+
+#- name: "Task 4.7: Create VM-vMotion VLAN Vars"
+#  template: 
+#    src: templates/vmotion_vlans/csv_vmotion_vlans.j2
+#    dest: output/vmotion_vlans/{{ reference }}vmotion_vlans.yml
+
 - name: "Task 4.6: Insert VPC Port-Group Fabric Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/vpc_pg/{{ reference }}leaf_vpc_pg.yml') }}"
@@ -36,3 +46,10 @@
     dest: host_vars/vars.yml
     marker: "# {mark} Ansible Access Ports Section"
     insertbefore: "access_ports2:"
+
+- name: "Task 4.8: Insert Access Ports Selector Fabric Marker"
+  blockinfile:
+    block: "{{ lookup('file', 'output/esx_vlans/{{ reference }}esx_vlans.yml') }}"
+    dest: host_vars/vars.yml
+    marker: "# {mark} Ansible ESX-Hosts VLAN Section"
+    insertbefore: "vm-vmotion_VLAN:"

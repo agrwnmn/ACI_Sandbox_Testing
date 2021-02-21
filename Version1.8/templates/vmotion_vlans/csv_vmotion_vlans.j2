@@ -1,0 +1,11 @@
+{% for item in csvfile_vars.split("\n") %}
+{%   if loop.index !=1 %}
+{%     set list = item.split(",") %}
+
+  - name: "Port-{{ list[13]|trim() }}"
+    leafs: "{{ list[8]|trim() }}"
+    encap_id: "{{ list[16]|trim() }}"
+    interface: "{{ list[13]|trim() }}"
+    state: present
+{%      endif %}
+{%  endfor %}
