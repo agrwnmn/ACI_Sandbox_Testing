@@ -1,0 +1,24 @@
+
+  - name: "Port-38"
+    leafs: "101"
+    encap_id: "48"
+    interface: "38"
+    state: present
+
+  - name: "Port-36"
+    leafs: "101"
+    encap_id: "48"
+    interface: "36"
+    state: present
+
+  - name: "Port-34"
+    leafs: "101"
+    encap_id: "48"
+    interface: "34"
+    state: present
+
+  - name: "Port-32"
+    leafs: "101"
+    encap_id: "48"
+    interface: "32"
+    state: present
