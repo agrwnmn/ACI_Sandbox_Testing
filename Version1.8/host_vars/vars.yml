@@ -30,7 +30,7 @@ sw_profile:
 
 esx_host_VLAN:
 
-vm-vmotion_VLAN:
+vm_vmotion_VLAN:
 
 #EOI
 #Build Infra Section
