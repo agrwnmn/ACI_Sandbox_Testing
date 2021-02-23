@@ -47,7 +47,7 @@
     marker: "# {mark} Ansible Access Ports Section"
     insertbefore: "access_ports2:"
 
-- name: "Task 4.8: Insert Access Ports Selector Fabric Marker"
+- name: "Task 4.8: Insert ESX-Host_VLAN Marker"
   blockinfile:
     block: "{{ lookup('file', 'output/esx_vlans/{{ reference }}esx_vlans.yml') }}"
     dest: host_vars/vars.yml

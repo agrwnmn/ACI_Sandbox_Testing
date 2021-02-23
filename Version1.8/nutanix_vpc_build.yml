@@ -30,74 +30,58 @@
 
     - name: "Task 5: Add Var File"
       include_vars: host_vars/vars.yml
-
-    - name: "Task 6: Create a Snapshot"
-      aci_config_snapshot:
-        host: "{{ inventory_hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        state: present
-        export_policy: ansible_snapshot
-        max_count: 10
-        description: Automation snapshot before configs
-
-    - name: "Task 7: Create VPC Port-Group Policy"
-      aci_interface_policy_leaf_policy_group:
-        host: "{{ inventory_hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        policy_group: "{{ item.name }}"
-        lag_type: "{{ item.lag_type }}"
-        link_level_policy: "{{ item.link_level_policy }}"
-        port_channel_policy: "{{ item.port_channel_policy }}"
-        lldp_policy: "{{ item.lldp_policy }}"
-        cdp_policy: "{{ item.cdp_policy }}"
-        aep: "{{ item.aep }}"
-        state: "{{ item.state }}"
-      register: leaf_access_result
-
-      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-
-      with_items:
-        - "{{ vpc_port_group }}"
-
-    - debug: var=leaf_access_result
-
-    - name: "Task 8: Create interface access port selector"
-      aci_access_port_to_interface_policy_leaf_profile:
-        host: "{{ inventory_hostname }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        leaf_interface_profile: "{{ item.leaf_interface_profile }}"
-        access_port_selector: "{{ item.name }}"
-        leaf_port_blk: "{{ item.leaf_port_blk }}"
-        from_port: "{{ item.from_port }}"
-        to_port: "{{ item.to_port }}"
-        policy_group: "{{ item.policy_group }}"
-        state: present
-      register: access_ports
-      when: (item.state == "present" or item.state == "absent" or item.state == "query")
-
-      with_items:
-        - "{{ access_ports }}"
-
-    - debug: var=access_ports
-
-#    - name: "Task 9: Add vPC Protection Group"
-#      aci_switch_policy_vpc_protection_group:
+#
+#    - name: "Task 6: Create a Snapshot"
+#      aci_config_snapshot:
 #        host: "{{ inventory_hostname }}"
 #        username: "{{ username }}"
 #        password: "{{ password }}"
-#        protection_group: "{{ item.name }}"
-#        protection_group_id: "{{ item.protection_group_id }}"
-#        switch_1_id: "{{ item.switch_1_id }}"
-#        switch_2_id: "{{ item.switch_2_id }}"
+#        state: present
+#        export_policy: ansible_snapshot
+#        max_count: 10
+#        description: Automation snapshot before configs
+#
+#    - name: "Task 7: Create VPC Port-Group Policy"
+#      aci_interface_policy_leaf_policy_group:
+#        host: "{{ inventory_hostname }}"
+#        username: "{{ username }}"
+#        password: "{{ password }}"
+#        policy_group: "{{ item.name }}"
+#        lag_type: "{{ item.lag_type }}"
+#        link_level_policy: "{{ item.link_level_policy }}"
+#        port_channel_policy: "{{ item.port_channel_policy }}"
+#        lldp_policy: "{{ item.lldp_policy }}"
+#        cdp_policy: "{{ item.cdp_policy }}"
+#        aep: "{{ item.aep }}"
 #        state: "{{ item.state }}"
-#      register: vpc_group
+#      register: leaf_access_result
+#
 #      when: (item.state == "present" or item.state == "absent" or item.state == "query")
 #
 #      with_items:
-#        - "{{ vPC_pg }}"
+#        - "{{ vpc_port_group }}"
+#
+#    - debug: var=leaf_access_result
+#
+#    - name: "Task 8: Create interface access port selector"
+#      aci_access_port_to_interface_policy_leaf_profile:
+#        host: "{{ inventory_hostname }}"
+#        username: "{{ username }}"
+#        password: "{{ password }}"
+#        leaf_interface_profile: "{{ item.leaf_interface_profile }}"
+#        access_port_selector: "{{ item.name }}"
+#        leaf_port_blk: "{{ item.leaf_port_blk }}"
+#        from_port: "{{ item.from_port }}"
+#        to_port: "{{ item.to_port }}"
+#        policy_group: "{{ item.policy_group }}"
+#        state: present
+#      register: access_ports
+#      when: (item.state == "present" or item.state == "absent" or item.state == "query")
+#
+#      with_items:
+#        - "{{ access_ports }}"
+#
+#    - debug: var=access_ports
 
     - name: "Task 10: Deploy Static Path binding for given EPG"
       aci_static_binding_to_epg:
@@ -107,21 +91,21 @@
         tenant: Management
         ap: MGMT-AP
         epg: ESX-Hosts
-        encap_id: "{{item.encap_id}}"
+        encap_id: "423"
         deploy_immediacy: immediate
         interface_mode: trunk
         interface_type: switch_port
         pod_id: 1
-        leafs: "{{ item.leafs }}"
-        interface: "{{ item.interface }}"
+        leafs: "101"
+        interface: "31"
         state: present
-      register: static_assigned
+      register: esx_host_VLAN
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
       with_items:
-        - "{{ esx-host_VLAN }}"
+        - "{{ esx_host_VLAN }}"
         
-    - debug: var=static_assigned
+    - debug: var=esx_host_VLAN
 
     - name: "Task 11: Change 'present' to 'query' "
       replace: 

@@ -28,7 +28,7 @@ vPC_pg:
 
 sw_profile:
 
-esx-host_VLAN:
+esx_host_VLAN:
 
 vm-vmotion_VLAN:
 
