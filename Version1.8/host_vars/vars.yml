@@ -28,9 +28,9 @@ vPC_pg:
 
 sw_profile:
 
-esx-host_VLAN:
+esx_host_VLAN:
 
-vm-vmotion_VLAN:
+vm_vmotion_VLAN:
 
 #EOI
 #Build Infra Section

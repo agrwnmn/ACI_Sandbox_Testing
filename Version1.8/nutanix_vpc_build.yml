@@ -119,7 +119,7 @@
       when: (item.state == "present" or item.state == "absent" or item.state == "query")
 
       with_items:
-        - "{{ esx-host_VLAN }}"
+        - "{{ esx_host_VLAN }}"
         
     - debug: var=static_assigned
 
